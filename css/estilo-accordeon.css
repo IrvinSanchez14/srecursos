@@ -1,0 +1,16 @@
+*{
+	box-sizing: border-box;
+}
+
+.panel-heading {
+	display: block;
+	padding: 10px;
+	background: yellow;
+	color: blue;
+	font-size: 15px;
+	border-bottom: 1px solid #fff;
+}
+
+.panel_titulo:hover {
+	background: rgba(220, 20, 60, 0.8);
+}
