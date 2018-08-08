@@ -104,16 +104,16 @@
         </li>
       </ol>
         <!--Inicio de los formularios -->
-<form>
+        <form id='create-alumno-form' action='#' method='POST'>
             <div class="container">
-<div class="form-group">
+              <div class="form-group">
     <label for="inputNombre1">Nombre del estudiante</label>
-    <input type="text"  maxlength="50" class="form-control" id="inputNombre1" placeholder="Ejemplo Juan Pérez">
+    <input type="text"  maxlength="50" class="form-control" name="nombre_alumno" placeholder="Ejemplo Juan Pérez">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
         <label for="inputcarnet1">CIF</label>
-        <input type="text"  maxlength="10" class="form-control" id="inputcarnet1" placeholder="2016010000">
+        <input type="text"  maxlength="10" class="form-control" id="cif" name="cif" placeholder="2016010000">
       </div>
     <div class="form-group col-md-6">
         <label for="inputaño1">Año en que se realiza la actividad</label>
@@ -134,9 +134,9 @@
 
     <div class="form-group">
       <label for="inputCarrera">Facultad</label>
-      <select id="inputCarrera" class="form-control">
+      <select id="inputCarrera" name='id_facultad' class="form-control">
         <option selected>Seleccione una Facultad</option>
-        <option>Ingeniería en Sistemas Computacionales</option>
+        <option value="1">Ingeniería en Sistemas Computacionales</option>
         <option>Medicina</option>
         <option>Odontología</option>
         <option>Ciencias Empresariales y Económicas</option>
@@ -147,7 +147,7 @@
 
   <div class="form-group">
     <label for="inputFacebook">Facebook</label>
-    <input type="text"  maxlength="50" class="form-control" id="inputFacebook" placeholder="Ejemplo Juan Martínez">
+    <input type="text"  maxlength="50" class="form-control" name="id_actividad" id="inputFacebook" placeholder="Ejemplo Juan Martínez">
   </div>
   <div class="form-group">
     <label for="inputExpectativa">Expectativas sobre futuras actividades de SAE</label>
@@ -191,9 +191,10 @@
   </div>
             
              </div>
-
-            <center>  <button type="submit" class="btn btn-primary center">Guardar Registro</button>  </center> 
-</form>
+            <center>
+              <button type="submit" class="btn btn-primary center">Guardar Registro</button>
+            </center> 
+          </form>
         <!--Fin de los formularios -->
 <br>
     </div>
@@ -242,6 +243,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
+    <script src="js/app.js"></script>
   </div>
 </body>
 
