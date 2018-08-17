@@ -21,6 +21,25 @@ $(document).ready(function(){
         return o;
     };
 
+    function lastId () {
+        var id = null;
+        $.ajax({
+            url: "http://localhost/api-sreportes/alumnos/readLast.php",
+            type : "POST",
+            contentType : 'application/json',
+            async: false,
+            success : function(result) {
+                id = result.records[0].id_alumno;
+                
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+        return id;
+    }
+
 
     function menuA () {
         $.ajax({
@@ -44,13 +63,60 @@ $(document).ready(function(){
 
     $('#create-alumno-form').submit(function(event){
         event.preventDefault();
-        var data = JSON.stringify($(this).serializeObject());
-        console.log('date1',data);
+        var data = $(this).serializeObject();
+        var res = lastId();
+        let sum = parseInt(res) + parseInt(1);
+        data.id_alumno= sum;
+        var realData = JSON.stringify(data);
+        console.log(data);
+        //add alumno
         $.ajax({
             url: "http://localhost/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
-            data : data,
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+        //add alumn_extra
+        $.ajax({
+            url: "http://localhost/api-sreportes/alum_extra/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+
+        $.ajax({
+            url: "http://localhost/api-sreportes/coment_act/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+
+        $.ajax({
+            url: "http://localhost/api-sreportes/iglesia_est/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
             success : function(result) {
                 console.log('great');
             },
@@ -62,4 +128,47 @@ $(document).ready(function(){
 
     });
 
+    $('#create-arace-form').submit(function(event){
+        event.preventDefault();
+        var data = $(this).serializeObject();
+        var res = lastId();
+        let sum = parseInt(res) + parseInt(1);
+        data.id_alumno= sum;
+
+        var realData = JSON.stringify(data);
+        $.ajax({
+            url: "http://localhost/api-sreportes/alumnos/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+        console.log('data',realData)
+        $.each(data.num_rest, function(k,v){
+            var arr = '{"num_pr": "'+k+'", "num_rest": "'+v+'", "id_alumno" : "'+sum+'"}';
+            var obj = JSON.parse(arr);
+            let ot = JSON.stringify(obj);
+            console.log('test',ot);
+            $.ajax({
+                url: "http://localhost/api-sreportes/enc_sat/create.php",
+                type : "POST",
+                contentType : 'application/json',
+                data : ot,
+                success : function(result) {
+                    console.log('great');
+                },
+                error: function(xhr, resp, text) {
+                    // show error to console
+                    console.log(xhr, resp, text);
+                }
+            });
+        });
+    });
+    
 });
