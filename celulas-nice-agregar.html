@@ -81,33 +81,35 @@
           <a href="celulas-nice.html">Ver registros actuales de Células NICE</a>
         </li>
       </ol>
+    <form id='create-celula-form' action='#' method='POST' >
+              <input name="id_actividad" value="3" type="hidden">
                 <!-- Inicio de formulario -->
                 <div class="form-group">
-    <label for="inputNombre1">Nombre del estudiante</label>
-    <input type="text"  maxlength="50" class="form-control" id="inputNombre1" placeholder="Ejemplo Juan Pérez">
+                  <label for="inputNombre1">Nombre del estudiante</label>
+                  <input type="text"  maxlength="50" class="form-control" id="inputNombre1" placeholder="Ejemplo Juan Pérez" name="nombre_alumno">
                 </div>
 
+                <div class="form-group">
+                  <label for="inputcarnet1">CIF</label>
+                  <input type="text"  maxlength="10" class="form-control" id="inputcarnet1" placeholder="2015020004" name="cif">
+                </div>
         <div class="form-group">
-        <label for="inputcarnet1">CIF</label>
-        <input type="text"  maxlength="10" class="form-control" id="inputcarnet1" placeholder="2015020004">
+          <label for="inputCarrera">Facultad</label>
+          <select id="inputCarrera" name='id_facultad' class="form-control">
+            <option selected>Seleccione una Facultad</option>
+            <option value="1">Ingeniería en Sistemas Computacionales</option>
+            <option value="2">Medicina</option>
+            <option value="3">Odontología</option>
+            <option value="4">Ciencias Empresariales y Económicas</option>
+            <option value="5">Ciencias Sociales</option>
+            <option value="6">Ciencias Jurídicas</option>
+          </select>
         </div>
-
-       <div class="form-group">
-      <label for="inputCarrera">Facultad</label>
-      <select id="inputCarrera" class="form-control">
-        <option selected>Seleccione una Facultad</option>
-        <option>Ingeniería en Sistemas Computacionales</option>
-        <option>Medicina</option>
-        <option>Odontología</option>
-        <option>Ciencias Empresariales y Económicas</option>
-        <option>Ciencias Sociales</option>
-        <option>Ciencias Jurídicas</option>
-      </select>
-    </div>
              </div>
             <center>  <button type="submit" class="btn btn-primary center">Guardar Registro</button>  </center> 
                  <!-- Fin del formulario -->
-    </div>
+         </div>
+  </form>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>

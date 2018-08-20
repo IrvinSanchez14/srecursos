@@ -104,20 +104,21 @@
         </li>
       </ol>
         <!--Inicio de los formularios -->
-<form>
+        <form id='create-conferencia-form' action='#' method='POST' >
+            <input name="id_actividad" value="4" type="hidden">
             <div class="container">
 <div class="form-group">
     <label for="inputNombre1">Nombre del estudiante</label>
-    <input type="text"  maxlength="50" class="form-control" id="inputNombre1" placeholder="Ejemplo Juan Perez">
+    <input type="text"  maxlength="50" class="form-control" id="inputNombre1" placeholder="Ejemplo Juan Perez" name="nombre_alumno">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
         <label for="inputcarnet1">CIF</label>
-        <input type="text"  maxlength="10" class="form-control" id="inputcarnet1" placeholder="2013040009">
+        <input type="text"  maxlength="10" class="form-control" id="inputcarnet1" placeholder="2013040009" name="cif">
       </div>
     <div class="form-group col-md-6">
       <label for="inputCarrera">Ciclo Actual</label>
-      <select id="inputCarrera" class="form-control">
+      <select id="inputCarrera" class="form-control" name="valor">
         <option selected>Seleccione un Ciclo</option>
         <option>Ciclo 1</option>
         <option>Ciclo 2</option>
@@ -127,34 +128,33 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Correo Electrónico</label>
-      <input type="email" maxlength="50" class="form-control" id="inputEmail4" placeholder="Ejemplo@hotmail.com">
+      <input type="email" maxlength="50" class="form-control" id="inputEmail4" placeholder="Ejemplo@hotmail.com" name="email">
     </div>
     <div class="form-group col-md-6">
       <label for="inputTel4">Teléfono</label>
-      <input type="text"  maxlength="8" class="form-control" id="inputTel4" placeholder="1122-3344">
+      <input type="text"  maxlength="8" class="form-control" id="inputTel4" placeholder="1122-3344" name="telefono">
     </div>
   </div>
-
-    <div class="form-group">
+  <div class="form-group">
       <label for="inputCarrera">Facultad</label>
-      <select id="inputCarrera" class="form-control">
+      <select id="inputCarrera" name='id_facultad' class="form-control">
         <option selected>Seleccione una Facultad</option>
-        <option>Ingeniería en Sistemas Computacionales</option>
-        <option>Medicina</option>
-        <option>Odontología</option>
-        <option>Ciencias Empresariales y Económicas</option>
-        <option>Ciencias Sociales</option>
-        <option>Ciencias Jurídicas</option>
+        <option value="1">Ingeniería en Sistemas Computacionales</option>
+        <option value="2">Medicina</option>
+        <option value="3">Odontología</option>
+        <option value="4">Ciencias Empresariales y Económicas</option>
+        <option value="5">Ciencias Sociales</option>
+        <option value="6">Ciencias Jurídicas</option>
       </select>
     </div>
 
   <div class="form-group">
     <label for="inputFacebook">Facebook</label>
-    <input type="text" maxlength="50" class="form-control" id="inputFacebook" placeholder="Ejemplo Juan Martínez">
+    <input type="text" maxlength="50" class="form-control" id="inputFacebook" placeholder="Ejemplo Juan Martínez" name="facebook">
   </div>
   <div class="form-group">
     <label for="inputExpectativa">Beneficio adquirido de la conferencia</label>
-    <input type="text" maxlength="250" class="form-control" id="inputExpectativa" placeholder="Escriba le beneficio que obtuvo el estudiante">
+    <input type="text" maxlength="250" class="form-control" id="inputExpectativa" placeholder="Escriba le beneficio que obtuvo el estudiante" name="benf_adq">
   </div>
 
 <div class="form-row">
@@ -164,13 +164,13 @@
       <legend class="col-form-label col-md-8 ">¿El estudiante asiste a un iglesia?</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" id="gridRadios1" value="1" name="asistencia" checked>
           <label class="form-check-label" for="gridRadios1">
             Si asiste
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <input class="form-check-input" type="radio" id="gridRadios2" value="2" name="asistencia">
           <label class="form-check-label" for="gridRadios2">
             No asiste
           </label>
@@ -182,13 +182,14 @@
 
     <div class="form-group col-md-6">
       <label for="inputNombre1">Nombre de la iglesia</label>
-    <input type="text" class="form-control" id="inputNombre1" placeholder="Escriba nombre de la iglesia">
+    <input type="text" class="form-control" id="inputNombre1" placeholder="Escriba nombre de la iglesia" name="nombre_iglesia">
+    <input type="hidden" name="anios_es" value="0">
     </div>
   </div>
 
 <form class="form-inline">
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Opiniones sobre la conferencia</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="opn_con">
     <option selected>Seleccione una opción</option>
     <option value="1">Regular</option>
     <option value="2">Bueno</option>
@@ -199,7 +200,7 @@
 
  <form class="form-inline">
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Decisión tomada por el estudiante</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="desc_est">
     <option selected>Seleccione una opción</option>
     <option value="1">Se entregó</option>
     <option value="2">Ya lo habia hecho</option>
@@ -255,6 +256,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
+    <script src="js/app.js"></script>
   </div>
 </body>
 
