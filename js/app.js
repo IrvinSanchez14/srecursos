@@ -149,17 +149,13 @@ $(document).ready(function(){
                 console.log(xhr, resp, text);
             }
         });
+        
         console.log('data',realData)
-        $.each(data.num_rest, function(k,v){
-            var arr = '{"num_pr": "'+k+'", "num_rest": "'+v+'", "id_alumno" : "'+sum+'"}';
-            var obj = JSON.parse(arr);
-            let ot = JSON.stringify(obj);
-            console.log('test',ot);
             $.ajax({
                 url: "http://localhost/api-sreportes/enc_sat/create.php",
                 type : "POST",
                 contentType : 'application/json',
-                data : ot,
+                data : realData,
                 success : function(result) {
                     console.log('great');
                 },
@@ -168,7 +164,6 @@ $(document).ready(function(){
                     console.log(xhr, resp, text);
                 }
             });
-        });
     });
 
     $('#create-celula-form').submit(function(event){
@@ -272,6 +267,10 @@ $(document).ready(function(){
             }
         });
 
+    });
+
+    $('#exampleFormControlFile1').bind('change', function() {
+        alert(this.files[0].size);
     });
     
 });

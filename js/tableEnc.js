@@ -5,10 +5,25 @@ $(document).ready(function(){
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
-            
-            let html = '<tbody><tr>';
-            html += '<td>'+ result.records[0].nombre_alumno + '</td>';
-            $('#dataTable_Enc').append(html);
+            console.log(result)
+            $.each(result.records, function(k,v){
+                let html = '<tbody><tr>';
+                html += '<td>'+ v.nombre_alumno + '</td>';
+                html += '<td>'+ v.cif + '</td>';
+                html += '<td>'+  + '</td>';
+                html += '<td>'+ v.nombre_fac + '</td>';
+                html += '<td>'+ v.num_res1 + '</td>';
+                html += '<td>'+ v.num_res2 + '</td>';
+                html += '<td>'+ v.num_res3 + '</td>';
+                html += '<td>'+ v.num_res4 + '</td>';
+                html += '<td>'+ v.num_res5 + '</td>';
+                html += '<td>'+ v.num_res6 + '</td>';
+                html += '<td>'+ v.num_res7 + '</td>';
+                html += '<td><button type="button" class="btn btn-success">Modificar</button></td>';
+                html += '<td><button type="button" class="btn btn-danger">Eliminar</button></td>';
+
+                $('#dataTable_Enc').append(html);
+            });
         },
         error: function(xhr, resp, text) {
             // show error to console
