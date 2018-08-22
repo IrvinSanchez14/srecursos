@@ -269,8 +269,6 @@ $(document).ready(function(){
 
     });
 
-    $('#exampleFormControlFile1').bind('change', function() {
-        alert(this.files[0].size);
-    });
+
     
 });
