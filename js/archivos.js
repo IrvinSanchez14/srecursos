@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     menuA();
+    tableData();
 
     $.fn.serializeObject = function() {
         var o = {};
@@ -60,6 +61,8 @@ $(document).ready(function(){
             data : data,
             success : function(result) {
                 console.log('great');
+                $("#dataTable_bEspecial tbody").empty();
+                tableData();
             },
             error: function(xhr, resp, text) {
                 // show error to console
@@ -81,5 +84,33 @@ $(document).ready(function(){
             }
         });
     
-    })
+    });
+
+    function tableData() {
+        
+        $.ajax({
+            url: "http://localhost/api-sreportes/file/read.php",
+            type : "POST",
+            contentType : 'application/json',
+            success : function(result) {
+                console.log(result)
+                $.each(result.records, function(k,v){
+                    let html = '<tbody><tr>';
+                    
+                    html += '<td>'+ v.id+'</td>';
+                    html += '<td>'+ v.nombre+'</td>';
+                    html += '<td>'+ v.tamano+'</td>';
+                    html += '<td>'+ v.fecha+'</td>';
+                    html += '<td><a class="btn btn-success" class="fa fa-download" download href="http://localhost/api-sreportes/file/upload/'+ v.nombre+'">Download</a></td>';
+                    html += '<td><button type="button" class="btn btn-danger">Eliminar</button></td>';
+
+                    $('#dataTable_bEspecial').append(html);
+                });
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+    }
 });
