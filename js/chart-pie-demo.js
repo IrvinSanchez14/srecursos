@@ -9,7 +9,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["Asisten", "No Asisten"],
     datasets: [{
-      data: [15.58, 8.32],
+      data: [15, 8],
       backgroundColor: ['#007bff', '#dc3545'],
     }],
   },
