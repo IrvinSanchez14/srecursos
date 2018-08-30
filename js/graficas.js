@@ -12,6 +12,7 @@ $(document).ready(function(){
   var ctxp = document.getElementById("myPieChart");
   var ctxcfe = document.getElementById("myBarChartcfe");
   var ctxamz = document.getElementById("myBarChartamz");
+  var ctxnice = document.getElementById("myBarChartnice");
   var ctxpCFE = document.getElementById("myPieChartcfe");
 
 
@@ -25,7 +26,10 @@ $(document).ready(function(){
     dartaPie();
   } else if (window.location.href === 'http://localhost/srecursos/reporte-amazing.html') {
     dataBarAmz();
-  } else {
+  } else if (window.location.href === 'http://localhost/srecursos/reporte-nice.html') {
+    dataBarNice();
+  } 
+  else {
     console.log('Fail',window.location.href)
   }
 
@@ -223,7 +227,7 @@ $(document).ready(function(){
   
   }
 
-  function dataBarAmz() {
+  function dataBar() {
 
     var label = [];
     var sum = 0;
@@ -290,6 +294,75 @@ $(document).ready(function(){
 
 
   }
+
+  function dataBarNice() {
+
+    var label = [];
+    var sum = 0;
+    $.ajax({
+        url: "http://localhost/api-sreportes/facultad/celulaChar.php",
+        type : "POST",
+        contentType : 'application/json',
+        success : function(result) {
+            $.each(result.records, function(k,v) {
+                sum += parseInt(v.numero);
+                label.push({
+                    name : v.nombre_fac,
+                    num : v.numero
+                });
+                
+            });
+            var myLineChart = new Chart(ctxnice, {
+                type: 'bar',
+                data: {
+                labels: [label[0].name,label[1].name,label[2].name],
+                datasets: [{
+                    label: "Revenue",
+                    backgroundColor: "rgba(2,117,216,1)",
+                    borderColor: "rgba(2,117,216,1)",
+                    data: [label[0].num,label[1].num,label[2].num],
+                }
+              ],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 6
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: sum,
+          maxTicksLimit: 5
+        },
+        gridLines: {
+          display: true
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+        },
+        error: function(xhr, resp, text) {
+            console.log(xhr, resp, text);
+        }
+    });
+
+
+
+  }
+
 
 
  });
