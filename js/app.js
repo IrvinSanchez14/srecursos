@@ -61,6 +61,44 @@ $(document).ready(function(){
         });
     }
 
+    $('#add_alumno').submit(function(event){
+        event.preventDefault();
+        var data = $(this).serializeObject();
+        var res = lastId();
+        let sum = parseInt(res) + parseInt(1);
+        data.id_alumno= sum;
+        var realData = JSON.stringify(data);
+        console.log(data);
+        //add alumno
+        $.ajax({
+            url: "http://localhost/api-sreportes/alumnos/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+        //
+        $.ajax({
+            url: "http://localhost/api-sreportes/factura/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+    });
+
     $('#create-alumno-form').submit(function(event){
         event.preventDefault();
         var data = $(this).serializeObject();
@@ -128,7 +166,7 @@ $(document).ready(function(){
 
     });
 
-    $('#create-arace-form').submit(function(event){
+    $('#add_encuesta').submit(function(event){
         event.preventDefault();
         var data = $(this).serializeObject();
         var res = lastId();
@@ -136,19 +174,6 @@ $(document).ready(function(){
         data.id_alumno= sum;
 
         var realData = JSON.stringify(data);
-        $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
         
         console.log('data',realData)
             $.ajax({

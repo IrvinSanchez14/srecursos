@@ -227,7 +227,7 @@ $(document).ready(function(){
   
   }
 
-  function dataBar() {
+  function dataBarAmz() {
 
     var label = [];
     var sum = 0;
