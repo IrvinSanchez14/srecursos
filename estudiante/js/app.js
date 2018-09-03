@@ -57,4 +57,178 @@ $(document).ready(function(){
             }
         });
     });
+
+    $('#add_encuesta').submit(function(event){
+        event.preventDefault();
+        var data = $(this).serializeObject();
+        var res = lastId();
+        let sum = parseInt(res) + parseInt(1);
+        data.id_alumno= sum;
+
+        var realData = JSON.stringify(data);
+        
+        console.log('data',realData)
+            $.ajax({
+                url: "http://localhost/api-sreportes/enc_sat/create.php",
+                type : "POST",
+                contentType : 'application/json',
+                data : realData,
+                success : function(result) {
+                    console.log('great');
+                },
+                error: function(xhr, resp, text) {
+                    // show error to console
+                    console.log(xhr, resp, text);
+                }
+            });
+    });
+
+    $('#create-alumno-form').submit(function(event){
+        event.preventDefault();
+        var data = $(this).serializeObject();
+        var res = lastId();
+        let sum = parseInt(res) + parseInt(1);
+        data.id_alumno= sum;
+        var realData = JSON.stringify(data);
+        console.log(data);
+        //add alumno
+        $.ajax({
+            url: "http://localhost/api-sreportes/alumnos/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+        //add alumn_extra
+        $.ajax({
+            url: "http://localhost/api-sreportes/alum_extra/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+
+        $.ajax({
+            url: "http://localhost/api-sreportes/coment_act/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+
+        $.ajax({
+            url: "http://localhost/api-sreportes/iglesia_est/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+
+    });
+
+    $('#create-conferencia-form').submit(function(event){
+        event.preventDefault();
+        var data = $(this).serializeObject();
+        var res = lastId();
+        let sum = parseInt(res) + parseInt(1);
+        data.id_alumno= sum;
+
+        var realData = JSON.stringify(data);
+        $.ajax({
+            url: "http://localhost/api-sreportes/alumnos/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+        //alumno extra
+        $.ajax({
+            url: "http://localhost/api-sreportes/alum_extra/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+        //add iglesia
+        $.ajax({
+            url: "http://localhost/api-sreportes/iglesia_est/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+        //add ciclo
+        $.ajax({
+            url: "http://localhost/api-sreportes/ciclo/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+        //add conferencia
+        $.ajax({
+            url: "http://localhost/api-sreportes/conf_arg/create.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+
+    });
+
+
 });

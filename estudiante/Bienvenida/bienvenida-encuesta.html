@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<title>Hoja de datos Bienvenida</title>
-	<link rel="stylesheet"  href="../css/sb-admin">
-	<link rel="stylesheet" href="../css/sb-admin.min">
+	<link rel="stylesheet"  href="../css/sb-admin.css">
+	<link rel="stylesheet" href="../css/sb-admin.min.css">
 	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../css/header-img.css">
 </head>
@@ -19,54 +19,103 @@
   <div class="card-body">
     <h5 class="card-title">Bienvenida Especial</h5>
     <p class="card-text">Apreciamos tu opinion y por ello te pedimos que completes la siguiente encuesta</p>
-    <form>
-   <div class="form-group">
-    <label for="inputFacebook">Nombre con el que se identifica en Facebook</label>
-    <input type="text"  maxlength="50" class="form-control" id="inputFacebook" placeholder="Ejemplo Juan Martinez">
+    <form id='create-alumno-form' action='#' method='POST'>
+      <input name="id_actividad" value="1" type="hidden">
+        <div class="container">
+          <div class="form-group">
+<label for="inputNombre1">Nombre del estudiante</label>
+<input type="text"  maxlength="50" class="form-control" name="nombre_alumno" placeholder="Ejemplo Juan Pérez">
+</div>
+<div class="form-row">
+<div class="form-group col-md-6">
+    <label for="inputcarnet1">CIF</label>
+    <input type="text"  maxlength="10" class="form-control" id="cif" name="cif" placeholder="2016010000">
   </div>
-  <div class="form-group ">
-    <label for="inputExpectativa">¿Cual es tu expectativas de las actividades que realizara SAE?</label>
-    <input type="text"  maxlength="250" class="form-control" id="inputExpectativa" placeholder="Escriba la expectativa">
-  </div>
-  <div class="form-group ">
-    <label for="inputIdeas">¿Que nueva idea nos sugieres?</label>
-    <input type="text"  maxlength="250" class="form-control" id="inputIdeas" placeholder="Escriba una idea">
-  </div>
-<div class="form-group ">
-      <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-md-8 ">¿Asistes a una iglesia?</legend>
-      <div class="col-md-4">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-          <label class="form-check-label" for="gridRadios1">
-            Si asisto
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-          <label class="form-check-label" for="gridRadios2">
-            No asisto
-          </label>
-        </div>
-      </div>
-    </div>
-  </fieldset>
-    </div>
+<div class="form-group col-md-6">
+    <label for="inputaño1">Año en que se realiza la actividad</label>
+    <input type="text"  maxlength="10" class="form-control" id="inputaño1" placeholder="2018">
+</div>
+</div>
+<div id="text"></div>
+<div class="form-row">
+<div class="form-group col-md-6">
+  <label for="inputEmail4">Correo Electrónico</label>
+  <input type="email" maxlength="50" class="form-control" id="inputEmail4" name="email" placeholder="Ejemplo@hotmail.com">
+</div>
+<div class="form-group col-md-6">
+  <label for="inputTel4">Teléfono</label>
+  <input type="text"  maxlength="8" class="form-control" id="inputTel4" name="telefono" placeholder="1122-3344">
+</div>
+</div>
+
 <div class="form-group">
-    <label for="formGroupExampleInput">Nombre de la iglesia a la que asistes</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+  <label for="inputCarrera">Facultad</label>
+  <select id="inputCarrera" name='id_facultad' class="form-control">
+    <option selected>Seleccione una Facultad</option>
+    <option value="1">Ingeniería en Sistemas Computacionales</option>
+    <option value="2">Medicina</option>
+    <option value="3">Odontología</option>
+    <option value="4">Ciencias Empresariales y Económicas</option>
+    <option value="5">Ciencias Sociales</option>
+    <option value="6">Ciencias Jurídicas</option>
+  </select>
+</div>
+
+<div class="form-group">
+<label for="inputFacebook">Facebook</label>
+<input type="text"  maxlength="50" class="form-control"  id="inputFacebook" name= "facebook" placeholder="Ejemplo Juan Martínez">
+</div>
+<div class="form-group">
+<label for="inputExpectativa">Expectativas sobre futuras actividades de SAE</label>
+<input type="text"  maxlength="250" class="form-control" id="inputExpectativa" name="expectativas" placeholder="Escriba la expectativa del estudiante">
+</div>
+<div class="form-group">
+<label for="inputIdeas">Ideas aportadas por el estudiante</label>
+<input type="text"  maxlength="250" class="form-control" id="inputIdeas" name="ideas" placeholder="Escriba las ideas que brindó del estudiante">
+</div>
+
+<div class="form-row">
+<div class="form-group col-md-4">
+  <fieldset class="form-group">
+<div class="row">
+  <legend class="col-form-label col-md-8 ">¿El estudiante asiste a una iglesia?</legend>
+  <div class="col-sm-10">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="asistencia" id="gridRadios1" value="1" checked>
+      <label class="form-check-label" for="gridRadios1">
+        Si asiste
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="asistencia" id="gridRadios2" value="2">
+      <label class="form-check-label" for="gridRadios2">
+        No asiste
+      </label>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput2">¿Cuantos años tienes de asister a tu iglesia?</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
-  </div>
-  <center>  <button type="submit" class="btn btn-primary center">Enviar</button>  </center>
-</form>
+</div>
+</fieldset>
+</div>
+<div class="form-group col-md-4">
+  <label for="inputNombre1">Nombre de la iglesia</label>
+<input type="text" class="form-control" id="inputNombre1" placeholder="Escriba el nombre de la iglesia" name="nombre_iglesia">
+</div>
+<div class="form-group col-md-4">
+  <label for="inputAno">Años asistidos</label>
+  <input type="text"  maxlength="2" class="form-control" id="inputAnos" placeholder="Ingrese los años asistidos" name="anios_es">
+</div>
+</div>
+        
+         </div>
+        <center>
+          <button type="submit" class="btn btn-primary center">Guardar Registro</button>
+        </center> 
+      </form>
   </div>
   </div>
   <!--Fin del formulario-->
 </div>
-
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../js/app.js"></script>
 </body>
 </html>

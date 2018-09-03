@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Hoja de datos Bienvenida</title>
-	<link rel="stylesheet"  href="../css/sb-admin">
-	<link rel="stylesheet" href="../css/sb-admin.min">
-	<link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<title>Hoja de datos Amazing Race</title>
+	<link rel="stylesheet"  href="../css/sb-admin.css">
+	<link rel="stylesheet" href="../css/sb-admin.min.css">
+	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../css/header-img.css">
 </head>
 <body style="background-color:#E8F8F5;">
@@ -19,95 +19,93 @@
   <div class="card-body">
     <h5 class="card-title">Amazing Race</h5>
     <p class="card-text">Apreciamos tu opinion y por ello te pedimos que completes la siguiente encuesta</p>
-    <form>
-            <div class="col">
-      <label for="inputCarrera">Instalaciones</label>
-      <select id="inputCarrera" class="form-control">
-        <option selected>Seleccione una opción</option>
-        <option>Necesita mejorar</option>
-        <option>Regular</option>
-        <option>Bueno</option>
-        <option>Muy Bueno</option>
-        <option>Excelente</option>
-      </select>
+<form id="add_encuesta" action='#' method='POST'>
+            <div class="container">
+                <div class="form-row">
+                      <label for="inputCarrera">Instalaciones</label>
+              <select id="inputCarrera" class="form-control" name="num_res1">
+                <option selected>Seleccione una opción</option>
+                <option value="Necesita mejorar">Necesita mejorar</option>
+                <option value="Regular">Regular</option>
+                <option value="Bueno">Bueno</option>
+                <option value="Muy Bueno">Muy Bueno</option>
+                <option value="Excelente">Excelente</option>
+              </select>
+        
+                    <div class="col">
+                      <label for="inputCarrera">Dinámicas</label>
+                      <select id="inputCarrera" class="form-control" name="num_res2">
+                        <option selected>Seleccione una opción</option>
+                        <option value="Necesita mejorar">Necesita mejorar</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Muy Bueno">Muy Bueno</option>
+                        <option value="Excelente">Excelente</option>
+                        </select>
+                    </div>
+                  </div>
+        
+                          <div class="form-row">
+                      <label for="inputCarrera">Conferencia</label>
+                      <select id="inputCarrera" class="form-control" name="num_res3">
+                        <option selected>Seleccione una opción</option>
+                        <option value="Necesita mejorar">Necesita mejorar</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Muy Bueno">Muy Bueno</option>
+                        <option value="Excelente">Excelente</option>
+                        </select>
+        
+                    <div class="col">
+                      <label for="inputCarrera">Alimentación</label>
+                      <select id="inputCarrera" class="form-control" name="num_res4">
+                        <option selected>Seleccione una opción</option>
+                        <option value="Necesita mejorar">Necesita mejorar</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Muy Bueno">Muy Bueno</option>
+                        <option value="Excelente">Excelente</option>
+                        </select>
+                    </div>
+                  </div>
+        
+                          <div class="form-row">
+                      <label for="inputCarrera">Talleres</label>
+                      <select id="inputCarrera" class="form-control" name="num_res5">
+                        <option selected>Seleccione una opción</option>
+                        <option value="Necesita mejorar">Necesita mejorar</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Muy Bueno">Muy Bueno</option>
+                        <option value="Excelente">Excelente</option>
+                        </select>
+        
+                    <div class="col">
+                      <label for="inputCarrera">Atención del lugar</label>
+                      <select id="inputCarrera" class="form-control" name="num_res6">
+                        <option selected>Seleccione una opción</option>
+                        <option value="Necesita mejorar">Necesita mejorar</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Muy Bueno">Muy Bueno</option>
+                        <option value="Excelente">Excelente</option>
+                        </select>
+                    </div>
+                  </div>
+        
+                      <div class="form-group">
+              <label for="inputCarrera">Transporte</label>
+              <select id="inputCarrera" class="form-control" name="num_res7">
+                <option selected>Seleccione una opción</option>
+                <option value="Necesita mejorar">Necesita mejorar</option>
+                <option value="Regular">Regular</option>
+                <option value="Bueno">Bueno</option>
+                <option value="Muy Bueno">Muy Bueno</option>
+                <option value="Excelente">Excelente</option>
+                </select>
             </div>
-
-            <div class="col">
-              <label for="inputCarrera">Dinámicas</label>
-      <select id="inputCarrera" class="form-control">
-        <option selected>Seleccione una opción</option>
-        <option>Necesita mejorar</option>
-        <option>Regular</option>
-        <option>Bueno</option>
-        <option>Muy Bueno</option>
-        <option>Excelente</option>
-      </select>
-            </div>
-
-
-            <div class="col">
-              <label for="inputCarrera">Conferencia</label>
-      <select id="inputCarrera" class="form-control">
-        <option selected>Seleccione una opción</option>
-        <option>Necesita mejorar</option>
-        <option>Regular</option>
-        <option>Bueno</option>
-        <option>Muy Bueno</option>
-        <option>Excelente</option>
-      </select>
-            </div>
-
-            <div class="col">
-              <label for="inputCarrera">Alimentación</label>
-      <select id="inputCarrera" class="form-control">
-        <option selected>Seleccione una opción</option>
-        <option>Necesita mejorar</option>
-        <option>Regular</option>
-        <option>Bueno</option>
-        <option>Muy Bueno</option>
-        <option>Excelente</option>
-      </select>
-            </div>
-
-
-                  
-            <div class="col">
-              <label for="inputCarrera">Talleres</label>
-      <select id="inputCarrera" class="form-control">
-        <option selected>Seleccione una opción</option>
-        <option>Necesita mejorar</option>
-        <option>Regular</option>
-        <option>Bueno</option>
-        <option>Muy Bueno</option>
-        <option>Excelente</option>
-      </select>
-            </div>
-
-            <div class="col">
-              <label for="inputCarrera">Atención del lugar</label>
-      <select id="inputCarrera" class="form-control">
-        <option selected>Seleccione una opción</option>
-        <option>Necesita mejorar</option>
-        <option>Regular</option>
-        <option>Bueno</option>
-        <option>Muy Bueno</option>
-        <option>Excelente</option>
-      </select>
-            </div>
-         
-              <div class="col">
-      <label for="inputCarrera">Transporte</label>
-      <select id="inputCarrera" class="form-control">
-        <option selected>Seleccione una opción</option>
-        <option>Necesita mejorar</option>
-        <option>Regular</option>
-        <option>Bueno</option>
-        <option>Muy Bueno</option>
-        <option>Excelente</option>
-      </select>
-    </div>
-    <br>
-  <center>  <button type="submit" class="btn btn-primary center">Enviar</button>  </center>
+             </div>
+            <center>  <button type="submit" class="btn btn-primary center">Guardar Registro</button>  </center> 
 </form>
   </div>
   </div>
