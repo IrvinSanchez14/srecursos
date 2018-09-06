@@ -12,7 +12,7 @@ $(document).ready(function(){
                 html += '<td>'+ v.cif + '</td>';
                 html += '<td>'+ v.numero_factura + '</td>';
                 html += '<td>'+ v.nombre_fac + '</td>';
-                html += '<td><button type="button" class="btn btn-success">Modificar</button></td>';
+                html += '<td><button data-toggle="modal type="button" class="edit btn btn-success" id_alumno="'+v.id_alumno+'" data-target=".bs-example-modal-lg">Modificar</button></td>';
                 html += '<td><button type="button" class="btn btn-danger">Eliminar</button></td>';
 
                 $('#dataTableConfec').append(html);
