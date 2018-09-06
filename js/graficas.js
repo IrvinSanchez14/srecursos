@@ -18,15 +18,15 @@ $(document).ready(function(){
 
 
   
-  if (window.location.href === 'http://localhost/srecursos/reporte-conferencia.html') {
+  if (window.location.href === 'http://localhost/srecursos/reporte-conferencia.php') {
     dataBarCFE();
     dartaPieCFE();
-  } else if (window.location.href === 'http://localhost/srecursos/reporte-bienvenida.html') {
+  } else if (window.location.href === 'http://localhost/srecursos/reporte-bienvenida.php') {
     dataBar();
     dartaPie();
-  } else if (window.location.href === 'http://localhost/srecursos/reporte-amazing.html') {
+  } else if (window.location.href === 'http://localhost/srecursos/reporte-amazing.php') {
     dataBarAmz();
-  } else if (window.location.href === 'http://localhost/srecursos/reporte-nice.html') {
+  } else if (window.location.href === 'http://localhost/srecursos/reporte-nice.php') {
     dataBarNice();
   } 
   else {

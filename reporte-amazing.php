@@ -1,3 +1,13 @@
+<?php 
+  session_start();
+  if (! empty($_SESSION["rol"]) && $_SESSION["rol"] === '1') { 
+    echo "Estas logueado y por eso ves esto"; 
+    echo $_SESSION['rol'];
+  } else { 
+    echo "hola";
+    header('Location: login.html');
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Reporte Bienvenida Especial - Secretaría de Asuntos Espirituales</title>
+  <title>Reporte Amazing Race - Secretaría de Asuntos Espirituales</title>
   <link rel="stylesheet" type="text/css" href="css/acordeon-estilo.css">
   <link rel="stylesheet" type="text/css" href="css/estilo-accordeon.css">
   <!-- Bootstrap core CSS-->
@@ -21,22 +31,13 @@
 
     <script src="js/dist/Chart.bundle.js"></script>
   <script src="js/utils.js"></script>
-  <style>
-  canvas {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  }
-  </style>
+  <script src="js/Chart.Bar.js"></script>
 
 </head>
- 
-
-
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" oncopy="return false" onpaste="return false">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Inicio</a>
+    <a class="navbar-brand" href="index.php">Inicio</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,22 +50,22 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
           <li>
-              <a href="bienvenida-especial-agregar.html">Bienvenida Especial</a>
+              <a href="bienvenida-especial-agregar.php">Bienvenida Especial</a>
             </li>
             <li>
-              <a href="amazing-race-agregar.html">Retiros Amazing Race</a>
+              <a href="amazing-race-agregar.php">Retiros Amazing Race</a>
             </li>
             <li>
-              <a href="celulas-nice-agregar.html">Células NICE</a>
+              <a href="celulas-nice-agregar.php">Células NICE</a>
             </li>
             <li>
-              <a href="conferencia-especial-agregar.html">Conferencia Especial</a>
+              <a href="conferencia-especial-agregar.php">Conferencia Especial</a>
             </li>
           </ul>
         </li>
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="archivos.html">
+          <a class="nav-link" href="archivos.php">
             <i class="fa fa-suitcase" aria-hidden="true"></i>
             <span class="nav-link-text">Archivos</span>
           </a>
@@ -78,20 +79,19 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseReportes">
             <li>
+              <a href="reporte-bienvenida.php">Bienvenida Especial</a>
+            </li>
+            <li>
               <li class="active">
-              <a href="reporte-bienvenida.html">Bienvenida Especial</a>
+              <a href="reporte-amazing.php">Retiros Amazing Race</a>
             </li>
             <li>
-              <a href="reporte-amazing.html">Retiros Amazing Race</a>
+              <a href="reporte-nice.php">Células NICE</a>
             </li>
             <li>
-              <a href="reporte-nice.html">Células NICE</a>
-            </li>
-            <li>
-              <a href="reporte-conferencia.html">Conferencia Especial</a>
+              <a href="reporte-conferencia.php">Conferencia Especial</a>
             </li>
           </ul>
-
         </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
@@ -101,7 +101,6 @@
           </a>
         </li>
       </ul>
-
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
@@ -111,40 +110,24 @@
     </div>
   </nav>
   <div class="content-wrapper">
-    <div class="container-fluid">
-      <!-- Breadcrumbs-->
-     
+    <div class="container-fluid">  
         <!--Inicio de los formularios -->
-        <center><h1>Registro de participantes en Bienvenida Especial</h1></center>
+        <center><h1>Registro de participantes en Amazing Race</h1></center>
 <br>
-
     <center>
-
-<div class="row">
-            <div class="col-lg-8">
+          <div class="container"> 
+            <div class="col-lg-18">
               <div class="card mb-3">
                 <div class="card-header">
                   <i class="fas fa-chart-bar"></i>
                   Facultades</div>
                 <div class="card-body">
-                  <canvas id="myBarChart" width="100%" height="50"></canvas>
-                </div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="card mb-3">
-                <div class="card-header">
-                  <i class="fas fa-chart-pie"></i>
-                  Participacion de estudiantes a iglesias</div>
-                <div class="card-body">
-                  <canvas id="myPieChart" width="100%" height="100"></canvas>
+                  <canvas id="myBarChartamz" width="100%" height="50"></canvas>
                 </div>
                 <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
               </div>
             </div>
           </div>
-
     </center>
         <!--Fin de los formularios -->
 <br>
@@ -195,9 +178,6 @@
     <script src="js/graficas.js"></script>
 
     <!--script to pie chart-->
-
-    
-
   </div>
 </body>
 

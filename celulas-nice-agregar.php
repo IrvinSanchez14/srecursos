@@ -1,3 +1,13 @@
+<?php 
+  session_start();
+  if (! empty($_SESSION["rol"]) && $_SESSION["rol"] === '1') { 
+    echo "Estas logueado y por eso ves esto"; 
+    echo $_SESSION['rol'];
+  } else { 
+    echo "hola";
+    header('Location: login.html');
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,49 +17,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Conferencias Especiales Registros - Secretaria de Asuntos Espirituales</title>
+  <title>Células NICE - Secretaría de Asuntos Espirituales</title>
   <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
   <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-  <!-- Navigation-->
+<body class="fixed-nav sticky-footer bg-dark" id="page-top" >
+  <!-- Barra de Navegacion-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Inicio</a>
+    <a class="navbar-brand" href="index.php">Inicio</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Actividades</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-          <li>
-              <a href="bienvenida-especial-agregar.html">Bienvenida Especial</a>
-            </li>
-            <li>
-              <a href="amazing-race-agregar.html">Retiros Amazing Race</a>
-            </li>
-            <li>
-              <a href="celulas-nice-agregar.html">Células NICE</a>
-            </li>
-            <li>
-              <li class="active">
-              <a href="conferencia-especial-agregar.html">Conferencia Especial</a>
-            </li>
-          </ul>
+        <li class="nav-item act_ss" data-toggle="tooltip" data-placement="right" title="Actividades">
         </li>
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+       </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="archivos.html">
+          <a class="nav-link" href="archivos.php">
             <i class="fa fa-suitcase" aria-hidden="true"></i>
             <span class="nav-link-text">Archivos</span>
           </a>
@@ -61,16 +54,16 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseReportes">
             <li>
-              <a href="reporte-bienvenida.html">Bienvenida Especial</a>
+              <a href="reporte-bienvenida.php">Bienvenida Especial</a>
             </li>
             <li>
-              <a href="reporte-amazing.html">Retiros Amazing Race</a>
+              <a href="reporte-amazing.php">Retiros Amazing Race</a>
             </li>
             <li>
-              <a href="reporte-nice.html">Células NICE</a>
+              <a href="reporte-nice.php">Células NICE</a>
             </li>
             <li>
-              <a href="reporte-conferencia.html">Conferencias Especiales</a>
+              <a href="reporte-conferencia.php">Conferencia Especial</a>
             </li>
           </ul>
         </li>
@@ -95,69 +88,38 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-        <a href="conferencia-especial-agregar.html">Agregar Nuevo Registro</a>
+          <a href="celulas-nice.php">Ver registros actuales de Células NICE</a>
         </li>
       </ol>
-        <!-- Inicio de la tabla de datos -->
-              <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Registros Agregados de Conferencia Especial</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTableConf" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>CIF</th>
-                  <th>Ciclo Actual</th>
-                  <th>Email</th>
-                  <th>Telefono</th>
-                  <th>Facultad</th>
-                  <th>Facebook</th>
-                  <th>Beneficio Adquirido</th>
-                  <th>Asistencia Religiosa</th>
-                  <th>Nombre de Iglesia</th>
-                  <th>Opinion</th>
-                  <th>Desición Tomada</th>
-                  <th>Modificar</th>
-                  <th>Eliminar</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Nombre</th>
-                  <th>CIF</th>
-                  <th>Ciclo Actual</th>
-                  <th>Email</th>
-                  <th>Telefono</th>
-                  <th>Facultad</th>
-                  <th>Facebook</th>
-                  <th>Beneficio Adquirido</th>
-                  <th>Asistencia Religiosa</th>
-                  <th>Nombre de Iglesia</th>
-                  <th>Opinion</th>
-                  <th>Desición Tomada</th>
-                  <th>Modificar</th>
-                  <th>Eliminar</th>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
+    <form id='create-celula-form' action='#' method='POST' >
+              <input name="id_actividad" value="3" type="hidden">
+                <!-- Inicio de formulario -->
+                <div class="form-group">
+                  <label for="inputNombre1">Nombre del estudiante</label>
+                  <input type="text"  maxlength="50" class="form-control" id="inputNombre1" placeholder="Ejemplo Juan Pérez" name="nombre_alumno">
+                </div>
+
+                <div class="form-group">
+                  <label for="inputcarnet1">CIF</label>
+                  <input type="text"  maxlength="10" class="form-control" id="inputcarnet1" placeholder="2015020004" name="cif">
+                </div>
+        <div class="form-group">
+          <label for="inputCarrera">Facultad</label>
+          <select id="inputCarrera" name='id_facultad' class="form-control">
+            <option selected>Seleccione una Facultad</option>
+            <option value="1">Ingeniería en Sistemas Computacionales</option>
+            <option value="2">Medicina</option>
+            <option value="3">Odontología</option>
+            <option value="4">Ciencias Empresariales y Económicas</option>
+            <option value="5">Ciencias Sociales</option>
+            <option value="6">Ciencias Jurídicas</option>
+          </select>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-      </div>
-        <!-- Final de la tabla de datos-->
-    </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small></small>
-        </div>
-      </div>
-    </footer>
-    <!-- Scroll to Top Button-->
+             </div>
+            <center>  <button type="submit" class="btn btn-primary center">Guardar Registro</button>  </center> 
+                 <!-- Fin del formulario -->
+         </div>
+  </form>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
@@ -174,7 +136,7 @@
           <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <a class="btn btn-primary" href="login.html">Cerrar Sesion</a>
+            <a class="btn btn-primary" href="login.html">Cerrar Sesión</a>
           </div>
         </div>
       </div>
@@ -193,7 +155,8 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-    <script src="js/tableConf.js"></script>
+    <script src="js/app.js"></script>
   </div>
 </body>
+
 </html>

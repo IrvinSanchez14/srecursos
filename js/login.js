@@ -16,28 +16,29 @@ $(document).ready(function(){
         return o;
     };
 
-    function LoginEnter(datos) {
-        let username,pass;
-        console.log(datos);
+
+    $('#login-enter').submit(function(event){
+        event.preventDefault();
+        let data = $(this).serializeObject();
+        let realData = JSON.stringify(data);
+        console.log(data.username)
         $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/create.php",
-            type : "POST",
+            url: "http://localhost/api-sreportes/login/search.php?username="+data.username+"&pass="+data.pass,
+            type : "GET",
             contentType : 'application/json',
-            data : realData,
             success : function(result) {
-                console.log('great');
+                console.log(result);
+                if (result != null) {
+                    location.href = "index.php";
+                } else {
+                    alert("ups :(");
+                }
+
             },
             error: function(xhr, resp, text) {
                 // show error to console
                 console.log(xhr, resp, text);
             }
         });
-    }
-
-    $('#login-enter').submit(function(event){
-        event.preventDefault();
-        var data = $(this).serializeObject();
-        var realData = JSON.stringify(data);
-        LoginEnter(realData);
     });
 });

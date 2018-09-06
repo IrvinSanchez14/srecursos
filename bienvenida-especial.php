@@ -1,3 +1,13 @@
+<?php 
+  session_start();
+  if (! empty($_SESSION["rol"]) && $_SESSION["rol"] === '1') { 
+    echo "Estas logueado y por eso ves esto"; 
+    echo $_SESSION['rol'];
+  } else { 
+    echo "hola";
+    header('Location: login.html');
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,9 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Reporte Células NICE - Secretaría de Asuntos Espirituales</title>
-  <link rel="stylesheet" type="text/css" href="css/acordeon-estilo.css">
-  <link rel="stylesheet" type="text/css" href="css/estilo-accordeon.css">
+  <title>Bienvenida Especial Registros - Secretaria de Asuntos Espirituales</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -18,17 +26,12 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
-
-    <script src="js/dist/Chart.bundle.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/Chart.Bar.js"></script>
-
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top" oncopy="return false" onpaste="return false">
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Inicio</a>
+    <a class="navbar-brand" href="index.php">Inicio</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -41,26 +44,25 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
           <li>
-              <a href="bienvenida-especial-agregar.html">Bienvenida Especial</a>
+            <li class="active">
+              <a href="bienvenida-especial-agregar.php">Bienvenida Especial</a>
             </li>
             <li>
-              <a href="amazing-race-agregar.html">Retiros Amazing Race</a>
+              <a href="amazing-race-agregar.php">Retiros Amazing Race</a>
             </li>
             <li>
-              <a href="celulas-nice-agregar.html">Células NICE</a>
+              <a href="celulas-nice-agregar.php">Células NICE</a>
             </li>
             <li>
-              <a href="conferencia-especial-agregar.html">Conferencia Especial</a>
+              <a href="conferencia-especial-agregar.php">Conferencia Especial</a>
             </li>
           </ul>
         </li>
-       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="archivos.html">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="archivos.php">
             <i class="fa fa-suitcase" aria-hidden="true"></i>
             <span class="nav-link-text">Archivos</span>
           </a>
-        </li>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reportes">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseReportes" data-parent="#exampleAccordion">
@@ -69,17 +71,16 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseReportes">
             <li>
-              <a href="reporte-bienvenida.html">Bienvenida Especial</a>
+              <a href="reporte-bienvenida.php">Bienvenida Especial</a>
             </li>
             <li>
-              <a href="reporte-amazing.html">Retiros Amazing Race</a>
-            </li>
-             <li>
-              <li class="active">
-              <a href="reporte-nice.html">Células NICE</a>
+              <a href="reporte-amazing.php">Retiros Amazing Race</a>
             </li>
             <li>
-              <a href="reporte-conferencia.html">Conferencia Especial</a>
+              <a href="reporte-nice.php">Células NICE</a>
+            </li>
+            <li>
+              <a href="reporte-conferencia.php">Conferencias Especiales</a>
             </li>
           </ul>
         </li>
@@ -102,37 +103,66 @@
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
-     
-        <!--Inicio de los formularios -->
-        <center><h1>Registro de participantes en Células NICE</h1></center>
-<br>
-
-<center>
-  <div class="container"> 
-    <div class="col-lg-18">
-      <div class="card mb-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+        <a href="bienvenida-especial-agregar.php">Agregar Nuevo Registro</a>
+        </li>
+      </ol>
+        <!-- Inicio de la tabla de datos -->
+              <div class="card mb-3">
         <div class="card-header">
-          <i class="fas fa-chart-bar"></i>
-          Facultades</div>
+          <i class="fa fa-table"></i> Registros agregados de Bienvenida Especial</div>
         <div class="card-body">
-          <canvas id="myBarChartnice" width="100%" height="50"></canvas>
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable_bEspecial" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>CIF</th>
+                  <th>Año Actual</th>
+                  <th>Email</th>
+                  <th>Telefono</th>
+                  <th>Facebook</th>
+                  <th>Expectativa</th>
+                  <th>Nuevas Ideas</th>
+                  <th>Asistencia Religiosa</th>
+                  <th>Nombre de Iglesia</th>
+                  <th>Años Asistidos</th>
+                  <th>Modificar</th>
+                  <th>Eliminar</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Nombre</th>
+                  <th>CIF</th>
+                  <th>Año Actual</th>
+                  <th>Email</th>
+                  <th>Telefono</th>
+                  <th>Facebook</th>
+                  <th>Expectativa</th>
+                  <th>Nuevas Ideas</th>
+                  <th>Asistencia Religiosa</th>
+                  <th>Nombre de Iglesia</th>
+                  <th>Años Asistidos</th>
+                  <th>Modificar</th>
+                  <th>Eliminar</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
         </div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
-    </div>
-  </div>
-</center>
-
-
-
-        <!--Fin de los formularios -->
-<br>
+        <!-- Final de la tabla de datos-->
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
-        
+        <div class="text-center">
+          <small>Copyright © Your Website 2018</small>
+        </div>
       </div>
     </footer>
     <!-- Scroll to Top Button-->
@@ -152,7 +182,7 @@
           <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <a class="btn btn-primary" href="login.html">Cerrar Sesión</a>
+            <a class="btn btn-primary" href="login.html">Cerrar Sesion</a>
           </div>
         </div>
       </div>
@@ -171,13 +201,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-        <script src="js/chart-pie-demo.js"></script>
-    <script src="js/graficas.js"></script>
-
-    <!--script to pie chart-->
-
-    
-
+    <script src="js/tabla_bEspecial.js"></script>
   </div>
 </body>
 

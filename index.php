@@ -1,3 +1,13 @@
+<?php 
+  session_start();
+  if (! empty($_SESSION["rol"]) && $_SESSION["rol"] === '1') { 
+    echo "Estas logueado y por eso ves esto"; 
+    echo $_SESSION['rol'];
+  } else { 
+    echo "hola";
+    header('Location: login.html');
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,9 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Reporte Conferencia Especial - Secretaría de Asuntos Espirituales</title>
-  <link rel="stylesheet" type="text/css" href="css/acordeon-estilo.css">
-  <link rel="stylesheet" type="text/css" href="css/estilo-accordeon.css">
+  <title>Inicio - Secretaría de Asuntos Espirituales</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -18,75 +26,45 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
-
-  <script src="js/Chart.bundle.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/Chart.Bar.js"></script>
-  <style>
-  canvas {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  }
-  </style>
-
+  <link rel="stylesheet" href="css/hover-index.css">
 </head>
-<body class="fixed-nav sticky-footer bg-dark" id="page-top" oncopy="return false" onpaste="return false">
-  <!-- Navigation-->
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Barra de Navegacion-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Inicio</a>
+    <a class="navbar-brand" href="index.php">Inicio</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Actividades</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-          <li>
-              <a href="bienvenida-especial-agregar.html">Bienvenida Especial</a>
-            </li>
-            <li>
-              <a href="amazing-race-agregar.html">Retiros Amazing Race</a>
-            </li>
-            <li>
-              <a href="celulas-nice-agregar.html">Células NICE</a>
-            </li>
-            <li>
-              <a href="conferencia-especial-agregar.html">Conferencia Especial</a>
-            </li>
-          </ul>
+        <li class="nav-item act_ss" data-toggle="tooltip" data-placement="right" title="Actividades">
         </li>
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="archivos.html">
+       </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="archivos.php">
             <i class="fa fa-suitcase" aria-hidden="true"></i>
             <span class="nav-link-text">Archivos</span>
-            
           </a>
-        </li>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reportes">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseReportes" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>
             <span class="nav-link-text">Reportes</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseReportes">
             <li>
-              <a href="reporte-bienvenida.html">Bienvenida Especial</a>
+              <a href="reporte-bienvenida.php">Bienvenida Especial</a>
             </li>
             <li>
-              <a href="reporte-amazing.html">Retiros Amazing Race</a>
+              <a href="reporte-amazing.php">Retiros Amazing Race</a>
             </li>
             <li>
-              <a href="reporte-nice.html">Células NICE</a>
+              <a href="reporte-nice.php">Células NICE</a>
             </li>
             <li>
-              <li class="active">
-              <a href="reporte-conferencia.html">Conferencia Especial</a>
+              <a href="reporte-conferencia.php">Conferencia Especial</a>
             </li>
           </ul>
         </li>
@@ -101,62 +79,81 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Cerrar Sesión</a>
+            <i class="fa fa-fw fa-sign-out" href="logout.php"></i>Cerrar Sesión</a>
         </li>
       </ul>
     </div>
   </nav>
   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Breadcrumbs-->
-     
-        <!--Inicio de los formularios -->
-        <center><h1>Registro de participantes en Conferencia Especial</h1></center>
-<br>
-
-<center>
-<div class="row">
-            <div class="col-lg-8">
-              <div class="card mb-3">
-                <div class="card-header">
-                  <i class="fas fa-chart-bar"></i>
-                  Facultades</div>
-                <div class="card-body">
-                  <canvas id="myBarChartcfe" width="100%" height="50"></canvas>
+<!--Inicio de formulario-->
+<div class="card text-center">
+  <div class="card-header">
+   <h4>Secretaría de Asuntos Espirituales</h4>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text"><h5><p ALIGN="justify">Es un departamento de la Universidad Evangélica de El Salvador, cuyas funciones son dar a conocer el evangelio de Jesucristo, cuidando y fortaleciendo el área espiritual de toda la comunidad universitaria. Para poder desarrollar estas funciones cuenta con un equipo de Capellanes, que tienen la función de dar cobertura espiritual, a través de diferentes actividades en cada uno de los edificios de la universidad.</p></h5>
+  </div>
+</div>
+                <!--hover start-->
+              <div class="content-all">
+                <div class="content-img">
+                  <img src="img/vision.jpg">
+                  <div class="content-txt">
+                  <h2>Misión</h2>
+                  <p align="justify">
+                    “Formar profesionales con excelencia
+                    académica, conscientes del servicio a
+                    sus semejantes y con una ética
+                    cristiana basada en las sagradas
+                    escrituras para responder a las
+                    necesidades y cambios de la sociedad”</p>
+                  </div>
+                    <!-- hover line-->
+                <div class="content-1"></div>
+                <div class="content-2"></div>
+                <div class="content-3"></div>
+                <div class="content-4"></div>
+                    <!-- hover line-->
                 </div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="card mb-3">
-                <div class="card-header">
-                  <i class="fas fa-chart-pie"></i>
-                  Participacion de estudiantes a iglesias</div>
-                <div class="card-body">
-                  <canvas id="myPieChartcfe" width="100%" height="100"></canvas>
+                <div class="content-img">
+                    <img src="img/mision.jpg">
+                    <div class="content-txt">
+                   <h2>Visión</h2>
+                    <p align="justify">“Ser la institución de educación
+                        superior, líder regional por su excelencia
+                        académica e innovación científica y
+                        tecnológica; reconocida por su
+                        naturaleza y práctica Cristiana”</p>
+                    </div>
+
+                    
+                    <!-- hover line-->
+                <div class="content-1"></div>
+                <div class="content-2"></div>
+                <div class="content-3"></div>
+                <div class="content-4"></div>
+                    <!-- Hover line-->
                 </div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-              </div>
-            </div>
-          </div>
-    </center>
+                
+                
+                    <!-- hover line-->
+                
+                    <!-- Hover line-->
+                </div>
 
-
-
-        <!--Fin de los formularios -->
-<br>
+                </div>
+                <!-- Hover end-->
+<!--Fin de formulario-->
     </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
-        
+        <div class="text-center">
+          <small></small>
+        </div>
       </div>
     </footer>
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fa fa-angle-up"></i>
-    </a>
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -170,7 +167,7 @@
           <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <a class="btn btn-primary" href="login.html">Cerrar Sesión</a>
+            <a class="btn btn-primary" href="logout.php">Cerrar Sesión</a>
           </div>
         </div>
       </div>
@@ -189,13 +186,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-    <script src="js/graficas.js"></script>
-
-    <!--script to pie chart-->
-
-    
-
+    <script src="js/app.js"></script>
   </div>
 </body>
-
 </html>

@@ -1,3 +1,13 @@
+<?php 
+  session_start();
+  if (! empty($_SESSION["rol"]) && $_SESSION["rol"] === '1') { 
+    echo "Estas logueado y por eso ves esto"; 
+    echo $_SESSION['rol'];
+  } else { 
+    echo "hola";
+    header('Location: login.html');
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Bienvenida Especial - Secretaría de Asuntos Espirituales</title>
+  <title>Amazing Race - Secretaría de Asuntos Espirituales</title>
   <link rel="stylesheet" type="text/css" href="css/acordeon-estilo.css">
   <link rel="stylesheet" type="text/css" href="css/estilo-accordeon.css">
   <!-- Bootstrap core CSS-->
@@ -23,7 +33,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" oncopy="return false" onpaste="return false">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Inicio</a>
+    <a class="navbar-brand" href="index.php">Inicio</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,26 +45,25 @@
             <span class="nav-link-text">Actividades</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-            	<li class="active">
-              <a href="bienvenida-especial-agregar.html">Bienvenida Especial</a>
+          <li>
+              <a href="bienvenida-especial-agregar.php">Bienvenida Especial</a>
             </li>
             <li>
-              <a href="amazing-race-agregar.html">Retiros Amazing Race</a>
+              <li class="active">
+              <a href="amazing-race-agregar.php">Retiros Amazing Race</a>
             </li>
             <li>
-              <a href="celulas-nice-agregar.html">Células NICE</a>
+              <a href="celulas-nice-agregar.php">Células NICE</a>
             </li>
             <li>
-              <a href="conferencia-especial-agregar.html">Conferencia Especial</a>
+              <a href="conferencia-especial-agregar.php">Conferencia Especial</a>
             </li>
           </ul>
         </li>
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          
-        </li>
+       </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="archivos.html">
+          <a class="nav-link" href="archivos.php">
             <i class="fa fa-suitcase" aria-hidden="true"></i>
             <span class="nav-link-text">Archivos</span>
           </a>
@@ -66,16 +75,16 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseReportes">
             <li>
-              <a href="reporte-bienvenida.html">Bienvenida Especial</a>
+              <a href="reporte-bienvenida.php">Bienvenida Especial</a>
             </li>
             <li>
-              <a href="reporte-amazing.html">Retiros Amazing Race</a>
+              <a href="reporte-amazing.php">Retiros Amazing Race</a>
             </li>
             <li>
-              <a href="reporte-nice.html">Células NICE</a>
+              <a href="reporte-nice.php">Células NICE</a>
             </li>
             <li>
-              <a href="reporte-conferencia.html">Conferencia Especial</a>
+              <a href="reporte-conferencia.php">Conferencia Especial</a>
             </li>
           </ul>
         </li>
@@ -98,104 +107,56 @@
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="bienvenida-especial.html">Ver registros actuales Bienvenida Especial</a>
-        </li>
-      </ol>
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item" aria-current="page">Agregar Nuevo Registro</li>
+          <li class="breadcrumb-item"><a href="amazing-race.php">Ver registros  actuales de Amazing Race</a></li>
+          <li class="breadcrumb-item"><a href="amazing-race-agregar-encuesta.php">Agregar Nuevo Registro de Encuesta</a></li>
+          <li class="breadcrumb-item"><a href="amazing-race-encuesta.php">Ver registros  actuales de las Encuestas</a></li>
+        </ol>
+      </nav>
         <!--Inicio de los formularios -->
-        <form id='create-alumno-form' action='#' method='POST'>
-          <input name="id_actividad" value="1" type="hidden">
+<form id="add_alumno" action='#' method='POST'>
+    <input name="id_actividad" value="2" type="hidden">
             <div class="container">
-              <div class="form-group">
-    <label for="inputNombre1">Nombre del estudiante</label>
-    <input type="text"  maxlength="50" class="form-control" name="nombre_alumno" placeholder="Ejemplo Juan Pérez">
-  </div>
+
   <div class="form-row">
+    <div class="form-group col-md-6">
+              <label for="inputNombre1">Nombre del estudiante</label>
+              <input type="text"  maxlength="50" name="nombre_alumno" class="form-control" id="inputNombre1" placeholder="Ejemplo: Juan Pérez">
+      </div>
     <div class="form-group col-md-6">
         <label for="inputcarnet1">CIF</label>
-        <input type="text"  maxlength="10" class="form-control" id="cif" name="cif" placeholder="2016010000">
-      </div>
-    <div class="form-group col-md-6">
-        <label for="inputaño1">Año en que se realiza la actividad</label>
-        <input type="text"  maxlength="10" class="form-control" id="inputaño1" placeholder="2018">
+        <input type="text"  maxlength="10" name="cif" class="form-control" id="inputcarnet1" placeholder="2014090000">
     </div>
   </div>
-<div id="text"></div>
+
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Correo Electrónico</label>
-      <input type="email" maxlength="50" class="form-control" id="inputEmail4" name="email" placeholder="Ejemplo@hotmail.com">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputTel4">Teléfono</label>
-      <input type="text"  maxlength="8" class="form-control" id="inputTel4" name="telefono" placeholder="1122-3344">
-    </div>
-  </div>
-
-    <div class="form-group">
-      <label for="inputCarrera">Facultad</label>
-      <select id="inputCarrera" name='id_facultad' class="form-control">
-        <option selected>Seleccione una Facultad</option>
-        <option value="1">Ingeniería en Sistemas Computacionales</option>
-        <option value="2">Medicina</option>
-        <option value="3">Odontología</option>
-        <option value="4">Ciencias Empresariales y Económicas</option>
-        <option value="5">Ciencias Sociales</option>
-        <option value="6">Ciencias Jurídicas</option>
-      </select>
-    </div>
-
-  <div class="form-group">
-    <label for="inputFacebook">Facebook</label>
-    <input type="text"  maxlength="50" class="form-control"  id="inputFacebook" name= "facebook" placeholder="Ejemplo Juan Martínez">
-  </div>
-  <div class="form-group">
-    <label for="inputExpectativa">Expectativas sobre futuras actividades de SAE</label>
-    <input type="text"  maxlength="250" class="form-control" id="inputExpectativa" name="expectativas" placeholder="Escriba la expectativa del estudiante">
-  </div>
-  <div class="form-group">
-    <label for="inputIdeas">Ideas aportadas por el estudiante</label>
-    <input type="text"  maxlength="250" class="form-control" id="inputIdeas" name="ideas" placeholder="Escriba las ideas que brindó del estudiante">
-  </div>
-
-<div class="form-row">
-    <div class="form-group col-md-4">
-      <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-md-8 ">¿El estudiante asiste a una iglesia?</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="asistencia" id="gridRadios1" value="1" checked>
-          <label class="form-check-label" for="gridRadios1">
-            Si asiste
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="asistencia" id="gridRadios2" value="2">
-          <label class="form-check-label" for="gridRadios2">
-            No asiste
-          </label>
+      <div class="form-group col-md-8">
+                <label for="inputNombre1"># de Factura</label>
+                <input type="text"  maxlength="50" name="numero_factura" class="form-control" id="inputNombre1" placeholder="Ejemplo: 7894165">
         </div>
       </div>
-    </div>
-  </fieldset>
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputNombre1">Nombre de la iglesia</label>
-    <input type="text" class="form-control" id="inputNombre1" placeholder="Escriba el nombre de la iglesia" name="nombre_iglesia">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputAno">Años asistidos</label>
-      <input type="text"  maxlength="2" class="form-control" id="inputAnos" placeholder="Ingrese los años asistidos" name="anios_es">
-    </div>
+
+
+
+  <div class="form-group">
+    <label for="inputCarrera">Facultad</label>
+    <select id="inputCarrera" name='id_facultad' class="form-control">
+      <option selected>Seleccione una Facultad</option>
+      <option value="1">Ingeniería en Sistemas Computacionales</option>
+      <option value="2">Medicina</option>
+      <option value="3">Odontología</option>
+      <option value="4">Ciencias Empresariales y Económicas</option>
+      <option value="5">Ciencias Sociales</option>
+      <option value="6">Ciencias Jurídicas</option>
+    </select>
   </div>
-            
+
              </div>
-            <center>
-              <button type="submit" class="btn btn-primary center">Guardar Registro</button>
-            </center> 
-          </form>
+            <center>  <button type="submit"  class="btn btn-primary center">Guardar Registro</button>  </center> 
+</form>
         <!--Fin de los formularios -->
 <br>
     </div>

@@ -1,3 +1,13 @@
+<?php 
+  session_start();
+  if (! empty($_SESSION["rol"]) && $_SESSION["rol"] === '1') { 
+    echo "Estas logueado y por eso ves esto"; 
+    echo $_SESSION['rol'];
+  } else { 
+    echo "hola";
+    header('Location: login.html');
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +31,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Inicio</a>
+    <a class="navbar-brand" href="index.php">Inicio</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,22 +44,22 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
           <li>
-              <a href="bienvenida-especial-agregar.html">Bienvenida Especial</a>
+              <a href="bienvenida-especial-agregar.php">Bienvenida Especial</a>
             </li>
             <li>
-              <a href="amazing-race-agregar.html">Retiros Amazing Race</a>
+              <a href="amazing-race-agregar.php">Retiros Amazing Race</a>
             </li>
             <li>
               <li class="active">
-              <a href="celulas-nice-agregar.html">Células NICE</a>
+              <a href="celulas-nice-agregar.php">Células NICE</a>
             </li>
             <li>
-              <a href="conferencia-especial-agregar.html">Conferencia Especial</a>
+              <a href="conferencia-especial-agregar.php">Conferencia Especial</a>
             </li>
           </ul>
         </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="archivos.html">
+          <a class="nav-link" href="archivos.php">
             <i class="fa fa-suitcase" aria-hidden="true"></i>
             <span class="nav-link-text">Archivos</span>
           </a>
@@ -61,16 +71,16 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseReportes">
             <li>
-              <a href="reporte-bienvenida.html">Bienvenida Especial</a>
+              <a href="reporte-bienvenida.php">Bienvenida Especial</a>
             </li>
             <li>
-              <a href="reporte-amazing.html">Retiros Amazing Race</a>
+              <a href="reporte-amazing.php">Retiros Amazing Race</a>
             </li>
             <li>
-              <a href="reporte-nice.html">Células NICE</a>
+              <a href="reporte-nice.php">Células NICE</a>
             </li>
             <li>
-              <a href="reporte-conferencia.html">Conferencias Especiales</a>
+              <a href="reporte-conferencia.php">Conferencias Especiales</a>
             </li>
           </ul>
         </li>
@@ -95,7 +105,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-        <a href="celulas-nice-agregar.html">Agregar Nuevo Registro</a>
+        <a href="celulas-nice-agregar.php">Agregar Nuevo Registro</a>
         </li>
       </ol>
         <!-- Inicio de la tabla de datos -->

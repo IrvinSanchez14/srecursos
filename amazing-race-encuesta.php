@@ -1,4 +1,13 @@
-
+<?php 
+  session_start();
+  if (! empty($_SESSION["rol"]) && $_SESSION["rol"] === '1') { 
+    echo "Estas logueado y por eso ves esto"; 
+    echo $_SESSION['rol'];
+  } else { 
+    echo "hola";
+    header('Location: login.html');
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,53 +17,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Inicio - Secretaria de Asuntos Espirituales</title>
+  <title>Amazing Race Registros - Secretaria de Asuntos Espirituales</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/hover-index.css">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-  <!-- Barra de Navegacion-->
+  <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Inicio</a>
+    <a class="navbar-brand" href="index.php">Inicio</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item act_ss" data-toggle="tooltip" data-placement="right" title="Actividades">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-sitemap"></i>
+            <span class="nav-link-text">Actividades</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+          <li>
+              <a href="bienvenida-especial-agregar.php">Bienvenida Especial</a>
+            </li>
+            <li>
+              <li class="active">
+              <a href="amazing-race-agregar.php">Retiros Amazing Race</a>
+            </li>
+            <li>
+              <a href="celulas-nice-agregar.php">Células NICE</a>
+            </li>
+            <li>
+              <a href="conferencia-especial-agregar.php">Conferencia Especial</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="solicitud-actividadnueva.html">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="archivos.php">
             <i class="fa fa-suitcase" aria-hidden="true"></i>
             <span class="nav-link-text">Archivos</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reportes">
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reportes">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseReportes" data-parent="#exampleAccordion">
-            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Reportes</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseReportes">
             <li>
-              <a href="reporte-bienvenida.html">Bienvenida Especial</a>
+              <a href="reporte-bienvenida.php">Bienvenida Especial</a>
             </li>
             <li>
-              <a href="reporte-amazing.html">Retiros Amazing Race</a>
+              <a href="reporte-amazing.php">Retiros Amazing Race</a>
             </li>
             <li>
-              <a href="reporte-nice.html">Células NICE</a>
+              <a href="reporte-nice.php">Células NICE</a>
             </li>
             <li>
-              <a href="reporte-conferencia.html">Conferencias Especiales</a>
+              <a href="reporte-conferencia.php">Conferencias Especiales</a>
             </li>
           </ul>
         </li>
@@ -69,81 +95,69 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Cerrar Sesion</a>
+            <i class="fa fa-fw fa-sign-out"></i>Cerrar Sesión</a>
         </li>
       </ul>
     </div>
   </nav>
   <div class="content-wrapper">
     <div class="container-fluid">
-<!--Inicio de formulario-->
+      <!-- Breadcrumbs-->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="amazing-race-agregar.php">Agregar Nuevo Registro</a></li>
+          <li class="breadcrumb-item"><a href="amazing-race.php">Ver registros  actuales de Amazing Race</a></li>
+          <li class="breadcrumb-item"><a href="amazing-race-agregar-encuesta.php">Agregar Nuevo Registro de Encuesta</a></li>
+          <li class="breadcrumb-item" aria-current="page">Ver registros  actuales de las Encuestas</li>
+        </ol>
+      </nav>
+        <!-- Inicio de la tabla de datos -->
+              <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Registros Agregados de Amazing Race</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable_Enc" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Instlaciones</th>
+                  <th>Dinámicas</th>
+                  <th>Conferencia</th>
+                  <th>Alimentación</th>
+                  <th>Talleres</th>
+                  <th>Atención del lugar</th>
+                  <th>Transporte</th>
+                  <th>Modificar</th>
+                  <th>Eliminar</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Instlaciones</th>
+                  <th>Dinámicas</th>
+                  <th>Conferencia</th>
+                  <th>Alimentación</th>
+                  <th>Talleres</th>
+                  <th>Atención del lugar</th>
+                  <th>Transporte</th>
+                  <th>Modificar</th>
+                  <th>Eliminar</th>
+                </tr>
+              </tfoot>
 
-<div class="card text-center">
-  <div class="card-header">
-   <h4>Gestor de archivos</h4>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title"></h5>
-
-    <!-- Formulario Guardar archivo -->
-<!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Agregar Archivo
-      </button>
-
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Agrege un archivo</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">        
-            <form id="uploadimage" action="" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                        <label for="exampleFormControlFile1"></label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                </div>
-                <label id="messageErr"></label>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <button type="submit" id="uploadButton" class="btn btn-primary">Guardar Archivo</button>
-            </div>
-          </form>
+            </table>
           </div>
         </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
-    <!-- Formulario Guardar archivo -->
-<p>
-
-    <table class="table" id="dataTable_bEspecial">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre archivo</th>
-      <th scope="col">Tamaño</th>
-      <th scope="col">Fecha subido</th>
-      <th scope="col">Descargar</th>
-      <th scope="col">Eliminar</th>
-    </tr>
-  </thead>
-
-</table>
-  </div>
-</div>
-
-<!--Fin de formulario-->
-
+        <!-- Final de la tabla de datos-->
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small></small>
+          <small>Copyright © Your Website 2018</small>
         </div>
       </div>
     </footer>
@@ -183,7 +197,8 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-    <script src="js/archivos.js"></script>
+    <script src="js/tableEnc.js"></script>
   </div>
 </body>
+
 </html>
