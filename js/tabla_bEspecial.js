@@ -2,49 +2,9 @@ $(document).ready(function(){
 
     watchTable();
 
+    function modal (result) {
 
-
-
-    function watchTable() {
-
-        $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/bEspecial.php",
-            type : "POST",
-            contentType : 'application/json',
-            success : function(result) {
-                console.log(result)
-                $.each(result.records, function(k,v){
-                    let html = '<tbody><tr>';
-                    
-                    html += '<td>'+ v.nombre_alumno+'</td>';
-                    html += '<td>'+ v.cif + '</td>';
-                    html += '<td>' + v.fecha + '</td>';
-                    html += '<td>' + v.email + '</td>';
-                    html += '<td>' + v.telefono + '</td>';
-                    html += '<td>' + v.facebook + '</td>';
-                    html += '<td>' + v.expectativas + '</td>';
-                    html += '<td>' + v.ideas + '</td>';
-                    html += '<td>' + v.asistencia + '</td>';
-                    html += '<td>' + v.nombre_iglesia + '</td>';
-                    html += '<td>' + v.anios_es + '</td>';
-                    html += '<td><button data-toggle="modal type="button" class="edit btn btn-success" id_alumno="'+v.id_alumno+'" data-target=".bs-example-modal-lg">Modificar</button></td>';
-                    html += '<td><button type="button" class="btn btn-danger">Eliminar</button></td>';
-
-                    $('#dataTable_bEspecial').append(html);
-
-
-                });
-
-                $('.edit').click(function(event){
-                    let id_alumno = $(this).attr('id_alumno');
-                    console.log(id_alumno);
-                    $.ajax({
-                        url: "http://localhost/api-sreportes/alumnos/editBe.php?id_alumno="+id_alumno,
-                        type : "GET",
-                        contentType : 'application/json',
-                        success : function(result) {
-                            console.log(result);
-                            let modal = '';
+        let modal = '';
                             modal += '<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> ';
                             modal += '<div class="modal-dialog modal-lg">';
                             modal += '  <div class="modal-content">';
@@ -55,11 +15,11 @@ $(document).ready(function(){
                             modal += '      </button>';
                             modal += '    </div>';
                             modal += '    <div class="modal-body">';        
-                            modal += '      <form>  ';
+                            modal += '      <form onsubmit="hola(this)" id="create-alumn-form" action="#" method="POST">  ';
                             modal += '          <div class="form-row">';
                             modal += '          <div class="form-group col-md-4">';
                             modal += '            <label for="inputNombre1">Nombre del estudiante</label>';
-                            modal += '            <input type="text"  maxlength="50" class="form-control" id="inputNombre1" value="'+result.nombre_alumno+'">';
+                            modal += '            <input type="text"  maxlength="50" class="form-control" id="inputNombre1" name="nombre_alumno" value="'+result.nombre_alumno+'">';
                             modal += '          </div>';
                             modal += '            <div class="form-group col-md-4">';
                             modal += '                <label for="inputcarnet1">CIF</label>';
@@ -137,24 +97,81 @@ $(document).ready(function(){
                             modal += '              <input type="text"  maxlength="2" class="form-control" id="inputAnos" value="'+result.anios_es+'">';
                             modal += '            </div>';
                             modal += '          </div>';
-                            modal += '      </form>';
                             modal += '    </div>';
                             modal += '    <div class="modal-footer">';
-                            modal += '      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>';
-                            modal += '      <button type="button" class="btn btn-primary">Guardar</button>';
+                            modal += '      <button onclick="cerrar();" type="button" class="btn btn-secondary" >Cancelar</button>';
+                            modal += '      <input onclick="hola();"  type="submit" id="save" class="save btn btn-primary">Guardar</button>';
+                            modal += '      </form>';
                             modal += '    </div>';
                             modal += '  </div>';
                             modal += ' </div>';
                             modal += ' </div>';
-                            $(modal).modal('show');
+                            return modal;
+
+    }
+
+    function button () {
+
+    }
+
+
+    function watchTable() {
+
+        $.ajax({
+            url: "http://localhost/api-sreportes/alumnos/bEspecial.php",
+            type : "POST",
+            contentType : 'application/json',
+            success : function(result) {
+                console.log(result)
+                $.each(result.records, function(k,v){
+                    let html = '<tbody><tr>';
+                    
+                    html += '<td>'+ v.nombre_alumno+'</td>';
+                    html += '<td>'+ v.cif + '</td>';
+                    html += '<td>' + v.fecha + '</td>';
+                    html += '<td>' + v.email + '</td>';
+                    html += '<td>' + v.telefono + '</td>';
+                    html += '<td>' + v.facebook + '</td>';
+                    html += '<td>' + v.expectativas + '</td>';
+                    html += '<td>' + v.ideas + '</td>';
+                    html += '<td>' + v.asistencia + '</td>';
+                    html += '<td>' + v.nombre_iglesia + '</td>';
+                    html += '<td>' + v.anios_es + '</td>';
+                    html += '<td><button data-toggle="modal type="button" class="edit btn btn-success" id_alumno="'+v.id_alumno+'" data-target=".bs-example-modal-lg">Modificar</button></td>';
+                    html += '<td><button type="button" class="btn btn-danger">Eliminar</button></td>';
+
+                    $('#dataTable_bEspecial').append(html);
+
+
+                });
+
+                $('.edit').click(function(event){
+                    let id_alumno = $(this).attr('id_alumno');
+                    console.log(id_alumno);
+                    $.ajax({
+                        url: "http://localhost/api-sreportes/alumnos/editBe.php?id_alumno="+id_alumno,
+                        type : "GET",
+                        contentType : 'application/json',
+                        success : function(result) {
+                            var i = modal(result);
+                            
+                            var o = $(i).modal('show');
+                            console.log(o.length);
+                            if(o.length != 0) {
+
+
+                            }
 
                         },
                         error: function(xhr, resp, text) {
                             // show error to console
                             console.log(xhr, resp, text);
                         }
+                        
                     });
                 });
+
+
 
             },
             error: function(xhr, resp, text) {
@@ -163,7 +180,9 @@ $(document).ready(function(){
             }
         });
 
+
     }
+
 
 
 
