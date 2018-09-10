@@ -29,7 +29,7 @@ $(document).ready(function(){
     function watchTable() {
 
         $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/bEspecial.php",
+            url: "http://173.255.192.4/api-sreportes/alumnos/bEspecial.php",
             type : "POST",
             contentType : 'application/json',
             success : function(result) {
@@ -60,7 +60,7 @@ $(document).ready(function(){
                     let id_alumno = $(this).attr('id_alumno');
                     console.log(id_alumno);
                    $.ajax({
-                        url: "http://localhost/api-sreportes/alumnos/editBe.php?id_alumno="+id_alumno,
+                        url: "http://173.255.192.4/api-sreportes/alumnos/editBe.php?id_alumno="+id_alumno,
                         type : "GET",
                         contentType : 'application/json',
                         success : function(result) {
@@ -142,7 +142,7 @@ $(document).ready(function(){
                     data.id_alumno= id_alumno;
                     var realData = JSON.stringify(data);
                     $.ajax({
-                        url: "http://localhost/api-sreportes/alumnos/deleteID.php",
+                        url: "http://173.255.192.4/api-sreportes/alumnos/deleteID.php",
                         type : "POST",
                         contentType : 'application/json',
                         data : realData,
@@ -165,7 +165,7 @@ $(document).ready(function(){
                     data.id_alumno= id_alumno;
                     var realData = JSON.stringify(data);
                     $.ajax({
-                        url: "http://localhost/api-sreportes/alumnos/update.php",
+                        url: "http://173.255.192.4/api-sreportes/alumnos/update.php",
                         type : "POST",
                         contentType : 'application/json',
                         data : realData,

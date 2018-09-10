@@ -23,7 +23,7 @@ $(document).ready(function(){
         let realData = JSON.stringify(data);
         console.log(data.username)
         $.ajax({
-            url: "http://localhost/api-sreportes/login/search.php?username="+data.username+"&pass="+data.pass,
+            url: "http://173.255.192.4/api-sreportes/login/search.php?username="+data.username+"&pass="+data.pass,
             type : "GET",
             contentType : 'application/json',
             success : function(result) {

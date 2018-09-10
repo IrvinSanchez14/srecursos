@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     $.ajax({
-        url: "http://localhost/api-sreportes/factura/read.php",
+        url: "http://173.255.192.4/api-sreportes/factura/read.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {

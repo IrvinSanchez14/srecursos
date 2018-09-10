@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     $.ajax({
-        url: "http://localhost/api-sreportes/conf_arg/table_conf.php",
+        url: "http://173.255.192.4/api-sreportes/conf_arg/table_conf.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {

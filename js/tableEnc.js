@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     $.ajax({
-        url: "http://localhost/api-sreportes/enc_sat/tableEnc.php",
+        url: "http://173.255.192.4/api-sreportes/enc_sat/tableEnc.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
