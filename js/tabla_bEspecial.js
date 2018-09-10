@@ -1,118 +1,29 @@
 $(document).ready(function(){
 
+    $.fn.serializeObject = function() {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+
     watchTable();
 
-    function modal (result) {
 
-        let modal = '';
-                            modal += '<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> ';
-                            modal += '<div class="modal-dialog modal-lg">';
-                            modal += '  <div class="modal-content">';
-                            modal += '    <div class="modal-header">';
-                            modal += '      <h5 class="modal-title" id="exampleModalCenterTitle">Modificar campos</h5>';
-                            modal += '      <button type="button" class="close" data-dismiss="modal" aria-label="Close">';
-                            modal += '        <span aria-hidden="true">&times;</span>';
-                            modal += '      </button>';
-                            modal += '    </div>';
-                            modal += '    <div class="modal-body">';        
-                            modal += '      <form onsubmit="hola(this)" id="create-alumn-form" action="#" method="POST">  ';
-                            modal += '          <div class="form-row">';
-                            modal += '          <div class="form-group col-md-4">';
-                            modal += '            <label for="inputNombre1">Nombre del estudiante</label>';
-                            modal += '            <input type="text"  maxlength="50" class="form-control" id="inputNombre1" name="nombre_alumno" value="'+result.nombre_alumno+'">';
-                            modal += '          </div>';
-                            modal += '            <div class="form-group col-md-4">';
-                            modal += '                <label for="inputcarnet1">CIF</label>';
-                            modal += '                <input type="text"  maxlength="10" class="form-control" id="inputcarnet1" value="'+result.cif+'">';
-                            modal += '              </div>';
-                            modal += '            <div class="form-group col-md-4">';
-                            modal += '                <label for="inputaño1">Año en que se realiza la actividad</label>';
-                            modal += '                <input type="text"  maxlength="10" class="form-control" id="inputaño1" value="'+result.fecha+'">';
-                            modal += '            </div>';
-                            modal += '          </div> ';
-                            modal += '            <div class="form-row">';
-                            modal += '            <div class="form-group col-md-4">';
-                            modal += '              <label for="inputEmail4">Correo Electrónico</label>';
-                            modal += '              <input type="email" maxlength="50" class="form-control" id="inputEmail4" value="'+result.email+'">';
-                            modal += '            </div>';
-                            modal += '            <div class="form-group col-md-4">';
-                            modal += '              <label for="inputTel4">Teléfono</label>';
-                            modal += '              <input type="text"  maxlength="8" class="form-control" id="inputTel4" value="'+result.telefono+'">';
-                            modal += '            </div>';
-                            modal += '            <div class="form-group col-md-4">';
-                            modal += '              <label for="inputCarrera">Facultad</label>';
-                            modal += '              <select id="inputCarrera" class="form-control">';
-                            modal += '                <option>Seleccione una Facultad</option>';
-                            modal += '                <option selected>Ingeniería en Sistemas Computacionales</option>';
-                            modal += '                <option>Medicina</option>';
-                            modal += '                <option>Odontología</option>';
-                            modal += '                <option>Ciencias Empresariales y Económicas</option>';
-                            modal += '                <option>Ciencias Sociales</option>';
-                            modal += '                <option>Ciencias Jurídicas</option>';
-                            modal += '              </select>';
-                            modal += '              </div>';
-                            modal += '            </div>';
-                            modal += '              <div class="form-row">';
-                            modal += '              <div class="form-group col-md-4">';
-                            modal += '                <label for="inputFacebook">Facebook</label>';
-                            modal += '                <input type="text"  maxlength="50" class="form-control" id="inputFacebook" value="'+result.facebook+'">';
-                            modal += '              </div>';
-                            modal += '              <div class="form-group col-md-4">';
-                            modal += '                <label for="inputExpectativa">Expectativas sobre futuras actividades de SAE</label>';
-                            modal += '                <input type="text"  maxlength="250" class="form-control" id="inputExpectativa" value="'+result.expectativas+'">';
-                            modal += '              </div>';
-                            modal += '              <div class="form-group col-md-4">';
-                            modal += '                <label for="inputIdeas">Ideas aportadas por el estudiante</label>';
-                            modal += '                <input type="text"  maxlength="250" class="form-control" id="inputIdeas" value="'+result.ideas+'">';
-                            modal += '              </div>';
-                            modal += '              </div>';
-                            modal += '        <div class="form-row">';
-                            modal += '            <div class="form-group col-md-4">';
-                            modal += '              <fieldset class="form-group">';
-                            modal += '            <div class="row">';
-                            modal += '              <legend class="col-form-label col-md-8 ">¿El estudiante asiste a una iglesia?</legend>';
-                            modal += '              <div class="col-sm-10">';
-                            modal += '                <div class="form-check">';
-                            modal += '                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>';
-                            modal += '                  <label class="form-check-label" for="gridRadios1">';
-                            modal += '                    Si asiste';
-                            modal += '                  </label>';
-                            modal += '                </div>';
-                            modal += '                <div class="form-check">';
-                            modal += '                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">';
-                            modal += '                  <label class="form-check-label" for="gridRadios2">';
-                            modal += '                    No asiste';
-                            modal += '                  </label>';
-                            modal += '                </div>';
-                            modal += '              </div>';
-                            modal += '            </div>';
-                            modal += '          </fieldset>';
-                            modal += '            </div>';
-                            modal += '            <div class="form-group col-md-4">';
-                            modal += '              <label for="inputNombre1">Nombre de la iglesia</label>';
-                            modal += '            <input type="text" class="form-control" id="inputNombre1" value="'+result.nombre_iglesia+'">';
-                            modal += '            </div>';
-                            modal += '            <div class="form-group col-md-4">';
-                            modal += '              <label for="inputAno">Años asistidos</label>';
-                            modal += '              <input type="text"  maxlength="2" class="form-control" id="inputAnos" value="'+result.anios_es+'">';
-                            modal += '            </div>';
-                            modal += '          </div>';
-                            modal += '    </div>';
-                            modal += '    <div class="modal-footer">';
-                            modal += '      <button onclick="cerrar();" type="button" class="btn btn-secondary" >Cancelar</button>';
-                            modal += '      <input onclick="hola();"  type="submit" id="save" class="save btn btn-primary">Guardar</button>';
-                            modal += '      </form>';
-                            modal += '    </div>';
-                            modal += '  </div>';
-                            modal += ' </div>';
-                            modal += ' </div>';
-                            return modal;
 
-    }
+    $("#myModal").on('hidden.bs.modal', function(){
+        $("#select-fac").empty();
+    });
 
-    function button () {
-
-    }
 
 
     function watchTable() {
@@ -137,8 +48,8 @@ $(document).ready(function(){
                     html += '<td>' + v.asistencia + '</td>';
                     html += '<td>' + v.nombre_iglesia + '</td>';
                     html += '<td>' + v.anios_es + '</td>';
-                    html += '<td><button data-toggle="modal type="button" class="edit btn btn-success" id_alumno="'+v.id_alumno+'" data-target=".bs-example-modal-lg">Modificar</button></td>';
-                    html += '<td><button type="button" class="btn btn-danger">Eliminar</button></td>';
+                    html += '<td><button data-toggle="modal" data-target="#myModal" type="button" class="edit btn btn-success" id_alumno="'+v.id_alumno+'">Modificar</button></td>';
+                    html += '<td><button type="button" class="delete btn btn-danger" id="'+v.id_alumno+'">Eliminar</button></td>';
 
                     $('#dataTable_bEspecial').append(html);
 
@@ -148,20 +59,73 @@ $(document).ready(function(){
                 $('.edit').click(function(event){
                     let id_alumno = $(this).attr('id_alumno');
                     console.log(id_alumno);
-                    $.ajax({
+                   $.ajax({
                         url: "http://localhost/api-sreportes/alumnos/editBe.php?id_alumno="+id_alumno,
                         type : "GET",
                         contentType : 'application/json',
                         success : function(result) {
-                            var i = modal(result);
-                            
-                            var o = $(i).modal('show');
-                            console.log(o.length);
-                            if(o.length != 0) {
-
-
+                            $('#nombre_alumno').val(result.nombre_alumno);
+                            $('#cif').val(result.cif);
+                            $('#fecha').val(result.fecha);
+                            $('#email').val(result.email);
+                            $('#telefono').val(result.telefono);
+                  
+                            if (result.id_facultad == 1) {
+                                $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
+                                $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ingeniería en Sistemas Computacionales</option></select>');
+                                $('#id_facultad').append('<option value="2" >Medicina</option></select>');
+                                $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
+                                $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
+                                $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
+                                $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
+                            } else if (result.id_facultad == 2) {
+                                $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
+                                $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
+                                $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Medicina</option></select>');
+                                $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
+                                $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
+                                $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
+                                $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
+                            } else if (result.id_facultad == 3) {
+                                $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
+                                $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
+                                $('#id_facultad').append('<option value="2" >Medicina</option></select>');
+                                $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Odontologia</option></select>');
+                                $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
+                                $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
+                                $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
+                            } else if (result.id_facultad == 4) {
+                                $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
+                                $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
+                                $('#id_facultad').append('<option value="2" >Medicina</option></select>');
+                                $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
+                                $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ciencias Empresariales y Economicas</option></select>');
+                                $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
+                                $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
+                            } else if (result.id_facultad == 5) {
+                                $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
+                                $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
+                                $('#id_facultad').append('<option value="2" >Medicina</option></select>');
+                                $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
+                                $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
+                                $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ciencias Sociales</option></select>');
+                                $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
+                            } else {
+                                $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
+                                $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
+                                $('#id_facultad').append('<option value="2" >Medicina</option></select>');
+                                $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
+                                $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
+                                $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
+                                $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ciencias Juridicas</option></select>');
                             }
-
+                            $('#facebook').val(result.facebook);
+                            $('#expectativas').val(result.expectativas);
+                            $('#ideas').val(result.ideas);
+                            $('#asistencia').val(result.asistencia);
+                            $('#nombre_iglesia').val(result.nombre_iglesia);
+                            $('#anios_es').val(result.anios_es);
+                            $('#create-alumn-form').attr('id_alumno', id_alumno);
                         },
                         error: function(xhr, resp, text) {
                             // show error to console
@@ -171,8 +135,53 @@ $(document).ready(function(){
                     });
                 });
 
+                $('.delete').click(function (event) {
+                    let id_alumno = $(this).attr('id');
+                    event.preventDefault();
+                    var data = $(this).serializeObject();
+                    data.id_alumno= id_alumno;
+                    var realData = JSON.stringify(data);
+                    $.ajax({
+                        url: "http://localhost/api-sreportes/alumnos/deleteID.php",
+                        type : "POST",
+                        contentType : 'application/json',
+                        data : realData,
+                        success : function(result) {
+                            console.log('great');
+                            location.reload();
+                        },
+                        error: function(xhr, resp, text) {
+                            // show error to console
+                            console.log(xhr, resp, text);
+                        }
+                    });
+                });
 
-
+                    
+                $('#create-alumn-form').submit(function(event){
+                    event.preventDefault();
+                    let id_alumno = $(this).attr('id_alumno');
+                    var data = $(this).serializeObject();
+                    data.id_alumno= id_alumno;
+                    var realData = JSON.stringify(data);
+                    $.ajax({
+                        url: "http://localhost/api-sreportes/alumnos/update.php",
+                        type : "POST",
+                        contentType : 'application/json',
+                        data : realData,
+                        success : function(result) {
+                            console.log('great');
+                            $("#select-fac").empty();
+                            $('#myModal').modal('toggle');
+                            location.reload();
+                        },
+                        error: function(xhr, resp, text) {
+                            // show error to console
+                            console.log(xhr, resp, text);
+                        }
+                    });
+                    console.log(id_alumno);
+                });
             },
             error: function(xhr, resp, text) {
                 // show error to console

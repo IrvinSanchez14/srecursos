@@ -128,7 +128,7 @@
       </div>
     <div class="form-group col-md-6">
         <label for="inputaño1">Año en que se realiza la actividad</label>
-        <input type="text"  maxlength="10" class="form-control" id="inputaño1" placeholder="2018">
+        <input type="text"  maxlength="10" class="form-control" id="inputaño1" name="fecha" placeholder="2018">
     </div>
   </div>
 <div id="text"></div>

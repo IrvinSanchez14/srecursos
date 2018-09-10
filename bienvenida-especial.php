@@ -190,6 +190,99 @@
 
   </div>
 </div>
+
+                             <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> 
+                             <div class="modal-dialog modal-lg">
+                               <div class="modal-content">
+                                 <div class="modal-header">  
+                                   <h5 class="modal-title" id="exampleModalCenterTitle">Modificar campos</h5>
+                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                     <span aria-hidden="true">&times;</span>
+                                   </button>
+                                 </div>
+                                 <div class="modal-body">
+                                   <form id="create-alumn-form" action="#" method="POST">  
+                                       <div class="form-row">  
+                                       <div class="form-group col-md-4">  
+                                         <label for="inputNombre1">Nombre del estudiante</label>  
+                                         <input type="text"  maxlength="50" class="form-control" id="nombre_alumno" name="nombre_alumno" >  
+                                       </div>  
+                                         <div class="form-group col-md-4">  
+                                             <label for="inputcarnet1">CIF</label>  
+                                             <input type="text"  maxlength="10" class="form-control" id="cif" name="cif" >  
+                                           </div>  
+                                         <div class="form-group col-md-4">  
+                                             <label for="inputaño1">Año en que se realiza la actividad</label>  
+                                             <input type="text"  maxlength="10" class="form-control" id="fecha" name="fecha" >  
+                                         </div>  
+                                       </div>   
+                                         <div class="form-row">  
+                                         <div class="form-group col-md-4">  
+                                           <label for="inputEmail4">Correo Electrónico</label>  
+                                           <input type="email" maxlength="50" class="form-control" id="email" name="email" >  
+                                         </div>  
+                                         <div class="form-group col-md-4">  
+                                           <label for="inputTel4">Teléfono</label>  
+                                           <input type="text"  maxlength="8" class="form-control" id="telefono" name="telefono" >  
+                                         </div>  
+                                        <div class="form-group col-md-4" id="select-fac">  
+ 
+                                           </div>  
+                                         </div>  
+                                           <div class="form-row">  
+                                           <div class="form-group col-md-4">  
+                                             <label for="inputFacebook">Facebook</label>  
+                                             <input type="text"  maxlength="50" class="form-control" id="facebook" name="facebook" >  
+                                           </div>  
+                                           <div class="form-group col-md-4">  
+                                             <label for="inputExpectativa">Expectativas sobre futuras actividades de SAE</label>  
+                                             <input type="text"  maxlength="250" class="form-control" id="expectativas" name="expectativas" >  
+                                           </div>  
+                                           <div class="form-group col-md-4">  
+                                             <label for="inputIdeas">Ideas aportadas por el estudiante</label>  
+                                             <input type="text"  maxlength="250" class="form-control" id="ideas" name="ideas" >  
+                                           </div>  
+                                           </div>  
+                                     <div class="form-row">  
+                                         <div class="form-group col-md-4">  
+                                           <fieldset class="form-group">  
+                                         <div class="row">  
+                                           <legend class="col-form-label col-md-8 ">¿El estudiante asiste a una iglesia?</legend>  
+                                           <div class="col-sm-10">  
+                                             <div class="form-check">  
+                                               <input class="form-check-input" type="radio" name="asistencia" id="asistencia" value="option1" checked>  
+                                               <label class="form-check-label" for="gridRadios1">  
+                                                 Si asiste  
+                                               </label>  
+                                             </div>  
+                                             <div class="form-check">  
+                                               <input class="form-check-input" type="radio" name="asistencia" id="asistencia" value="option2">  
+                                               <label class="form-check-label" for="gridRadios2">  
+                                                 No asiste  
+                                               </label>  
+                                             </div>  
+                                           </div>  
+                                         </div>  
+                                       </fieldset>  
+                                         </div>  
+                                         <div class="form-group col-md-4">  
+                                           <label for="inputNombre1">Nombre de la iglesia</label>  
+                                         <input type="text" class="form-control" id="nombre_iglesia" name="nombre_iglesia" >  
+                                         </div>  
+                                         <div class="form-group col-md-4">  
+                                           <label for="inputAno">Años asistidos</label>  
+                                           <input type="text"  maxlength="2" class="form-control" id="anios_es" name="anios_es" >  
+                                         </div>  
+                                       </div>  
+                                 </div>  
+                                 <div class="modal-footer">  
+                                   <button onclick="" type="button" class="btn btn-secondary" >Cancelar</button>  
+                                   <button  type="submit" id="save" class="save btn btn-primary">Guardar</button>  
+                                   </form>  
+                                 </div>  
+                               </div>  
+                              </div>  
+</div>  
 <script>
 
                                   </script>

@@ -61,6 +61,80 @@ $(document).ready(function(){
         });
     }
 
+    $("input[name='nombre_alumno']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        console.log(inputValue)
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
+      $("input[name='nombre_iglesia']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
+      $("input[name='facebook']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
+      $("input[name='expectativas']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
+      $("input[name='ideas']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
+      $("input[name='cif']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      $("input[name='fecha']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      $("input[name='telefono']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      $("input[name='anios_es']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
     $('#add_alumno').submit(function(event){
         event.preventDefault();
         var data = $(this).serializeObject();
@@ -108,61 +182,66 @@ $(document).ready(function(){
         var realData = JSON.stringify(data);
         console.log(data);
         //add alumno
-        $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-        //add alumn_extra
-        $.ajax({
-            url: "http://localhost/api-sreportes/alum_extra/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-
-        $.ajax({
-            url: "http://localhost/api-sreportes/coment_act/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-
-        $.ajax({
-            url: "http://localhost/api-sreportes/iglesia_est/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
+        if ($.trim($("input[name='nombre_alumno']").val()) === "") {
+            $("input[name='nombre_alumno']").css("border", "5px solid red");
+            alert("ERROR: Nombre Alumno no puede estar vacio");
+        } else {
+            $.ajax({
+                url: "http://localhost/api-sreportes/alumnos/create.php",
+                type : "POST",
+                contentType : 'application/json',
+                data : realData,
+                success : function(result) {
+                    console.log('great');
+                },
+                error: function(xhr, resp, text) {
+                    // show error to console
+                    console.log(xhr, resp, text);
+                }
+            });
+            //add alumn_extra
+            $.ajax({
+                url: "http://localhost/api-sreportes/alum_extra/create.php",
+                type : "POST",
+                contentType : 'application/json',
+                data : realData,
+                success : function(result) {
+                    console.log('great');
+                },
+                error: function(xhr, resp, text) {
+                    // show error to console
+                    console.log(xhr, resp, text);
+                }
+            });
+    
+            $.ajax({
+                url: "http://localhost/api-sreportes/coment_act/create.php",
+                type : "POST",
+                contentType : 'application/json',
+                data : realData,
+                success : function(result) {
+                    console.log('great');
+                },
+                error: function(xhr, resp, text) {
+                    // show error to console
+                    console.log(xhr, resp, text);
+                }
+            });
+    
+            $.ajax({
+                url: "http://localhost/api-sreportes/iglesia_est/create.php",
+                type : "POST",
+                contentType : 'application/json',
+                data : realData,
+                success : function(result) {
+                    console.log('great');
+                },
+                error: function(xhr, resp, text) {
+                    // show error to console
+                    console.log(xhr, resp, text);
+                }
+            });
+        }
 
     });
 

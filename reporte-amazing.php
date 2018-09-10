@@ -112,7 +112,7 @@
   <div class="content-wrapper">
     <div class="container-fluid">  
         <!--Inicio de los formularios -->
-        <center><h1>Registro de participantes en Amazing Race</h1></center>
+        <center><h1>Registro de participantes en Amazing Race</h1></center><button type="button" id="down">descargar</button>
 <br>
     <center>
           <div class="container"> 
@@ -136,7 +136,7 @@
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
-        
+
       </div>
     </footer>
     <!-- Scroll to Top Button-->
@@ -175,6 +175,10 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
+    <script src="js/jspdf.js"></script>
+    <script src="js/jspdf.debug.js"></script>
+    <script src="js/jspdf.min.js"></script>
+    <script src="js/jspdf.plugin.autotable.js"></script>
     <script src="js/graficas.js"></script>
 
     <!--script to pie chart-->
