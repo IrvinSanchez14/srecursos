@@ -18,15 +18,15 @@ $(document).ready(function(){
 
 
   
-  if (window.location.href === 'http://173.255.192.4/srecursos/reporte-conferencia.php') {
+  if (window.location.href === 'http://localhost/srecursos/reporte-conferencia.php') {
     dataBarCFE();
     dartaPieCFE();
-  } else if (window.location.href === 'http://173.255.192.4/srecursos/reporte-bienvenida.php') {
+  } else if (window.location.href === 'http://localhost/srecursos/reporte-bienvenida.php') {
     dataBar();
     dartaPie();
-  } else if (window.location.href === 'http://173.255.192.4/srecursos/reporte-amazing.php') {
+  } else if (window.location.href === 'http://localhost/srecursos/reporte-amazing.php') {
     dataBarAmz();
-  } else if (window.location.href === 'http://173.255.192.4/srecursos/reporte-nice.php') {
+  } else if (window.location.href === 'http://localhost/srecursos/reporte-nice.php') {
     dataBarNice();
   } 
   else {
@@ -34,8 +34,8 @@ $(document).ready(function(){
   }
 
   function dataBar() {
-
     var label = [];
+    var tabla = [];
     var sum = 0;
     $.ajax({
         url: "http://173.255.192.4/api-sreportes/coment_act/readChar.php",
@@ -48,18 +48,31 @@ $(document).ready(function(){
                     name : v.nombre_fac,
                     num : v.numero
                 });
+                tabla.push([
+                  v.nombre_fac,
+                v.numero
+              ]);
             });
-            var myLineChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                labels: [label[0].name, label[1].name, label[2].name, label[3].name],
-                datasets: [{
-                    label: "Revenue",
-                    backgroundColor: "rgba(2,117,216,1)",
-                    borderColor: "rgba(2,117,216,1)",
-                    data: [label[0].num, label[1].num, label[2].num, label[3].num],
-                }],
-  },
+            console.log('LABEL',label.length);
+            let texto = [];
+            let i;
+            let speedData = {
+              labels: [],
+              datasets: [{
+                label: "Revenue",
+                backgroundColor: "rgba(2,117,216,1)",
+                borderColor: "rgba(2,117,216,1)",
+                data: [],
+              }]
+            };
+            for (i = 0; i < label.length; i++) {
+              speedData.labels.push(label[i].name);
+              speedData.datasets[0].data.push(label[i].num);
+            }
+            console.log('TEXT', speedData)
+          var myLineChart = new Chart(ctx, {
+              type: 'bar',
+              data: speedData,
   options: {
     scales: {
       xAxes: [{
@@ -101,6 +114,8 @@ $(document).ready(function(){
 
   function dartaPie() {
     var label = [];
+    var tabla = [];
+    var sum = 0;
     $.ajax({
         url: "http://173.255.192.4/api-sreportes/iglesia_est/asistenciaBv.php",
         type : "POST",
@@ -110,16 +125,30 @@ $(document).ready(function(){
                 label.push({
                     res : v.resultado
                 });
+                tabla.push([
+                  v.nombre_fac,
+                v.numero
+              ]);
             });
+            console.log('LABEL',label.length);
+            let texto = [];
+            let i;
+            let speedData = {
+              labels: ["Asisten", "No Asisten"],
+                datasets: [{
+                  data: [],
+                  backgroundColor: ['#007bff', '#dc3545'],
+                }],
+              };
+
+
+            for (i = 0; i < label.length; i++) {
+              speedData.datasets[0].data.push(label[i].num);
+            }
+            console.log('PIE', speedData)
             var myPieChart = new Chart(ctxp, {
               type: 'pie',
-              data: {
-                labels: ["Asisten", "No Asisten"],
-                datasets: [{
-                data: [label[0].res, label[1].res],
-                backgroundColor: ['#007bff', '#dc3545'],
-              }],
-              },
+              data: speedData,
             });
         },
         error: function(xhr, resp, text) {
@@ -250,9 +279,9 @@ $(document).ready(function(){
               ]);
             });
               console.log('LABEL',label.length);
-              var texto = [];
-              var i;
-              var speedData = {
+              let texto = [];
+              let i;
+              let speedData = {
                 labels: [],
                 datasets: [{
                   label: "Revenue",

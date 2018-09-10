@@ -75,7 +75,7 @@ $(document).ready(function(){
         console.log("a");
         var inputValue = event.which;
         // allow letters and whitespaces only.
-        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
             event.preventDefault(); 
         }
       });
@@ -84,7 +84,7 @@ $(document).ready(function(){
         console.log("a");
         var inputValue = event.which;
         // allow letters and whitespaces only.
-        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
             event.preventDefault(); 
         }
       });
@@ -93,7 +93,7 @@ $(document).ready(function(){
         console.log("a");
         var inputValue = event.which;
         // allow letters and whitespaces only.
-        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
             event.preventDefault(); 
         }
       });
@@ -102,7 +102,7 @@ $(document).ready(function(){
         console.log("a");
         var inputValue = event.which;
         // allow letters and whitespaces only.
-        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
             event.preventDefault(); 
         }
       });
@@ -173,6 +173,17 @@ $(document).ready(function(){
         });
     });
 
+    $('#create-alumno-form input').blur(function()
+{
+      if( !this.value ) {
+            $(this).css("border", "5px solid red");
+            console.log('eer');
+      }
+       else {
+        $(this).css("border", "");
+       }
+});
+
     $('#create-alumno-form').submit(function(event){
         event.preventDefault();
         var data = $(this).serializeObject();
@@ -182,10 +193,9 @@ $(document).ready(function(){
         var realData = JSON.stringify(data);
         console.log(data);
         //add alumno
-        if ($.trim($("input[name='nombre_alumno']").val()) === "") {
-            $("input[name='nombre_alumno']").css("border", "5px solid red");
-            alert("ERROR: Nombre Alumno no puede estar vacio");
-        } else {
+        if ($.trim($("#create-alumno-form input").val()) === "" || $.trim($("input[name='cif']").val()) === "" || $.trim($("input[name='fecha']").val()) === "" || $.trim($("input[name='email']").val()) === "" || $.trim($("input[name='telefono']").val()) === "" || $.trim($("input[name='facebook']").val()) === "" || $.trim($("input[name='expectativas']").val()) === "" || $.trim($("input[name='ideas']").val()) === "" || $.trim($("input[name='nombre_iglesia']").val()) === "" || $.trim($("input[name='anios_es']").val()) === "" ) {
+            alert("ERROR: No se puede guardar los datos con campos vacios");
+        }  else {
             $.ajax({
                 url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
                 type : "POST",
