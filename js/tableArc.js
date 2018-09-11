@@ -18,8 +18,39 @@ $(document).ready(function(){
 
     table();
 
+    $("input[name='nombre_alumno']").keypress(function(event) {
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault();
+            $(this).css("border", "1px solid red"); 
+        }
+        else
+        {
+            $(this).css("border", "none"); 
+        }
+      });
+
+      $("input[name='cif']").keyup(function(e) {
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      $("input[name='numero_factura']").keyup(function(e) {
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+        $("#myModal").on('hidden.bs.modal', function(){
+            $("#select-fac").empty();
+        });
+
     $('#add_alumno').submit(function(event){
         event.preventDefault();
+        $("#add_btn").prop("disabled",true);
+        $("#spinner_add").addClass('fa fa-spinner fa-spin');
         let id_alumno = $(this).attr('id_alumno');
         var data = $(this).serializeObject();
         data.id_alumno= id_alumno;
@@ -31,6 +62,8 @@ $(document).ready(function(){
             data : realData,
             success : function(result) {
                 console.log('great');
+                $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                $("#add_btn").prop("disabled",false);
                 $("#select-fac").empty();
                 $('#myModal').modal('toggle');
                 $('#dataTableConfec').empty();
@@ -62,7 +95,7 @@ $(document).ready(function(){
                 html += '<td>'+ v.numero_factura + '</td>';
                 html += '<td>'+ v.nombre_fac + '</td>';
                 html += '<td><button data-toggle="modal" data-target="#myModal" type="button" class="edit btn btn-success" id_alumno="'+v.id_alumno+'">Modificar</button></td>';
-                html += '<td><button type="button" class="delete btn btn-danger" id="'+v.id_alumno+'">Eliminar</button></td>';
+                html += '<td><button type="button" class="delete btn btn-danger" id="'+v.id_alumno+'">Eliminar <i id="spinner_add_'+v.id_alumno+'" ></i>  </button></td>';
 
 
             });
@@ -141,23 +174,40 @@ $(document).ready(function(){
             $('.delete').click(function (event) {
                 let id_alumno = $(this).attr('id');
                 event.preventDefault();
-                var data = $(this).serializeObject();
-                data.id_alumno= id_alumno;
-                var realData = JSON.stringify(data);
-                $.ajax({
-                    url: "http://173.255.192.4/api-sreportes/alumnos/deleteID.php",
-                    type : "POST",
-                    contentType : 'application/json',
-                    data : realData,
-                    success : function(result) {
-                        console.log('great');
-                        location.reload();
-                    },
-                    error: function(xhr, resp, text) {
-                        // show error to console
-                        console.log(xhr, resp, text);
+                $(".delete").prop("disabled",true);
+                $("#spinner_add_"+id_alumno).addClass('fa fa-spinner fa-spin');
+                $.confirm({
+                    title: 'Confirmacion',
+                    content: 'Esta seguro de eliminar este registro?',
+                    buttons: {
+                        confirm: function () {
+                            var data = $(this).serializeObject();
+                            data.id_alumno= id_alumno;
+                            var realData = JSON.stringify(data);
+                            $.ajax({
+                                url: "http://localhost/api-sreportes/facultad/delete.php",
+                                type : "POST",
+                                contentType : 'application/json',
+                                data : realData,
+                                success : function(result) {
+                                    console.log('great');
+                                    $("#spinner_add_"+id_alumno).removeClass('fa fa-spinner fa-spin');
+                                    $(".delete").prop("disabled",false);
+                                    location.reload();
+                                },
+                                error: function(xhr, resp, text) {
+                                    // show error to console
+                                    console.log(xhr, resp, text);
+                                }
+                            });
+                        },
+                        cancel: function () {
+                            $("#spinner_add_"+id_alumno).removeClass('fa fa-spinner fa-spin');
+                            $(".delete").prop("disabled",false);
+                            return;
+                        }
                     }
-                });
+                }); 
             });
 
         },

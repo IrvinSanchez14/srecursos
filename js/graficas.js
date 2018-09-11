@@ -262,7 +262,7 @@ $(document).ready(function(){
     var tabla = [];
     var sum = 0;
     $.ajax({
-        url: "http://173.255.192.4/api-sreportes/alumnos/charBarA.php",
+        url: "http://localhost/api-sreportes/alumnos/charBarA.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -308,14 +308,14 @@ $(document).ready(function(){
           display: false
         },
         ticks: {
-          maxTicksLimit: 6
+          maxTicksLimit: sum
         }
       }],
       yAxes: [{
         ticks: {
           min: 0,
           max: sum,
-          maxTicksLimit: 5
+          maxTicksLimit: sum
         },
         gridLines: {
           display: true

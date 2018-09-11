@@ -127,8 +127,6 @@
                   <th>Talleres</th>
                   <th>Atención del lugar</th>
                   <th>Transporte</th>
-                  <th>Modificar</th>
-                  <th>Eliminar</th>
                 </tr>
               </thead>
               <tfoot>
@@ -140,8 +138,6 @@
                   <th>Talleres</th>
                   <th>Atención del lugar</th>
                   <th>Transporte</th>
-                  <th>Modificar</th>
-                  <th>Eliminar</th>
                 </tr>
               </tfoot>
 

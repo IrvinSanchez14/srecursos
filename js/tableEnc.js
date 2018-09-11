@@ -15,8 +15,6 @@ $(document).ready(function(){
                 html += '<td>'+ v.num_res5 + '</td>';
                 html += '<td>'+ v.num_res6 + '</td>';
                 html += '<td>'+ v.num_res7 + '</td>';
-                html += '<td><button type="button" class="btn btn-success">Modificar</button></td>';
-                html += '<td><button type="button" class="btn btn-danger">Eliminar</button></td>';
 
                 $('#dataTable_Enc').append(html);
             });

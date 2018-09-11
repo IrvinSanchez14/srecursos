@@ -24,6 +24,7 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/jquery-confirm.min.css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
@@ -192,7 +193,7 @@
                 </div>
                 <div class="modal-footer">  
                   <button onclick="" type="button" class="btn btn-secondary" >Cancelar</button>  
-                  <button  type="submit" id="save" class="save btn btn-primary">Guardar</button>  
+                  <button  type="submit" id="add_btn" class="save btn btn-primary">Guardar <i id="spinner_add" ></i>  </button>  
                 </div>      
               </form>
             </div> 
@@ -213,6 +214,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
+    <script src="js/jquery-confirm.min.js"></script>
     <script src="js/tableArc.js"></script>
   </div>
 </body>

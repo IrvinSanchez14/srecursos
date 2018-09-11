@@ -304,6 +304,8 @@ $(document).ready(function(){
 
     $('#add_encuesta').submit(function(event){
         event.preventDefault();
+        $("#add_btn").prop("disabled",true);
+        $("#spinner_add").addClass('fa fa-spinner fa-spin');
         var data = $(this).serializeObject();
         var res = lastId();
         let sum = parseInt(res) + parseInt(1);
@@ -319,6 +321,13 @@ $(document).ready(function(){
                 data : realData,
                 success : function(result) {
                     console.log('great');
+                    $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                    $("#add_btn").prop("disabled",false);
+                    $.alert({
+                        title: 'Alert!',
+                        content: 'Registro guardado con exito.',
+                    });
+
                 },
                 error: function(xhr, resp, text) {
                     // show error to console
