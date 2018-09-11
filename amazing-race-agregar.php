@@ -26,6 +26,8 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
@@ -144,7 +146,7 @@
   <div class="form-group">
     <label for="inputCarrera">Facultad</label>
     <select id="inputCarrera" name='id_facultad' class="form-control">
-      <option selected>Seleccione una Facultad</option>
+      <option value="0" selected>Seleccione una Facultad</option>
       <option value="1">Ingeniería en Sistemas Computacionales</option>
       <option value="2">Medicina</option>
       <option value="3">Odontología</option>
@@ -155,7 +157,7 @@
   </div>
 
              </div>
-            <center>  <button type="submit"  class="btn btn-primary center">Guardar Registro</button>  </center> 
+            <center>  <button type="submit" id="add_btn"  class="btn btn-primary center">Guardar Registro <i id="spinner_add" ></i> </button>  </center> 
 </form>
         <!--Fin de los formularios -->
 <br>
@@ -205,6 +207,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
     <script src="js/app.js"></script>
   </div>
 </body>

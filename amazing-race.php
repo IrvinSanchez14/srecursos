@@ -118,26 +118,7 @@
         <div class="card-body">
           <div class="table-responsive">
             <table id="dataTableConfec" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>CIF</th>
-                  <th># numero factura</th>
-                  <th>Facultad</th>
-                  <th>Modificar</th>
-                  <th>Eliminar</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Nombre</th>
-                  <th>CIF</th>
-                  <th># numero factura</th>
-                  <th>Facultad</th>
-                  <th>Modificar</th>
-                  <th>Eliminar</th>
-                </tr>
-              </tfoot>
+
               
             </table>
           </div>
@@ -177,6 +158,47 @@
         </div>
       </div>
     </div>
+
+      <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> 
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">  
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modificar campos</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="add_alumno" action="#" method="POST">  
+                <div class="form-row">  
+                  <div class="form-group col-md-12">  
+                    <label for="inputNombre1">Nombre del estudiante</label>  
+                    <input type="text"  maxlength="50" class="form-control" id="nombre_alumno" name="nombre_alumno" >  
+                  </div>
+                </div>  
+                <div class="form-row">  
+                  <div class="form-group col-md-6">  
+                    <label for="inputNombre1">CIF</label>  
+                    <input type="text"  maxlength="50" class="form-control" id="cif" name="cif" >  
+                  </div>
+                  <div class="form-group col-md-6">  
+                    <label for="inputNombre1"># de Factura</label>  
+                    <input type="text"  maxlength="50" class="form-control" id="numero_factura" name="numero_factura" >  
+                  </div>
+                </div>
+                <div class="form-row">  
+                  <div class="form-group col-md-12" id="select-fac">  
+                  </div>  
+                </div>
+                <div class="modal-footer">  
+                  <button onclick="" type="button" class="btn btn-secondary" >Cancelar</button>  
+                  <button  type="submit" id="save" class="save btn btn-primary">Guardar</button>  
+                </div>      
+              </form>
+            </div> 
+          </div>
+        </div>
+      </div>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

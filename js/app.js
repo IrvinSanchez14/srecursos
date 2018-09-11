@@ -5,6 +5,8 @@ $(document).ready(function(){
         alert("hola");
     });*/
     //Elaboracion menu dinamico
+
+
     $.fn.serializeObject = function() {
         var o = {};
         var a = this.serializeArray();
@@ -24,7 +26,7 @@ $(document).ready(function(){
     function lastId () {
         var id = null;
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/readLast.php",
+            url: "http://localhost/api-sreportes/alumnos/readLast.php",
             type : "POST",
             contentType : 'application/json',
             async: false,
@@ -67,7 +69,12 @@ $(document).ready(function(){
         console.log(inputValue)
         // allow letters and whitespaces only.
         if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
-            event.preventDefault(); 
+            event.preventDefault();
+            $(this).css("border", "1px solid red"); 
+        }
+        else
+        {
+            $(this).css("border", "none"); 
         }
       });
 
@@ -114,6 +121,13 @@ $(document).ready(function(){
         //var regex = /^[a-zA-Z0-9@]+$/;
       });
 
+      $("input[name='numero_factura']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
       $("input[name='fecha']").keyup(function(e) {
         console.log("a");
         var node = $(this);
@@ -137,52 +151,85 @@ $(document).ready(function(){
 
     $('#add_alumno').submit(function(event){
         event.preventDefault();
+        if ($.trim($("input[name='nombre_alumno']").val()) === "" ) {
+
+        } else {
+        $("#add_btn").prop("disabled",true);
+        $("#spinner_add").addClass('fa fa-spinner fa-spin');
         var data = $(this).serializeObject();
-        var res = lastId();
-        let sum = parseInt(res) + parseInt(1);
-        data.id_alumno= sum;
+
+        //let sum = parseInt(res) + parseInt(1);
+        
         var realData = JSON.stringify(data);
         console.log(data);
         //add alumno
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
+            url: "http://localhost/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
             success : function(result) {
                 console.log('great');
+                setTimeout(function(){
+                    var res = lastId();
+                    data.id_alumno= res;
+                    var data2 = JSON.stringify(data);
+                    console.log(data2)
+                    $.ajax({
+                        url: "http://localhost/api-sreportes/factura/create.php",
+                        type : "POST",
+                        contentType : 'application/json',
+                        data : data2,
+                        success : function(result) {
+                            console.log('great');
+                            $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                            $("#add_btn").prop("disabled",false);
+                            $.alert({
+                                title: 'Alert!',
+                                content: 'Registro guardado con exito.',
+                            });
+                            $("input[name='numero_factura']").val('');
+                            $("input[name='cif']").val('');
+                            $("input[name='nombre_alumno']").val('');
+                            $("#inputCarrera").val(0);
+                        },
+                        error: function(xhr, resp, text) {
+                            // show error to console
+                            console.log(xhr, resp, text);
+                        }
+                    });
+                  }, 500);
             },
             error: function(xhr, resp, text) {
                 // show error to console
                 console.log(xhr, resp, text);
             }
         });
-        //
-        $.ajax({
-            url: "http://173.255.192.4/api-sreportes/factura/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
+    }
+
     });
 
     $('#create-alumno-form input').blur(function()
-{
-      if( !this.value ) {
-            $(this).css("border", "5px solid red");
-            console.log('eer');
-      }
-       else {
-        $(this).css("border", "");
-       }
-});
+        {
+            if( !this.value ) {
+                $(this).css("border", "1px solid red");
+                console.log('eer');
+            }
+            else {
+                $(this).css("border", "");
+            }
+        });
+
+        $('#add_alumno input').blur(function()
+        {
+            if( !this.value ) {
+                $(this).css("border", "1px solid red");
+                console.log('eer');
+            }
+            else {
+                $(this).css("border", "");
+            }
+        });
 
     $('#create-alumno-form').submit(function(event){
         event.preventDefault();
@@ -193,7 +240,7 @@ $(document).ready(function(){
         var realData = JSON.stringify(data);
         console.log(data);
         //add alumno
-        if ($.trim($("#create-alumno-form input").val()) === "" || $.trim($("input[name='cif']").val()) === "" || $.trim($("input[name='fecha']").val()) === "" || $.trim($("input[name='email']").val()) === "" || $.trim($("input[name='telefono']").val()) === "" || $.trim($("input[name='facebook']").val()) === "" || $.trim($("input[name='expectativas']").val()) === "" || $.trim($("input[name='ideas']").val()) === "" || $.trim($("input[name='nombre_iglesia']").val()) === "" || $.trim($("input[name='anios_es']").val()) === "" ) {
+        if ($.trim($("input[name='nombre_alumno']").val()) === "" || $.trim($("input[name='cif']").val()) === "" || $.trim($("input[name='fecha']").val()) === "" || $.trim($("input[name='email']").val()) === "" || $.trim($("input[name='telefono']").val()) === "" || $.trim($("input[name='facebook']").val()) === "" || $.trim($("input[name='expectativas']").val()) === "" || $.trim($("input[name='ideas']").val()) === "" || $.trim($("input[name='nombre_iglesia']").val()) === "" || $.trim($("input[name='anios_es']").val()) === "" ) {
             alert("ERROR: No se puede guardar los datos con campos vacios");
         }  else {
             $.ajax({

@@ -191,46 +191,45 @@
   </div>
 </div>
 
-                             <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> 
-                             <div class="modal-dialog modal-lg">
-                               <div class="modal-content">
-                                 <div class="modal-header">  
-                                   <h5 class="modal-title" id="exampleModalCenterTitle">Modificar campos</h5>
-                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                     <span aria-hidden="true">&times;</span>
-                                   </button>
-                                 </div>
-                                 <div class="modal-body">
-                                   <form id="create-alumn-form" action="#" method="POST">  
-                                       <div class="form-row">  
-                                       <div class="form-group col-md-4">  
-                                         <label for="inputNombre1">Nombre del estudiante</label>  
-                                         <input type="text"  maxlength="50" class="form-control" id="nombre_alumno" name="nombre_alumno" >  
-                                       </div>  
-                                         <div class="form-group col-md-4">  
-                                             <label for="inputcarnet1">CIF</label>  
-                                             <input type="text"  maxlength="10" class="form-control" id="cif" name="cif" >  
-                                           </div>  
-                                         <div class="form-group col-md-4">  
-                                             <label for="inputaño1">Año en que se realiza la actividad</label>  
-                                             <input type="text"  maxlength="10" class="form-control" id="fecha" name="fecha" >  
-                                         </div>  
-                                       </div>   
-                                         <div class="form-row">  
-                                         <div class="form-group col-md-4">  
-                                           <label for="inputEmail4">Correo Electrónico</label>  
-                                           <input type="email" maxlength="50" class="form-control" id="email" name="email" >  
-                                         </div>  
-                                         <div class="form-group col-md-4">  
-                                           <label for="inputTel4">Teléfono</label>  
-                                           <input type="text"  maxlength="8" class="form-control" id="telefono" name="telefono" >  
-                                         </div>  
-                                        <div class="form-group col-md-4" id="select-fac">  
- 
-                                           </div>  
-                                         </div>  
-                                           <div class="form-row">  
-                                           <div class="form-group col-md-4">  
+  <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> 
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">  
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modificar campos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="create-alumn-form" action="#" method="POST">  
+            <div class="form-row">  
+              <div class="form-group col-md-4">  
+                <label for="inputNombre1">Nombre del estudiante</label>  
+                <input type="text"  maxlength="50" class="form-control" id="nombre_alumno" name="nombre_alumno" >  
+              </div>  
+              <div class="form-group col-md-4">  
+                <label for="inputcarnet1">CIF</label>  
+                <input type="text"  maxlength="10" class="form-control" id="cif" name="cif" >  
+              </div>  
+              <div class="form-group col-md-4">  
+               <label for="inputaño1">Año en que se realiza la actividad</label>  
+               <input type="text"  maxlength="10" class="form-control" id="fecha" name="fecha" >  
+              </div>  
+            </div>   
+            <div class="form-row">  
+              <div class="form-group col-md-4">  
+                <label for="inputEmail4">Correo Electrónico</label>  
+                <input type="email" maxlength="50" class="form-control" id="email" name="email" >  
+              </div>  
+              <div class="form-group col-md-4">  
+                <label for="inputTel4">Teléfono</label>  
+                <input type="text"  maxlength="8" class="form-control" id="telefono" name="telefono" >  
+               </div>  
+                <div class="form-group col-md-4" id="select-fac">  
+                </div>  
+              </div>  
+              <div class="form-row">  
+                <div class="form-group col-md-4">  
                                              <label for="inputFacebook">Facebook</label>  
                                              <input type="text"  maxlength="50" class="form-control" id="facebook" name="facebook" >  
                                            </div>  
@@ -282,7 +281,7 @@
                                  </div>  
                                </div>  
                               </div>  
-</div>  
+  </div>  
 <script>
 
                                   </script>
