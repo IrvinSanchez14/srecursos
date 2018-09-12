@@ -21,7 +21,7 @@ $(document).ready(function(){
     
     function menuA () {
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/actividades/read.php",
+            url: "http://localhost/api-sreportes/actividades/read.php",
             type : "POST",
             contentType : 'application/json',
             success : function(result) {
@@ -55,7 +55,7 @@ $(document).ready(function(){
         console.log(data);
         //add db
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/file/create.php",
+            url: "http:/localhost/api-sreportes/file/create.php",
             type : "POST",
             contentType : 'application/json',
             data : data,
@@ -72,7 +72,7 @@ $(document).ready(function(){
         //move file
        $.ajax({
             type: "POST",
-            url: 'http://173.255.192.4/api-sreportes/file/move.php',
+            url: 'http://localhost/api-sreportes/file/move.php',
             type: 'POST',
             data: form_data,
             contentType: false,       // The content type used when sending data to the server.
@@ -89,7 +89,7 @@ $(document).ready(function(){
     function tableData() {
         
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/file/read.php",
+            url: "http://localhost/api-sreportes/file/read.php",
             type : "POST",
             contentType : 'application/json',
             success : function(result) {
@@ -99,7 +99,7 @@ $(document).ready(function(){
                     
                     html += '<td>'+ v.id+'</td>';
                     html += '<td>'+ v.nombre+'</td>';
-                    html += '<td>'+ v.tamano+'</td>';
+                    html += '<td>'+ v.size+'MB</td>';
                     html += '<td>'+ v.fecha+'</td>';
                     html += '<td><a class="btn btn-success" class="fa fa-download" download href="http://localhost/api-sreportes/file/upload/'+ v.nombre+'">Download</a></td>';
                     html += '<td><button type="button" class="btn btn-danger">Eliminar</button></td>';

@@ -284,8 +284,8 @@ $(document).ready(function(){
               let speedData = {
                 labels: [],
                 datasets: [{
-                  label: "Revenue",
-                  backgroundColor: "rgba(2,117,216,1)",
+                  label: "Datos",
+                  backgroundColor: "rgba(220,53,69)",
                   borderColor: "rgba(2,117,216,1)",
                   data: [],
                 }]

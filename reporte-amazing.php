@@ -32,7 +32,16 @@
     <script src="js/dist/Chart.bundle.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/Chart.Bar.js"></script>
-
+<style>
+  .btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
+</style>
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" oncopy="return false" onpaste="return false">
   <!-- Navigation-->
@@ -112,7 +121,8 @@
   <div class="content-wrapper">
     <div class="container-fluid">  
         <!--Inicio de los formularios -->
-        <center><h1>Registro de participantes en Amazing Race</h1></center><button type="button" id="down">descargar</button>
+        <center><h1>Registro de participantes en Amazing Race</h1> <button id="down" class="btn"><i class="fa fa-download"></i> Generar Reporte</button></center>
+        
 <br>
     <center>
           <div class="container"> 

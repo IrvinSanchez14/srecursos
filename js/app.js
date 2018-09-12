@@ -315,7 +315,7 @@ $(document).ready(function(){
         
         console.log('data',realData)
             $.ajax({
-                url: "http://173.255.192.4/api-sreportes/enc_sat/create.php",
+                url: "http://localhost/api-sreportes/enc_sat/create.php",
                 type : "POST",
                 contentType : 'application/json',
                 data : realData,
