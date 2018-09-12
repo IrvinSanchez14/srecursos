@@ -37,14 +37,21 @@ $(document).ready(function(){
                 console.log(xhr, resp, text);
             }
         });
-    }
+    } 
 
     $('#exampleFormControlFile1').bind('change', function() {
         $('#messageErr').empty();
-        let data = (this.files[0].size > 26214400) ? 'Error' : 'Cool';
+        let data = (this.files[0].size > 26214400) ? 'Error: El archivo debe ser menor a 25MB' : 'Archivo en optimaz condiciones';
         $('#messageErr').append(data);
         console.log(this.files[0])
     });
+
+    $("#modalArchivos").on('hidden.bs.modal', function(){
+        console.log('a');
+        $("#exampleFormControlFile1").val('');
+        $("#messageErr").text('');
+    });
+
 
     $('#uploadimage').submit(function(event){
         event.preventDefault();
@@ -55,7 +62,7 @@ $(document).ready(function(){
         console.log(data);
         //add db
         $.ajax({
-            url: "http:/localhost/api-sreportes/file/create.php",
+            url: "http://localhost/api-sreportes/file/create.php",
             type : "POST",
             contentType : 'application/json',
             data : data,
@@ -63,6 +70,7 @@ $(document).ready(function(){
                 console.log('great');
                 $("#dataTable_bEspecial tbody").empty();
                 tableData();
+                $('#modalArchivos').modal('toggle');
             },
             error: function(xhr, resp, text) {
                 // show error to console
@@ -102,9 +110,47 @@ $(document).ready(function(){
                     html += '<td>'+ v.size+'MB</td>';
                     html += '<td>'+ v.fecha+'</td>';
                     html += '<td><a class="btn btn-success" class="fa fa-download" download href="http://localhost/api-sreportes/file/upload/'+ v.nombre+'">Download</a></td>';
-                    html += '<td><button type="button" class="btn btn-danger">Eliminar</button></td>';
+                    html += '<td><button type="button" class="delete btn btn-danger" id="'+v.id+'">Eliminar <i id="spinner_add_'+v.id+'" ></i></button></td>';
 
                     $('#dataTable_bEspecial').append(html);
+                });
+
+                
+                $('.delete').click(function (event) {
+                    let id_archivo = $(this).attr('id');
+                    event.preventDefault();
+                    $(".delete").prop("disabled",true);
+                    $("#spinner_add_"+id_archivo).addClass('fa fa-spinner fa-spin');
+                    $.confirm({
+                        title: 'Confirmacion',
+                        content: 'Esta seguro de eliminar este registro?',
+                        buttons: {
+                            confirm: function () {
+                                var data = $(this).serializeObject();
+                                data.id_archivo= id_archivo;
+                                var realData = JSON.stringify(data);
+                                $.ajax({
+                                    url: "http://localhost/api-sreportes/file/delete.php",
+                                    type : "POST",
+                                    contentType : 'application/json',
+                                    data : realData,
+                                    success : function(result) {
+                                        console.log('great');
+                                        location.reload();
+                                    },
+                                    error: function(xhr, resp, text) {
+                                        // show error to console
+                                        console.log(xhr, resp, text);
+                                    }
+                                });
+                            },
+                            cancel: function () {
+                                $("#spinner_add_"+id_archivo).removeClass('fa fa-spinner fa-spin');
+                                $(".delete").prop("disabled",false);
+                                return;
+                            }
+                        }
+                    }); 
                 });
             },
             error: function(xhr, resp, text) {
@@ -112,5 +158,7 @@ $(document).ready(function(){
                 console.log(xhr, resp, text);
             }
         });
+
+
     }
 });

@@ -27,7 +27,7 @@ $(document).ready(function(){
         }
         else
         {
-            $(this).css("border", "none"); 
+            $(this).css("border", "1px solid #ced4da"); 
         }
       });
 
@@ -79,7 +79,7 @@ $(document).ready(function(){
 
     function table() {
         let html = '<thead><tr><th>Nombre</th><th>CIF</th><th># numero factura</th><th>Facultad</th><th>Modificar</th><th>Eliminar</th></tr></thead>';
-        html += '<tfoot><tr><th>Nombre</th><th>CIF</th><th># numero factura</th><th>Facultad</th><th>Modificar</th><th>Eliminar</th></tr></tfoot>';
+            html += '<tfoot><tr><th>Nombre</th><th>CIF</th><th># numero factura</th><th>Facultad</th><th>Modificar</th><th>Eliminar</th></tr></tfoot>';
         
     $.ajax({
         url: "http://localhost/api-sreportes/factura/read.php",

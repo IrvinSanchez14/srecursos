@@ -25,6 +25,7 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/jquery-confirm.min.css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
   <link rel="stylesheet" href="css/hover-index.css">
@@ -97,11 +98,11 @@
 
     <!-- Formulario Guardar archivo -->
 <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalArchivos">
         Agregar Archivo
       </button>
-
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+ 
+      <div class="modal fade" id="modalArchivos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -112,7 +113,7 @@
             </div>
             <div class="modal-body">        
             <form id="uploadimage" action="" method="post" enctype="multipart/form-data">
-                <div class="form-group">
+                <div class="form-group" id="archivoG">
                         <label for="exampleFormControlFile1"></label>
                         <input type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
@@ -193,6 +194,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
+    <script src="js/jquery-confirm.min.js"></script>
     <script src="js/archivos.js"></script>
   </div>
 </body>

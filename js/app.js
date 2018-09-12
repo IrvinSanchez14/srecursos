@@ -233,10 +233,9 @@ $(document).ready(function(){
 
     $('#create-alumno-form').submit(function(event){
         event.preventDefault();
+        $("#add_btn").prop("disabled",true);
+        $("#spinner_add").addClass('fa fa-spinner fa-spin');
         var data = $(this).serializeObject();
-        var res = lastId();
-        let sum = parseInt(res) + parseInt(1);
-        data.id_alumno= sum;
         var realData = JSON.stringify(data);
         console.log(data);
         //add alumno
@@ -244,60 +243,86 @@ $(document).ready(function(){
             alert("ERROR: No se puede guardar los datos con campos vacios");
         }  else {
             $.ajax({
-                url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
+                url: "http://localhost/api-sreportes/alumnos/create.php",
                 type : "POST",
                 contentType : 'application/json',
                 data : realData,
                 success : function(result) {
                     console.log('great');
+                    setTimeout(function(){
+                    var res = lastId();
+                    data.id_alumno= res;
+                    var data2 = JSON.stringify(data);
+                    console.log(data2)
+                    //add alumn_extra
+                    $.ajax({
+                        url: "http://localhost/api-sreportes/alum_extra/create.php",
+                        type : "POST",
+                        contentType : 'application/json',
+                        data : data2,
+                        success : function(result) {
+                            console.log('great');
+                            setTimeout(function(){
+                                var res = lastId();
+                                data.id_alumno= res;
+                                var data3 = JSON.stringify(data);
+                                console.log(data3)
+                            $.ajax({
+                                url: "http://localhost/api-sreportes/coment_act/create.php",
+                                type : "POST",
+                                contentType : 'application/json',
+                                data : data3,
+                                success : function(result) {
+                                    console.log('great');
+                                    setTimeout(function(){
+                                    var res = lastId();
+                                    data.id_alumno= res;
+                                    var data4 = JSON.stringify(data);
+                                    console.log(data4)
+                                    $.ajax({
+                                        url: "http://localhost/api-sreportes/iglesia_est/create.php",
+                                        type : "POST",
+                                        contentType : 'application/json',
+                                        data : data4,
+                                        success : function(result) {
+                                            console.log('great');
+                                            $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                                            $("#add_btn").prop("disabled",false);
+                                            $.alert({
+                                                title: 'Alert!',
+                                                content: 'Registro guardado con exito.',
+                                            });
+                                        },
+                                        error: function(xhr, resp, text) {
+                                            // show error to console
+                                            console.log(xhr, resp, text);
+                                        }
+                                    });
+                                },500);
+                                    
+                                },
+                                error: function(xhr, resp, text) {
+                                    // show error to console
+                                    console.log(xhr, resp, text);
+                                }
+                            });
+                        }, 500);
+                        },
+                        error: function(xhr, resp, text) {
+                            // show error to console
+                            console.log(xhr, resp, text);
+                        }
+                    });/*
+
+*/
+                },500);
                 },
                 error: function(xhr, resp, text) {
                     // show error to console
                     console.log(xhr, resp, text);
                 }
             });
-            //add alumn_extra
-            $.ajax({
-                url: "http://173.255.192.4/api-sreportes/alum_extra/create.php",
-                type : "POST",
-                contentType : 'application/json',
-                data : realData,
-                success : function(result) {
-                    console.log('great');
-                },
-                error: function(xhr, resp, text) {
-                    // show error to console
-                    console.log(xhr, resp, text);
-                }
-            });
-    
-            $.ajax({
-                url: "http://173.255.192.4/api-sreportes/coment_act/create.php",
-                type : "POST",
-                contentType : 'application/json',
-                data : realData,
-                success : function(result) {
-                    console.log('great');
-                },
-                error: function(xhr, resp, text) {
-                    // show error to console
-                    console.log(xhr, resp, text);
-                }
-            });
-    
-            $.ajax({
-                url: "http://173.255.192.4/api-sreportes/iglesia_est/create.php",
-                type : "POST",
-                contentType : 'application/json',
-                data : realData,
-                success : function(result) {
-                    console.log('great');
-                },
-                error: function(xhr, resp, text) {
-                    // show error to console
-                    console.log(xhr, resp, text);
-                }
-            });
+
         }
 
     });
@@ -362,6 +387,7 @@ $(document).ready(function(){
     $('#create-conferencia-form').submit(function(event){
         event.preventDefault();
         var data = $(this).serializeObject();
+
         var res = lastId();
         let sum = parseInt(res) + parseInt(1);
         data.id_alumno= sum;

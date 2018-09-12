@@ -37,6 +37,14 @@
     -webkit-user-select: none;
     -ms-user-select: none;
   }
+  .btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
   </style>
 
 </head>
@@ -125,7 +133,7 @@
       <!-- Breadcrumbs-->
      
         <!--Inicio de los formularios -->
-        <center><h1>Registro de participantes en Bienvenida Especial</h1></center>
+        <center><h1>Registro de participantes en Bienvenida Especial</h1><button id="down" class="btn"><i class="fa fa-download"></i> Generar Reporte</button></center>
 <br>
 
     <center>
@@ -202,6 +210,10 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
+    <script src="js/jspdf.js"></script>
+    <script src="js/jspdf.debug.js"></script>
+    <script src="js/jspdf.min.js"></script>
+    <script src="js/jspdf.plugin.autotable.js"></script>
     <script src="js/graficas.js"></script>
 
     <!--script to pie chart-->

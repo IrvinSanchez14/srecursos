@@ -18,24 +18,77 @@ $(document).ready(function(){
 
     watchTable();
 
+    $("input[name='nombre_alumno']").keypress(function(event) {
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault();
+            $(this).css("border", "1px solid red"); 
+        }
+        else
+        {
+            $(this).css("border", "1px solid #ced4da"); 
+        }
+      });
 
+      $("input[name='cif']").keyup(function(e) {
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      $("input[name='numero_factura']").keyup(function(e) {
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
 
     $("#myModal").on('hidden.bs.modal', function(){
         $("#select-fac").empty();
     });
 
-
+    $('#create-alumn-form').submit(function(event){
+        event.preventDefault();
+        $("#add_btn").prop("disabled",true);
+        $("#spinner_add").addClass('fa fa-spinner fa-spin');
+        let id_alumno = $(this).attr('id_alumno');
+        var data = $(this).serializeObject();
+        data.id_alumno= id_alumno;
+        var realData = JSON.stringify(data);
+        $.ajax({
+            url: "http://localhost/api-sreportes/alumnos/update.php",
+            type : "POST",
+            contentType : 'application/json',
+            data : realData,
+            success : function(result) {
+                console.log('great');
+                $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                $("#add_btn").prop("disabled",false);
+                $("#select-fac").empty();
+                $('#myModal').modal('toggle');
+                $('#dataTable_bEspecial').empty();;
+                watchTable();
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+        console.log(id_alumno);
+    });
 
     function watchTable() {
-
+        let html = '<thead><tr><th>Nombre</th><th>CIF</th><th>Año Actual</th><th>Email</th><th>Telefono</th><th>Facebook</th><th>Expectativa</th><th>Nuevas Ideas</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Años Asistidos</th><th>Modificar</th><th>Eliminar</th></tr></thead>';
+            html += '<tfoot><tr><th>Nombre</th><th>CIF</th><th>Año Actual</th><th>Email</th><th>Telefono</th><th>Facebook</th><th>Expectativa</th><th>Nuevas Ideas</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Años Asistidos</th><th>Modificar</th><th>Eliminar</th></tr></tfoot>';
+        
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/bEspecial.php",
+            url: "http://localhost/api-sreportes/alumnos/bEspecial.php",
             type : "POST",
             contentType : 'application/json',
             success : function(result) {
                 console.log(result)
                 $.each(result.records, function(k,v){
-                    let html = '<tbody><tr>';
+                    html += '<tbody><tr>';
                     
                     html += '<td>'+ v.nombre_alumno+'</td>';
                     html += '<td>'+ v.cif + '</td>';
@@ -49,18 +102,16 @@ $(document).ready(function(){
                     html += '<td>' + v.nombre_iglesia + '</td>';
                     html += '<td>' + v.anios_es + '</td>';
                     html += '<td><button data-toggle="modal" data-target="#myModal" type="button" class="edit btn btn-success" id_alumno="'+v.id_alumno+'">Modificar</button></td>';
-                    html += '<td><button type="button" class="delete btn btn-danger" id="'+v.id_alumno+'">Eliminar</button></td>';
-
-                    $('#dataTable_bEspecial').append(html);
-
-
+                    html += '<td><button type="button" class="delete btn btn-danger" id="'+v.id_alumno+'">Eliminar <i id="spinner_add_'+v.id_alumno+'" ></i> </button></td>';
                 });
+
+                $('#dataTable_bEspecial').append(html);
 
                 $('.edit').click(function(event){
                     let id_alumno = $(this).attr('id_alumno');
                     console.log(id_alumno);
                    $.ajax({
-                        url: "http://173.255.192.4/api-sreportes/alumnos/editBe.php?id_alumno="+id_alumno,
+                        url: "http://localhost/api-sreportes/alumnos/editBe.php?id_alumno="+id_alumno,
                         type : "GET",
                         contentType : 'application/json',
                         success : function(result) {
@@ -138,49 +189,40 @@ $(document).ready(function(){
                 $('.delete').click(function (event) {
                     let id_alumno = $(this).attr('id');
                     event.preventDefault();
-                    var data = $(this).serializeObject();
-                    data.id_alumno= id_alumno;
-                    var realData = JSON.stringify(data);
-                    $.ajax({
-                        url: "http://173.255.192.4/api-sreportes/alumnos/deleteID.php",
-                        type : "POST",
-                        contentType : 'application/json',
-                        data : realData,
-                        success : function(result) {
-                            console.log('great');
-                            location.reload();
-                        },
-                        error: function(xhr, resp, text) {
-                            // show error to console
-                            console.log(xhr, resp, text);
+                    $(".delete").prop("disabled",true);
+                    $("#spinner_add_"+id_alumno).addClass('fa fa-spinner fa-spin');
+                    $.confirm({
+                        title: 'Confirmacion',
+                        content: 'Esta seguro de eliminar este registro?',
+                        buttons: {
+                            confirm: function () {
+                                var data = $(this).serializeObject();
+                                data.id_alumno= id_alumno;
+                                var realData = JSON.stringify(data);
+                                $.ajax({
+                                    url: "http://localhost/api-sreportes/alumnos/deleteID.php",
+                                    type : "POST",
+                                    contentType : 'application/json',
+                                    data : realData,
+                                    success : function(result) {
+                                        console.log('great');
+                                        $("#spinner_add_"+id_alumno).removeClass('fa fa-spinner fa-spin');
+                                        $(".delete").prop("disabled",false);
+                                        location.reload();
+                                    },
+                                    error: function(xhr, resp, text) {
+                                        // show error to console
+                                        console.log(xhr, resp, text);
+                                    }
+                                });
+                            },
+                            cancel: function () {
+                                $("#spinner_add_"+id_alumno).removeClass('fa fa-spinner fa-spin');
+                                $(".delete").prop("disabled",false);
+                                return;
+                            }
                         }
                     });
-                });
-
-                    
-                $('#create-alumn-form').submit(function(event){
-                    event.preventDefault();
-                    let id_alumno = $(this).attr('id_alumno');
-                    var data = $(this).serializeObject();
-                    data.id_alumno= id_alumno;
-                    var realData = JSON.stringify(data);
-                    $.ajax({
-                        url: "http://173.255.192.4/api-sreportes/alumnos/update.php",
-                        type : "POST",
-                        contentType : 'application/json',
-                        data : realData,
-                        success : function(result) {
-                            console.log('great');
-                            $("#select-fac").empty();
-                            $('#myModal').modal('toggle');
-                            location.reload();
-                        },
-                        error: function(xhr, resp, text) {
-                            // show error to console
-                            console.log(xhr, resp, text);
-                        }
-                    });
-                    console.log(id_alumno);
                 });
             },
             error: function(xhr, resp, text) {
