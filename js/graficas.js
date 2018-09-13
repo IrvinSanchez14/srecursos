@@ -483,9 +483,10 @@ $(document).ready(function(){
   function dataBarNice() {
 
     var label = [];
+    var tabla = [];
     var sum = 0;
     $.ajax({
-        url: "http://173.255.192.4/api-sreportes/facultad/celulaChar.php",
+        url: "http://localhost/api-sreportes/facultad/celulaChar.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -495,21 +496,32 @@ $(document).ready(function(){
                     name : v.nombre_fac,
                     num : v.numero
                 });
-                
+                tabla.push([
+                  v.nombre_fac,
+                v.numero
+              ]);  
                 
             });
+            console.log('LABEL',label.length);
+            let texto = [];
+            let i;
+            let speedData = {
+              labels: [],
+              datasets: [{
+                label: "Datos",
+                backgroundColor: "rgba(220,53,69)",
+                borderColor: "rgba(2,117,216,1)",
+                data: [],
+              }]
+            };
+            for (i = 0; i < label.length; i++) {
+              speedData.labels.push(label[i].name);
+              speedData.datasets[0].data.push(label[i].num);
+            }
+
             var myLineChart = new Chart(ctxnice, {
                 type: 'bar',
-                data: {
-                labels: [label[0].name,label[1].name,label[2].name],
-                datasets: [{
-                    label: "Revenue",
-                    backgroundColor: "rgba(2,117,216,1)",
-                    borderColor: "rgba(2,117,216,1)",
-                    data: [label[0].num,label[1].num,label[2].num],
-                }
-              ],
-  },
+                data: speedData,
   options: {
     scales: {
       xAxes: [{
@@ -545,7 +557,59 @@ $(document).ready(function(){
         }
     });
 
+    document.getElementById('down').addEventListener("click", downNice);
 
+    //download pdf form hidden canvas
+    function downNice() {
+	  var newCanvas = document.querySelector('#myBarChartnice');
+
+    //create image from dummy canvas
+    var canvasImg = document.getElementById("myBarChartnice").toDataURL("image/png", 1.0);
+
+    var columns = ["Nombre", "Datos"];
+    var rows = [[
+      "Ingenieria en Sistema Computacionales",
+      "4215"
+    ],[
+      "Ingenieria en Sistema Computacionales",
+      "4215"
+ ],[
+  "Ingenieria en Sistema Computacionales",
+  "4215"
+],[
+  "Ingenieria en Sistema Computacionales",
+  "4215"
+]
+  ];
+
+  console.log('ROWS', rows);
+  console.log('LLLA', tabla);
+
+  var fecha = new Date();
+  	//creates PDF from img
+  var doc = new jsPDF('p', 'pt');
+  doc.setFillColor(255, 255, 255);
+  doc.rect(10, 10, 150, 160, "F");
+  doc.setFontSize(22)
+  doc.text(40, 50, 'Reporte de participacion estudiantil por facultad');
+  doc.text(40, 70, 'en la actividad Amazing Race.');
+  doc.setFontSize(14)
+  doc.text(40, 110, 'Fecha de reporte: '+fecha.getDate()+ "/" + (fecha.getMonth() +1) + "/" + fecha.getFullYear());
+  doc.setFontSize(14);
+  doc.text(40, 130, 'Datos de participacion estudiantil por cada una de las facultades');
+  doc.autoTable(columns, tabla, {margin: {top: 170}});
+  doc.text(40, 360, 'Como parte del objetivo de la actividad de llegar a una mayor cantidad');
+  doc.text(40, 380,'de estudiantes cada anio');
+  doc.addImage(canvasImg, 'png', 40, 400, 500, 200);
+  doc.setFontSize(14);
+  doc.text(40, 750, '__________________');
+  doc.text(40, 770, 'Capellan General');
+  doc.text(250, 750, '__________________');
+  doc.text(280, 770, 'Asistente');
+  doc.text(440, 750, '__________________');
+  doc.text(440, 770, 'Director General');
+  doc.save('sample.pdf');
+ }
 
   }
 

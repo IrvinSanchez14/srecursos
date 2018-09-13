@@ -363,6 +363,8 @@ $(document).ready(function(){
 
     $('#create-celula-form').submit(function(event){
         event.preventDefault();
+        $("#add_btn").prop("disabled",true);
+        $("#spinner_add").addClass('fa fa-spinner fa-spin');
         var data = $(this).serializeObject();
         var res = lastId();
         let sum = parseInt(res) + parseInt(1);
@@ -370,12 +372,18 @@ $(document).ready(function(){
 
         var realData = JSON.stringify(data);
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
+            url: "http://localhost/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
             success : function(result) {
                 console.log('great');
+                $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                $("#add_btn").prop("disabled",false);
+                $.alert({
+                    title: 'Alert!',
+                    content: 'Registro guardado con exito.',
+                });
             },
             error: function(xhr, resp, text) {
                 // show error to console
@@ -394,7 +402,7 @@ $(document).ready(function(){
 
         var realData = JSON.stringify(data);
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
+            url: "http://localhost/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -408,7 +416,7 @@ $(document).ready(function(){
         });
         //alumno extra
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alum_extra/create.php",
+            url: "http://localhost/api-sreportes/alum_extra/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -422,7 +430,7 @@ $(document).ready(function(){
         });
         //add iglesia
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/iglesia_est/create.php",
+            url: "http://localhost/api-sreportes/iglesia_est/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -436,7 +444,7 @@ $(document).ready(function(){
         });
         //add ciclo
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/ciclo/create.php",
+            url: "http://localhost/api-sreportes/ciclo/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -450,7 +458,7 @@ $(document).ready(function(){
         });
         //add conferencia
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/conf_arg/create.php",
+            url: "http://localhost/api-sreportes/conf_arg/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,

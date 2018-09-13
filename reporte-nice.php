@@ -28,6 +28,16 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <style>
+  .btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
+</style>
 
     <script src="js/dist/Chart.bundle.js"></script>
   <script src="js/utils.js"></script>
@@ -114,7 +124,7 @@
       <!-- Breadcrumbs-->
      
         <!--Inicio de los formularios -->
-        <center><h1>Registro de participantes en Células NICE</h1></center>
+        <center><h1>Registro de participantes en Células NICE</h1><button id="down" class="btn"><i class="fa fa-download"></i> Generar Reporte</button></center>
 <br>
 
 <center>
@@ -182,6 +192,10 @@
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
         <script src="js/chart-pie-demo.js"></script>
+        <script src="js/jspdf.js"></script>
+    <script src="js/jspdf.debug.js"></script>
+    <script src="js/jspdf.min.js"></script>
+    <script src="js/jspdf.plugin.autotable.js"></script>
     <script src="js/graficas.js"></script>
 
     <!--script to pie chart-->
