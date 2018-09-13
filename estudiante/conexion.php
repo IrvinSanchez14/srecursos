@@ -1,4 +1,4 @@
 <?php
-    $conexion = new mysqli("localhost", "root", "", "login_prueba");
+    $conexion = new mysqli("173.255.192.4", "root", "", "login_prueba");
 
 ?>

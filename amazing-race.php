@@ -192,7 +192,7 @@
                   </div>  
                 </div>
                 <div class="modal-footer">  
-                  <button onclick="" type="button" class="btn btn-secondary" >Cancelar</button>  
+                  <button onclick="" type="button" class="btn btn-secondary" data-dismiss="modal" >Cancelar</button>  
                   <button  type="submit" id="add_btn" class="save btn btn-primary">Guardar <i id="spinner_add" ></i>  </button>  
                 </div>      
               </form>

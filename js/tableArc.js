@@ -56,7 +56,7 @@ $(document).ready(function(){
         data.id_alumno= id_alumno;
         var realData = JSON.stringify(data);
         $.ajax({
-            url: "http://localhost/api-sreportes/factura/update.php",
+            url: "http://173.255.192.4/api-sreportes/factura/update.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -82,7 +82,7 @@ $(document).ready(function(){
             html += '<tfoot><tr><th>Nombre</th><th>CIF</th><th># numero factura</th><th>Facultad</th><th>Modificar</th><th>Eliminar</th></tr></tfoot>';
         
     $.ajax({
-        url: "http://localhost/api-sreportes/factura/read.php",
+        url: "http://173.255.192.4/api-sreportes/factura/read.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -105,7 +105,7 @@ $(document).ready(function(){
                 let id_alumno = $(this).attr('id_alumno');
                 console.log(id_alumno);
                $.ajax({
-                    url: "http://localhost/api-sreportes/factura/readID.php?id_alumno="+id_alumno,
+                    url: "http://173.255.192.4/api-sreportes/factura/readID.php?id_alumno="+id_alumno,
                     type : "GET",
                     contentType : 'application/json',
                     success : function(result) {
@@ -185,7 +185,7 @@ $(document).ready(function(){
                             data.id_alumno= id_alumno;
                             var realData = JSON.stringify(data);
                             $.ajax({
-                                url: "http://localhost/api-sreportes/facultad/delete.php",
+                                url: "http://173.255.192.4/api-sreportes/facultad/delete.php",
                                 type : "POST",
                                 contentType : 'application/json',
                                 data : realData,

@@ -51,88 +51,43 @@ $(document).ready(function(){
 
     $('#create-conferencia-form').submit(function(event){
         event.preventDefault();
+        $("#add_btn").prop("disabled",true);
+        $("#spinner_add").addClass('fa fa-spinner fa-spin');
+        let id_alumno = $(this).attr('id_alumno');
         var data = $(this).serializeObject();
-        let sum = parseInt(res) + parseInt(1);
-        data.id_alumno= sum;
-
+        data.id_alumno= id_alumno;
         var realData = JSON.stringify(data);
+        console.log(data);
         $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/create.php",
+            url: "http://173.255.192.4/api-sreportes/conf_arg/update.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
             success : function(result) {
                 console.log('great');
+                $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                $("#add_btn").prop("disabled",false);
+                $("#select-fac").empty();
+                $("#select-opn_con").empty();
+                $("#select-desc_est").empty();
+                $('#myModal').modal('toggle');
+                $('#dataTableConf').empty();
+                table();
             },
             error: function(xhr, resp, text) {
                 // show error to console
                 console.log(xhr, resp, text);
             }
         });
-        //alumno extra
-        $.ajax({
-            url: "http://localhost/api-sreportes/alum_extra/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-        //add iglesia
-        $.ajax({
-            url: "http://localhost/api-sreportes/iglesia_est/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-        //add ciclo
-        $.ajax({
-            url: "http://localhost/api-sreportes/ciclo/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-        //add conferencia
-        $.ajax({
-            url: "http://localhost/api-sreportes/conf_arg/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-        table();
-
+        console.log(id_alumno);
     });
 
     function table() {
 
+        let html = '              <thead><tr><th>Nombre</th><th>CIF</th><th>Ciclo Actual</th><th>Email</th><th>Telefono</th><th>Facultad</th><th>Facebook</th><th>Beneficio Adquirido</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Opinion</th><th>Desición Tomada</th><th>Modificar</th><th>Eliminar</th></tr></thead>';
+        html += '<tfoot><tr><th>Nombre</th><th>CIF</th><th>Ciclo Actual</th><th>Email</th><th>Telefono</th><th>Facultad</th><th>Facebook</th><th>Beneficio Adquirido</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Opinion</th><th>Desición Tomada</th><th>Modificar</th><th>Eliminar</th></tr></tfoot>';
         $.ajax({
-            url: "http://localhost/api-sreportes/conf_arg/table_conf.php",
+            url: "http://173.255.192.4/api-sreportes/conf_arg/table_conf.php",
             type : "POST",
             contentType : 'application/json',
             success : function(result) {
@@ -143,7 +98,7 @@ $(document).ready(function(){
                     asistencia = (v.asistencia == 1) ? 'SI' : 'NO'; 
                     if (v.opn_con == 1) {opinion = 'Regular'; } else if (v.opn_con == 2) { opinion = 'Bueno'; } else if (v.opn_con == 3) { opinion = 'Muy Bueno'; } else { opinion = 'Excelente'; }; 
                     if ( v.desc_est == 1) {desicion = 'Se Entrego'; } else if (v.desc_est == 2) { desicion = 'Ya lo habia hecho'; } else { desicion = 'No se entrego'; };
-                    let html = '<tbody><tr>';
+                    html += '<tbody><tr>';
                     html += '<td>'+ v.nombre_alumno + '</td>';
                     html += '<td>'+ v.cif + '</td>';
                     html += '<td>'+ ciclo + '</td>';
@@ -158,15 +113,15 @@ $(document).ready(function(){
                     html += '<td>'+ desicion + '</td>';
                     html += '<td><button data-toggle="modal" data-target="#myModal" type="button" class="edit btn btn-success" id_alumno="'+v.id+'">Modificar</button></td>';
                     html += '<td><button type="button" class="delete btn btn-danger" id="'+v.id+'">Eliminar <i id="spinner_add_'+v.id+'" ></i> </button></td>';
-    
-                    $('#dataTableConf').append(html);
                 });
                 
+                $('#dataTableConf').append(html);
+
                 $('.edit').click(function(event){
                     let id_alumno = $(this).attr('id_alumno');
                     console.log(id_alumno);
                    $.ajax({
-                        url: "http://localhost/api-sreportes/coment_act/readId.php?id_alumno="+id_alumno,
+                        url: "http://173.255.192.4/api-sreportes/coment_act/readId.php?id_alumno="+id_alumno,
                         type : "GET",
                         contentType : 'application/json',
                         success : function(result) {
@@ -282,7 +237,7 @@ $(document).ready(function(){
                                 $("#select-desc_est").append('</select>')
                             }
 
-                            $('#create-alumn-form').attr('id_alumno', id_alumno);
+                            $('#create-conferencia-form').attr('id_alumno', id_alumno);
                         },
                         error: function(xhr, resp, text) {
                             // show error to console
@@ -291,6 +246,46 @@ $(document).ready(function(){
                         
                     });
                 });
+
+                $('.delete').click(function (event) {
+                    let id_alumno = $(this).attr('id');
+                    event.preventDefault();
+                    $(".delete").prop("disabled",true);
+                    $("#spinner_add_"+id_alumno).addClass('fa fa-spinner fa-spin');
+                    $.confirm({
+                        title: 'Confirmacion',
+                        content: 'Esta seguro de eliminar este registro?',
+                        buttons: {
+                            confirm: function () {
+                                var data = $(this).serializeObject();
+                                data.id_alumno= id_alumno;
+                                var realData = JSON.stringify(data);
+                                $.ajax({
+                                    url: "http://173.255.192.4/api-sreportes/conf_arg/delete.php",
+                                    type : "POST",
+                                    contentType : 'application/json',
+                                    data : realData,
+                                    success : function(result) {
+                                        console.log('great');
+                                        $("#spinner_add_"+id_alumno).removeClass('fa fa-spinner fa-spin');
+                                        $(".delete").prop("disabled",false);
+                                        location.reload();
+                                    },
+                                    error: function(xhr, resp, text) {
+                                        // show error to console
+                                        console.log(xhr, resp, text);
+                                    }
+                                });
+                            },
+                            cancel: function () {
+                                $("#spinner_add_"+id_alumno).removeClass('fa fa-spinner fa-spin');
+                                $(".delete").prop("disabled",false);
+                                return;
+                            }
+                        }
+                    }); 
+                });
+    
 
             },
             error: function(xhr, resp, text) {

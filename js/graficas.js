@@ -18,15 +18,15 @@ $(document).ready(function(){
 
 
   
-  if (window.location.href === 'http://localhost/srecursos/reporte-conferencia.php') {
+  if (window.location.href === 'http://173.255.192.4/srecursos/reporte-conferencia.php') {
     dataBarCFE();
     dartaPieCFE();
-  } else if (window.location.href === 'http://localhost/srecursos/reporte-bienvenida.php') {
+  } else if (window.location.href === 'http://173.255.192.4/srecursos/reporte-bienvenida.php') {
     dataBar();
     dartaPie();
-  } else if (window.location.href === 'http://localhost/srecursos/reporte-amazing.php') {
+  } else if (window.location.href === 'http://173.255.192.4/srecursos/reporte-amazing.php') {
     dataBarAmz();
-  } else if (window.location.href === 'http://localhost/srecursos/reporte-nice.php') {
+  } else if (window.location.href === 'http://173.255.192.4/srecursos/reporte-nice.php') {
     dataBarNice();
   } 
   else {
@@ -38,7 +38,7 @@ $(document).ready(function(){
     var tabla = [];
     var sum = 0;
     $.ajax({
-        url: "http://localhost/api-sreportes/coment_act/readChar.php",
+        url: "http://173.255.192.4/api-sreportes/coment_act/readChar.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -156,7 +156,7 @@ $(document).ready(function(){
     var sum = 0;
     
     $.ajax({
-        url: "http://localhost/api-sreportes/iglesia_est/asistenciaBv.php",
+        url: "http://173.255.192.4/api-sreportes/iglesia_est/asistenciaBv.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -253,30 +253,46 @@ $(document).ready(function(){
    function dataBarCFE() {
 
     var label = [];
+    var tabla = [];
     var sum = 0;
     $.ajax({
         url: "http://173.255.192.4/api-sreportes/conf_arg/readBar.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
+          
             $.each(result.records, function(k,v) {
-                sum += parseInt(v.numero);
-                label.push({
-                    name : v.nombre_fac,
-                    num : v.numero
-                });
+              sum += parseInt(v.numero);
+              label.push({
+                  name : v.nombre_fac,
+                  num : v.numero
+              });
+              tabla.push([
+                v.nombre_fac,
+              v.numero
+            ]);
             });
+
+            console.log('LABEL',label.length);
+            let texto = [];
+            let i;
+            let speedData = {
+              labels: [],
+              datasets: [{
+                label: "Revenue",
+                backgroundColor: "rgba(2,117,216,1)",
+                borderColor: "rgba(2,117,216,1)",
+                data: [],
+              }]
+            };
+            for (i = 0; i < label.length; i++) {
+              speedData.labels.push(label[i].name);
+              speedData.datasets[0].data.push(label[i].num);
+            }
+
             var myLineChart = new Chart(ctxcfe, {
                 type: 'bar',
-                data: {
-                labels: [label[0].name, label[1].name],
-                datasets: [{
-                    label: "Revenue",
-                    backgroundColor: "rgba(2,117,216,1)",
-                    borderColor: "rgba(2,117,216,1)",
-                    data: [label[0].num, label[1].num],
-                }],
-  },
+                data: speedData,
   options: {
     scales: {
       xAxes: [{
@@ -313,37 +329,143 @@ $(document).ready(function(){
     });
 
 
+        
+    document.getElementById('down').addEventListener("click", cfed);
+
+    function cfed() {
+      var newCanvas = document.querySelector('#myBarChartcfe');
+
+      //create image from dummy canvas
+      var canvasImg = document.getElementById("myBarChartcfe").toDataURL("image/png", 1.0);
+  
+      var columns = ["Nombre", "Datos"];
+  
+          console.log('LLLA', tabla);
+        
+          var fecha = new Date();
+            //creates PDF from img
+          var doc = new jsPDF('p', 'pt');
+          doc.setFillColor(255, 255, 255);
+          doc.rect(10, 10, 150, 160, "F");
+          doc.setFontSize(22)
+          doc.text(40, 50, 'Reporte de participacion estudiantil por facultad');
+          doc.text(40, 70, 'en la actividad Amazing Race.');
+          doc.setFontSize(14)
+          doc.text(40, 110, 'Fecha de reporte: '+fecha.getDate()+ "/" + (fecha.getMonth() +1) + "/" + fecha.getFullYear());
+          doc.setFontSize(14);
+          doc.text(40, 130, 'Datos de participacion estudiantil por cada una de las facultades');
+          doc.autoTable(columns, tabla, {margin: {top: 170}});
+          doc.text(40, 360, 'Como parte del objetivo de la actividad de llegar a una mayor cantidad');
+          doc.text(40, 380,'de estudiantes cada anio');
+          doc.addImage(canvasImg, 'png', 40, 400, 500, 200);
+          doc.setFontSize(14);
+          doc.text(40, 750, '__________________');
+          doc.text(40, 770, 'Capellan General');
+          doc.text(250, 750, '__________________');
+          doc.text(280, 770, 'Asistente');
+          doc.text(440, 750, '__________________');
+          doc.text(440, 770, 'Director General');
+          doc.save('sample.pdf');
+    }
+
+
 
   }
 
   function dartaPieCFE() {
+  
     var label = [];
+    var tabla = [];
+    var sum = 0;
+    
     $.ajax({
         url: "http://173.255.192.4/api-sreportes/iglesia_est/asistenciaCFE.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
+          var nombre = "Asiste a una iglesia";
+          var nombre2 = "No asiste";
+            result.records[0].nombre = nombre;
+            result.records[1].nombre = nombre2;
+            console.log('result',result);
             $.each(result.records, function(k,v) {
                 label.push({
                     res : v.resultado
                 });
+                tabla.push([
+                  v.nombre,
+                v.resultado
+              ]);
             });
+            let texto = [];
+            let i;
+            let speedData = {
+              labels: ["Asisten", "No Asisten"],
+                datasets: [{
+                  data: [],
+                  backgroundColor: ['#007bff', '#dc3545'],
+                }],
+              };
+            for (i = 0; i < label.length; i++) {
+              speedData.datasets[0].data.push(label[i].res);
+            }
+            console.log('PIE', speedData)
             var myPieChart = new Chart(ctxpCFE, {
               type: 'pie',
-              data: {
-                labels: ["Asisten", "No Asisten"],
-                datasets: [{
-                data: [label[0].res, label[1].res],
-                backgroundColor: ['#007bff', '#dc3545'],
-              }],
-              },
+              data: speedData,
             });
         },
         error: function(xhr, resp, text) {
             console.log(xhr, resp, text);
         }
     });
+
+        
+    document.getElementById('down').addEventListener("click", descargarBienvenida);
+
+    function descargarBienvenida() {
+      var newCanvas = document.querySelector('#myPieChartcfe');
+
+      //create image from dummy canvas
+      var canvasImg = document.getElementById("myPieChartcfe").toDataURL("image/png", 1.0);
   
+      var columns = ["Nombre", "Datos"];
+  
+          console.log('LLLA', tabla);
+        
+          var fecha = new Date();
+            //creates PDF from img
+          var doc = new jsPDF('p', 'pt');
+          doc.setFillColor(255, 255, 255);
+          doc.rect(10, 10, 150, 160, "F");
+          doc.setFontSize(22)
+          doc.text(40, 50, 'Reporte de participacion estudiantil por facultad');
+          doc.text(40, 70, 'en la actividad Amazing Race.');
+          doc.setFontSize(14)
+          doc.text(40, 110, 'Fecha de reporte: '+fecha.getDate()+ "/" + (fecha.getMonth() +1) + "/" + fecha.getFullYear());
+          doc.setFontSize(14);
+          doc.text(40, 130, 'Datos de participacion estudiantil por cada una de las facultades');
+          doc.autoTable(columns, tabla, {
+            styles: {
+              fillColor: [92, 122, 59],
+              width: '10px',
+            },
+            tableWidth: '50px',
+            margin: {top: 170} });
+          doc.text(40, 360, 'Como parte del objetivo de la actividad de llegar a una mayor cantidad');
+          doc.text(40, 380,'de estudiantes cada anio');
+          doc.addImage(canvasImg, 'png', 150, 400, 200, 200);
+          doc.setFontSize(14);
+          doc.text(40, 750, '__________________');
+          doc.text(40, 770, 'Capellan General');
+          doc.text(250, 750, '__________________');
+          doc.text(280, 770, 'Asistente');
+          doc.text(440, 750, '__________________');
+          doc.text(440, 770, 'Director General');
+          doc.save('sample.pdf');
+    }
+
+   
   }
 
   function dataBarAmz() {
@@ -352,7 +474,7 @@ $(document).ready(function(){
     var tabla = [];
     var sum = 0;
     $.ajax({
-        url: "http://localhost/api-sreportes/alumnos/charBarA.php",
+        url: "http://173.255.192.4/api-sreportes/alumnos/charBarA.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -486,7 +608,7 @@ $(document).ready(function(){
     var tabla = [];
     var sum = 0;
     $.ajax({
-        url: "http://localhost/api-sreportes/facultad/celulaChar.php",
+        url: "http://173.255.192.4/api-sreportes/facultad/celulaChar.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {

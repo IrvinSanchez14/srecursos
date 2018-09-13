@@ -1,6 +1,6 @@
 <?php
 
-    $con = mysqli_connect("localhost", "root", "", "login");
+    $con = mysqli_connect("173.255.192.4", "root", "", "login");
 
     if (!empty($_POST)) {
         $usuario = $_POST['username'];

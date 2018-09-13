@@ -24,6 +24,7 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/jquery-confirm.min.css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
@@ -115,42 +116,7 @@
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTableConf" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>CIF</th>
-                  <th>Ciclo Actual</th>
-                  <th>Email</th>
-                  <th>Telefono</th>
-                  <th>Facultad</th>
-                  <th>Facebook</th>
-                  <th>Beneficio Adquirido</th>
-                  <th>Asistencia Religiosa</th>
-                  <th>Nombre de Iglesia</th>
-                  <th>Opinion</th>
-                  <th>Desición Tomada</th>
-                  <th>Modificar</th>
-                  <th>Eliminar</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Nombre</th>
-                  <th>CIF</th>
-                  <th>Ciclo Actual</th>
-                  <th>Email</th>
-                  <th>Telefono</th>
-                  <th>Facultad</th>
-                  <th>Facebook</th>
-                  <th>Beneficio Adquirido</th>
-                  <th>Asistencia Religiosa</th>
-                  <th>Nombre de Iglesia</th>
-                  <th>Opinion</th>
-                  <th>Desición Tomada</th>
-                  <th>Modificar</th>
-                  <th>Eliminar</th>
-                </tr>
-              </tfoot>
+
             </table>
           </div>
         </div>
@@ -274,8 +240,8 @@
  <div class="form-inline" id="select-desc_est">
   </div>
                                  <div class="modal-footer">  
-                                   <button onclick="" type="button" class="btn btn-secondary" >Cancelar</button>  
-                                   <button id="add_btn" type="submit" id="save" class="save btn btn-primary">Guardar <i id="spinner_add" ></i>  </button>  
+                                   <button onclick="" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>  
+                                   <button id="add_btn" type="submit" id="add_btn" class="save btn btn-primary">Guardar <i id="spinner_add" ></i>  </button>  
                                    </form>  
                                  </div>  
                                </div>  
@@ -296,6 +262,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
+    <script src="js/jquery-confirm.min.js"></script>
     <script src="js/tableConf.js"></script>
   </div>
 </body>

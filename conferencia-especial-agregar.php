@@ -26,6 +26,7 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/jquery-confirm.min.css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
@@ -218,7 +219,7 @@
   </select>
             <br>
              </div>
-            <center>  <button type="submit" class="btn btn-primary center">Guardar Registro</button>  </center> 
+            <center>  <button id="add_btn" type="submit" class="btn btn-primary center">Guardar Registro <i id="spinner_add" ></i> </button> </button>   </center> 
 </form>
         <!--Fin de los formularios -->
 <br>
@@ -266,6 +267,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
+    <script src="js/jquery-confirm.min.js"></script>
     <script src="js/app.js"></script>
   </div>
 </body>

@@ -26,7 +26,7 @@ $(document).ready(function(){
     function lastId () {
         var id = null;
         $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/readLast.php",
+            url: "http://173.255.192.4/api-sreportes/alumnos/readLast.php",
             type : "POST",
             contentType : 'application/json',
             async: false,
@@ -164,7 +164,7 @@ $(document).ready(function(){
         console.log(data);
         //add alumno
         $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/create.php",
+            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -176,7 +176,7 @@ $(document).ready(function(){
                     var data2 = JSON.stringify(data);
                     console.log(data2)
                     $.ajax({
-                        url: "http://localhost/api-sreportes/factura/create.php",
+                        url: "http://173.255.192.4/api-sreportes/factura/create.php",
                         type : "POST",
                         contentType : 'application/json',
                         data : data2,
@@ -230,6 +230,8 @@ $(document).ready(function(){
                 $(this).css("border", "");
             }
         });
+    
+    
 
     $('#create-alumno-form').submit(function(event){
         event.preventDefault();
@@ -241,9 +243,11 @@ $(document).ready(function(){
         //add alumno
         if ($.trim($("input[name='nombre_alumno']").val()) === "" || $.trim($("input[name='cif']").val()) === "" || $.trim($("input[name='fecha']").val()) === "" || $.trim($("input[name='email']").val()) === "" || $.trim($("input[name='telefono']").val()) === "" || $.trim($("input[name='facebook']").val()) === "" || $.trim($("input[name='expectativas']").val()) === "" || $.trim($("input[name='ideas']").val()) === "" || $.trim($("input[name='nombre_iglesia']").val()) === "" || $.trim($("input[name='anios_es']").val()) === "" ) {
             alert("ERROR: No se puede guardar los datos con campos vacios");
+            $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+            $("#add_btn").prop("disabled",false);
         }  else {
             $.ajax({
-                url: "http://localhost/api-sreportes/alumnos/create.php",
+                url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
                 type : "POST",
                 contentType : 'application/json',
                 data : realData,
@@ -256,7 +260,7 @@ $(document).ready(function(){
                     console.log(data2)
                     //add alumn_extra
                     $.ajax({
-                        url: "http://localhost/api-sreportes/alum_extra/create.php",
+                        url: "http://173.255.192.4/api-sreportes/alum_extra/create.php",
                         type : "POST",
                         contentType : 'application/json',
                         data : data2,
@@ -268,7 +272,7 @@ $(document).ready(function(){
                                 var data3 = JSON.stringify(data);
                                 console.log(data3)
                             $.ajax({
-                                url: "http://localhost/api-sreportes/coment_act/create.php",
+                                url: "http://173.255.192.4/api-sreportes/coment_act/create.php",
                                 type : "POST",
                                 contentType : 'application/json',
                                 data : data3,
@@ -280,7 +284,7 @@ $(document).ready(function(){
                                     var data4 = JSON.stringify(data);
                                     console.log(data4)
                                     $.ajax({
-                                        url: "http://localhost/api-sreportes/iglesia_est/create.php",
+                                        url: "http://173.255.192.4/api-sreportes/iglesia_est/create.php",
                                         type : "POST",
                                         contentType : 'application/json',
                                         data : data4,
@@ -340,7 +344,7 @@ $(document).ready(function(){
         
         console.log('data',realData)
             $.ajax({
-                url: "http://localhost/api-sreportes/enc_sat/create.php",
+                url: "http://173.255.192.4/api-sreportes/enc_sat/create.php",
                 type : "POST",
                 contentType : 'application/json',
                 data : realData,
@@ -372,7 +376,7 @@ $(document).ready(function(){
 
         var realData = JSON.stringify(data);
         $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/create.php",
+            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -394,76 +398,107 @@ $(document).ready(function(){
 
     $('#create-conferencia-form').submit(function(event){
         event.preventDefault();
+        $("#add_btn").prop("disabled",true);
+        $("#spinner_add").addClass('fa fa-spinner fa-spin');
         var data = $(this).serializeObject();
-
-        var res = lastId();
-        let sum = parseInt(res) + parseInt(1);
-        data.id_alumno= sum;
-
         var realData = JSON.stringify(data);
+        console.log(data);
         $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/create.php",
+            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
             success : function(result) {
                 console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-        //alumno extra
-        $.ajax({
-            url: "http://localhost/api-sreportes/alum_extra/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-        //add iglesia
-        $.ajax({
-            url: "http://localhost/api-sreportes/iglesia_est/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-        //add ciclo
-        $.ajax({
-            url: "http://localhost/api-sreportes/ciclo/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-        //add conferencia
-        $.ajax({
-            url: "http://localhost/api-sreportes/conf_arg/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
+                setTimeout(function(){
+                var res = lastId();
+                data.id_alumno= res;
+                var data2 = JSON.stringify(data);
+                console.log(data2)
+                //add alumn_extra
+                //alumno extra
+                $.ajax({
+                    url: "http://173.255.192.4/api-sreportes/alum_extra/create.php",
+                    type : "POST",
+                    contentType : 'application/json',
+                    data : data2,
+                    success : function(result) {
+                        console.log('great');
+                        setTimeout(function(){
+                            var res = lastId();
+                            data.id_alumno= res;
+                            var data3 = JSON.stringify(data);
+                            console.log(data3)
+                            //add iglesia
+                            $.ajax({
+                                url: "http://173.255.192.4/api-sreportes/iglesia_est/create.php",
+                                type : "POST",
+                                contentType : 'application/json',
+                                data : data3,
+                                success : function(result) {
+                                    console.log('great');
+                                    setTimeout(function(){
+                                        var res = lastId();
+                                        data.id_alumno= res;
+                                        var data4 = JSON.stringify(data);
+                                        console.log(data4)
+                                    //add ciclo
+                                    $.ajax({
+                                        url: "http://173.255.192.4/api-sreportes/ciclo/create.php",
+                                        type : "POST",
+                                        contentType : 'application/json',
+                                        data : data4,
+                                        success : function(result) {
+                                            console.log('great');
+                                            setTimeout(function(){
+                                                var res = lastId();
+                                                data.id_alumno= res;
+                                                var data5 = JSON.stringify(data);
+                                                console.log(data5)
+                                            //add conferencia
+                                            $.ajax({
+                                                url: "http://173.255.192.4/api-sreportes/conf_arg/create.php",
+                                                type : "POST",
+                                                contentType : 'application/json',
+                                                data : data5,
+                                                success : function(result) {
+                                                    console.log('great');
+                                                    $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                                                    $("#add_btn").prop("disabled",false);
+                                                    $.alert({
+                                                        title: 'Alert!',
+                                                        content: 'Registro guardado con exito.',
+                                                    });
+                                                },
+                                                error: function(xhr, resp, text) {
+                                                    // show error to console
+                                                    console.log(xhr, resp, text);
+                                                }
+                                            });
+                                        },500);
+
+                                        },
+                                        error: function(xhr, resp, text) {
+                                            // show error to console
+                                        console.log(xhr, resp, text);
+                                        }
+                                    });
+                                },500);
+                                },
+                                error: function(xhr, resp, text) {
+                                    // show error to console
+                                    console.log(xhr, resp, text);
+                                }
+                            });
+                        },500);
+                    },
+                    error: function(xhr, resp, text) {
+                        // show error to console
+                        console.log(xhr, resp, text);
+                    }
+                });
+            },500);
+
             },
             error: function(xhr, resp, text) {
                 // show error to console

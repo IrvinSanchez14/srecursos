@@ -19,7 +19,7 @@ $(document).ready(function(){
     function lastId () {
         var id = null;
         $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/readLast.php",
+            url: "http://173.255.192.4/api-sreportes/alumnos/readLast.php",
             type : "POST",
             contentType : 'application/json',
             async: false,
@@ -44,7 +44,7 @@ $(document).ready(function(){
 
         var realData = JSON.stringify(data);
         $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/create.php",
+            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -69,7 +69,7 @@ $(document).ready(function(){
         
         console.log('data',realData)
             $.ajax({
-                url: "http://localhost/api-sreportes/enc_sat/create.php",
+                url: "http://173.255.192.4/api-sreportes/enc_sat/create.php",
                 type : "POST",
                 contentType : 'application/json',
                 data : realData,
@@ -93,7 +93,7 @@ $(document).ready(function(){
         console.log(data);
         //add alumno
         $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/create.php",
+            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -107,7 +107,7 @@ $(document).ready(function(){
         });
         //add alumn_extra
         $.ajax({
-            url: "http://localhost/api-sreportes/alum_extra/create.php",
+            url: "http://173.255.192.4/api-sreportes/alum_extra/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -121,7 +121,7 @@ $(document).ready(function(){
         });
 
         $.ajax({
-            url: "http://localhost/api-sreportes/coment_act/create.php",
+            url: "http://173.255.192.4/api-sreportes/coment_act/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -135,7 +135,7 @@ $(document).ready(function(){
         });
 
         $.ajax({
-            url: "http://localhost/api-sreportes/iglesia_est/create.php",
+            url: "http://173.255.192.4/api-sreportes/iglesia_est/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -159,7 +159,7 @@ $(document).ready(function(){
 
         var realData = JSON.stringify(data);
         $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/create.php",
+            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -173,7 +173,7 @@ $(document).ready(function(){
         });
         //alumno extra
         $.ajax({
-            url: "http://localhost/api-sreportes/alum_extra/create.php",
+            url: "http://173.255.192.4/api-sreportes/alum_extra/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -187,7 +187,7 @@ $(document).ready(function(){
         });
         //add iglesia
         $.ajax({
-            url: "http://localhost/api-sreportes/iglesia_est/create.php",
+            url: "http://173.255.192.4/api-sreportes/iglesia_est/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -201,7 +201,7 @@ $(document).ready(function(){
         });
         //add ciclo
         $.ajax({
-            url: "http://localhost/api-sreportes/ciclo/create.php",
+            url: "http://173.255.192.4/api-sreportes/ciclo/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -215,7 +215,7 @@ $(document).ready(function(){
         });
         //add conferencia
         $.ajax({
-            url: "http://localhost/api-sreportes/conf_arg/create.php",
+            url: "http://173.255.192.4/api-sreportes/conf_arg/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,

@@ -44,7 +44,7 @@
         <li class="nav-item act_ss" data-toggle="tooltip" data-placement="right" title="Actividades">
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="solicitud-actividadnueva.php">
+          <a class="nav-link" href="archivos.php  ">
             <i class="fa fa-suitcase" aria-hidden="true"></i>
             <span class="nav-link-text">Archivos</span>
           </a>
