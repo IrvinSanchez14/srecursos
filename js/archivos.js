@@ -59,28 +59,20 @@ $(document).ready(function(){
         var form_data = new FormData();                  
         form_data.append('file', file_data);
         var data = '{"nombre" : "'+file_data.name+'", "size" : "'+file_data.size+'", "tipo": "'+file_data.type+'"}';
-        console.log(data);
+        console.log('FormData',form_data);
+        console.log('file_datafile_data',file_data);
         //add db
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/file/create.php",
+            url: "http://localhost/api-sreportes/file/create.php",
             type : "POST",
             contentType : 'application/json',
             data : data,
             success : function(result) {
                 console.log('great');
-                $("#dataTable_bEspecial tbody").empty();
-                tableData();
-                $('#modalArchivos').modal('toggle');
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-        //move file
-       $.ajax({
+
+                       $.ajax({
             type: "POST",
-            url: 'http://173.255.192.4/api-sreportes/file/move.php',
+            url: 'http://localhost/api-sreportes/file/move.php',
             type: 'POST',
             data: form_data,
             contentType: false,       // The content type used when sending data to the server.
@@ -88,16 +80,27 @@ $(document).ready(function(){
             processData:false,
             success: function (data) {
                 //show content
-                console.log(data)
+                console.log('FILE',data)
+                                $("#dataTable_bEspecial tbody").empty();
+                tableData();
+                $('#modalArchivos').modal('toggle');
             }
         });
+            },
+            error: function(xhr, resp, text) {
+                // show error to console
+                console.log(xhr, resp, text);
+            }
+        });
+        //move file
+
     
     });
 
     function tableData() {
         
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/file/read.php",
+            url: "http://localhost/api-sreportes/file/read.php",
             type : "POST",
             contentType : 'application/json',
             success : function(result) {
@@ -109,7 +112,7 @@ $(document).ready(function(){
                     html += '<td>'+ v.nombre+'</td>';
                     html += '<td>'+ v.size+'MB</td>';
                     html += '<td>'+ v.fecha+'</td>';
-                    html += '<td><a class="btn btn-success" class="fa fa-download" download href="http://173.255.192.4/api-sreportes/file/upload/'+ v.nombre+'">Download</a></td>';
+                    html += '<td><a class="btn btn-success" class="fa fa-download" download href="http://localhost/api-sreportes/file/upload/'+ v.nombre+'">Download</a></td>';
                     html += '<td><button type="button" class="delete btn btn-danger" id="'+v.id+'">Eliminar <i id="spinner_add_'+v.id+'" ></i></button></td>';
 
                     $('#dataTable_bEspecial').append(html);

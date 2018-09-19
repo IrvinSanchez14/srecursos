@@ -164,7 +164,7 @@ $(document).ready(function(){
         console.log(data);
         //add alumno
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
+            url: "http://localhost/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -176,7 +176,7 @@ $(document).ready(function(){
                     var data2 = JSON.stringify(data);
                     console.log(data2)
                     $.ajax({
-                        url: "http://173.255.192.4/api-sreportes/factura/create.php",
+                        url: "http://localhost/api-sreportes/factura/create.php",
                         type : "POST",
                         contentType : 'application/json',
                         data : data2,
@@ -218,9 +218,9 @@ $(document).ready(function(){
             else {
                 $(this).css("border", "");
             }
-        });
+    });
 
-        $('#add_alumno input').blur(function()
+    $('#add_alumno input').blur(function()
         {
             if( !this.value ) {
                 $(this).css("border", "1px solid red");
@@ -229,7 +229,7 @@ $(document).ready(function(){
             else {
                 $(this).css("border", "");
             }
-        });
+    });
     
     
 
@@ -376,7 +376,7 @@ $(document).ready(function(){
 
         var realData = JSON.stringify(data);
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
+            url: "http://localhost/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -507,6 +507,7 @@ $(document).ready(function(){
         });
 
     });
+
 
 
     
