@@ -151,8 +151,13 @@ $(document).ready(function(){
 
     $('#add_alumno').submit(function(event){
         event.preventDefault();
-        if ($.trim($("input[name='nombre_alumno']").val()) === "" ) {
-
+        if ($.trim($("input[name='nombre_alumno']").val()) === "" || $.trim($("input[name='cif']").val()) === "" || $.trim($("input[name='numero_factura']").val()) === "" ) {
+            alert ("ERROR: Campos vacios");
+            if ($.trim($("input[name='nombre_alumno']").val()) === "") {
+                $("input[name='nombre_alumno']").css("border", "1px solid red");
+            } else if ($.trim($("input[name='cif']").val()) === "") {
+                $("input[name='cif']").css("border", "1px solid red");
+            }
         } else {
         $("#add_btn").prop("disabled",true);
         $("#spinner_add").addClass('fa fa-spinner fa-spin');
@@ -220,8 +225,8 @@ $(document).ready(function(){
             }
     });
 
-    $('#add_alumno input').blur(function()
-        {
+    $('#add_alumno input').blur(function(){
+        console.log('err');
             if( !this.value ) {
                 $(this).css("border", "1px solid red");
                 console.log('eer');
@@ -230,6 +235,27 @@ $(document).ready(function(){
                 $(this).css("border", "");
             }
     });
+
+
+    //validacion campos
+    /*
+    $("#add_alumno").submit(function(e){
+        var isFormValid = true;
+    
+        $("#add_alumno input").each(function(){
+            if ($.trim($(this).val()).length == 0){
+                $(this).css("border", "1px solid red");
+                isFormValid = false;
+            }
+            else{
+                $(this).css("border", "1px solid gray");
+            }
+        });
+    
+        if (!isFormValid) alert("Please fill in all the required fields (indicated by *)");
+    
+        return isFormValid;
+    });*/
     
     
 
@@ -296,6 +322,17 @@ $(document).ready(function(){
                                                 title: 'Alert!',
                                                 content: 'Registro guardado con exito.',
                                             });
+                                            $("input[name='nombre_alumno']").val('');
+                                            $("input[name='cif']").val('');
+                                            $("input[name='fecha']").val('');
+                                            $("input[name='email']").val('');
+                                            $("input[name='telefono']").val('');
+                                            $("input[name='facebook']").val('');
+                                            $("input[name='expectativas']").val('');
+                                            $("input[name='ideas']").val('');
+                                            $("input[name='nombre_iglesia']").val('');
+                                            $("input[name='anios_es']").val('');
+                                            $("select[name='id_facultad']").val('0');
                                         },
                                         error: function(xhr, resp, text) {
                                             // show error to console

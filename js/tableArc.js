@@ -169,7 +169,7 @@ $(document).ready(function(){
                     }
                     
                 });
-            });
+            }); 
 
             $('.delete').click(function (event) {
                 let id_alumno = $(this).attr('id');

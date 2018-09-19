@@ -118,6 +118,8 @@
                         <input type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
                 <label id="messageErr"></label>
+                <br>
+                <label for="typeErr"></label>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

@@ -147,7 +147,7 @@
     <div class="form-group">
       <label for="inputCarrera">Facultad</label>
       <select id="inputCarrera" name='id_facultad' class="form-control">
-        <option selected>Seleccione una Facultad</option>
+        <option value="0" selected>Seleccione una Facultad</option>
         <option value="1">Ingeniería en Sistemas Computacionales</option>
         <option value="2">Medicina</option>
         <option value="3">Odontología</option>

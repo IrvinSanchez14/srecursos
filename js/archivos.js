@@ -41,8 +41,60 @@ $(document).ready(function(){
 
     $('#exampleFormControlFile1').bind('change', function() {
         $('#messageErr').empty();
-        let data = (this.files[0].size > 26214400) ? 'Error: El archivo debe ser menor a 25MB' : 'Archivo en optimaz condiciones';
-        $('#messageErr').append(data);
+        if (this.files[0].size <= 26214400 && this.files[0].type === 'application/pdf' ||  this.files[0].type === 'image/png') {
+            $('#messageErr').append('Archivo en optimaz condiciones');
+            
+            $('#uploadimage').submit(function(event){
+                event.preventDefault();
+                var file_data = $('#exampleFormControlFile1').prop('files')[0];   
+                var form_data = new FormData();                  
+                form_data.append('file', file_data);
+                var data = '{"nombre" : "'+file_data.name+'", "size" : "'+file_data.size+'", "tipo": "'+file_data.type+'"}';
+                console.log('FormData',form_data);
+                console.log('file_datafile_data',file_data);
+                //add db
+                $.ajax({
+                    url: "http://localhost/api-sreportes/file/create.php",
+                    type : "POST",
+                    contentType : 'application/json',
+                    data : data,
+                    success : function(result) {
+                        console.log('great');
+
+                            $.ajax({
+                                type: "POST",
+                                url: 'http://localhost/api-sreportes/file/move.php',
+                                type: 'POST',
+                                data: form_data,
+                                contentType: false,       // The content type used when sending data to the server.
+                                cache: false,             // To unable request pages to be cached
+                                processData:false,
+                                success: function (data) {
+                                    //show content
+                                    console.log('FILE',data)
+                                                    $("#dataTable_bEspecial tbody").empty();
+                                    tableData();
+                                    $('#modalArchivos').modal('toggle');
+                                }
+                            });
+                    },
+                    error: function(xhr, resp, text) {
+                        // show error to console
+                        console.log(xhr, resp, text);
+                    }
+                });
+                //move file
+
+            
+            });
+        }  else {
+            $('#messageErr').append('Error: problemas en el archivo');
+            $('#uploadimage').submit(function(event){
+                event.preventDefault();
+                alert('Archivo no registrado por problemas de validacion');
+                //return;
+            });
+        }
         console.log(this.files[0])
     });
 
@@ -52,50 +104,6 @@ $(document).ready(function(){
         $("#messageErr").text('');
     });
 
-
-    $('#uploadimage').submit(function(event){
-        event.preventDefault();
-        var file_data = $('#exampleFormControlFile1').prop('files')[0];   
-        var form_data = new FormData();                  
-        form_data.append('file', file_data);
-        var data = '{"nombre" : "'+file_data.name+'", "size" : "'+file_data.size+'", "tipo": "'+file_data.type+'"}';
-        console.log('FormData',form_data);
-        console.log('file_datafile_data',file_data);
-        //add db
-        $.ajax({
-            url: "http://localhost/api-sreportes/file/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : data,
-            success : function(result) {
-                console.log('great');
-
-                       $.ajax({
-            type: "POST",
-            url: 'http://localhost/api-sreportes/file/move.php',
-            type: 'POST',
-            data: form_data,
-            contentType: false,       // The content type used when sending data to the server.
-            cache: false,             // To unable request pages to be cached
-            processData:false,
-            success: function (data) {
-                //show content
-                console.log('FILE',data)
-                                $("#dataTable_bEspecial tbody").empty();
-                tableData();
-                $('#modalArchivos').modal('toggle');
-            }
-        });
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-        //move file
-
-    
-    });
 
     function tableData() {
         
@@ -133,7 +141,7 @@ $(document).ready(function(){
                                 data.id_archivo= id_archivo;
                                 var realData = JSON.stringify(data);
                                 $.ajax({
-                                    url: "http://173.255.192.4/api-sreportes/file/delete.php",
+                                    url: "http://localhost/api-sreportes/file/delete.php",
                                     type : "POST",
                                     contentType : 'application/json',
                                     data : realData,
