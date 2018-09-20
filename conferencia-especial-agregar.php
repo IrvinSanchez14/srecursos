@@ -130,7 +130,7 @@
     <div class="form-group col-md-6">
       <label for="inputCarrera">Ciclo Actual</label>
       <select id="inputCarrera" class="form-control" name="valor">
-        <option selected>Seleccione un Ciclo</option>
+        <option value="-1" selected>Seleccione un Ciclo</option>
         <option value="0">Ciclo 1</option>
         <option value="1">Ciclo 2</option>
       </select>
@@ -149,7 +149,7 @@
   <div class="form-group">
       <label for="inputCarrera">Facultad</label>
       <select id="inputCarrera" name='id_facultad' class="form-control">
-        <option selected>Seleccione una Facultad</option>
+        <option value= "-1" selected>Seleccione una Facultad</option>
         <option value="1">Ingeniería en Sistemas Computacionales</option>
         <option value="2">Medicina</option>
         <option value="3">Odontología</option>
@@ -201,7 +201,7 @@
 <form class="form-inline">
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Opiniones sobre la conferencia</label>
   <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="opn_con">
-    <option selected>Seleccione una opción</option>
+    <option value="-1"selected>Seleccione una opción</option>
     <option value="1">Regular</option>
     <option value="2">Bueno</option>
     <option value="3">Muy Bueno</option>
@@ -212,7 +212,7 @@
  <form class="form-inline">
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Decisión tomada por el estudiante</label>
   <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="desc_est">
-    <option selected>Seleccione una opción</option>
+    <option value="-1"selected>Seleccione una opción</option>
     <option value="1">Se entregó</option>
     <option value="2">Ya lo habia hecho</option>
     <option value="3">No se entregó</option>

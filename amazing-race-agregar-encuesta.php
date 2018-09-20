@@ -125,7 +125,7 @@
                     <div class="col">
                       <label for="inputCarrera">Instalaciones</label>
               <select id="inputCarrera" class="form-control" name="num_res1">
-                <option selected>Seleccione una opción</option>
+                <option value="0" selected>Seleccione una opción</option>
                 <option value="Necesita mejorar">Necesita mejorar</option>
                 <option value="Regular">Regular</option>
                 <option value="Bueno">Bueno</option>
@@ -137,7 +137,7 @@
                     <div class="col">
                       <label for="inputCarrera">Dinámicas</label>
                       <select id="inputCarrera" class="form-control" name="num_res2">
-                        <option selected>Seleccione una opción</option>
+                        <option  value="0"selected>Seleccione una opción</option>
                         <option value="Necesita mejorar">Necesita mejorar</option>
                         <option value="Regular">Regular</option>
                         <option value="Bueno">Bueno</option>
@@ -151,7 +151,7 @@
                     <div class="col">
                       <label for="inputCarrera">Conferencia</label>
                       <select id="inputCarrera" class="form-control" name="num_res3">
-                        <option selected>Seleccione una opción</option>
+                        <option value="0" selected>Seleccione una opción</option>
                         <option value="Necesita mejorar">Necesita mejorar</option>
                         <option value="Regular">Regular</option>
                         <option value="Bueno">Bueno</option>
@@ -163,7 +163,7 @@
                     <div class="col">
                       <label for="inputCarrera">Alimentación</label>
                       <select id="inputCarrera" class="form-control" name="num_res4">
-                        <option selected>Seleccione una opción</option>
+                        <option value="0" selected>Seleccione una opción</option>
                         <option value="Necesita mejorar">Necesita mejorar</option>
                         <option value="Regular">Regular</option>
                         <option value="Bueno">Bueno</option>
@@ -177,7 +177,7 @@
                     <div class="col">
                       <label for="inputCarrera">Talleres</label>
                       <select id="inputCarrera" class="form-control" name="num_res5">
-                        <option selected>Seleccione una opción</option>
+                        <option value="0" selected>Seleccione una opción</option>
                         <option value="Necesita mejorar">Necesita mejorar</option>
                         <option value="Regular">Regular</option>
                         <option value="Bueno">Bueno</option>
@@ -189,7 +189,7 @@
                     <div class="col">
                       <label for="inputCarrera">Atención del lugar</label>
                       <select id="inputCarrera" class="form-control" name="num_res6">
-                        <option selected>Seleccione una opción</option>
+                        <option value="0" selected>Seleccione una opción</option>
                         <option value="Necesita mejorar">Necesita mejorar</option>
                         <option value="Regular">Regular</option>
                         <option value="Bueno">Bueno</option>
@@ -202,7 +202,7 @@
                       <div class="form-group">
               <label for="inputCarrera">Transporte</label>
               <select id="inputCarrera" class="form-control" name="num_res7">
-                <option selected>Seleccione una opción</option>
+                <option value="0" selected>Seleccione una opción</option>
                 <option value="Necesita mejorar">Necesita mejorar</option>
                 <option value="Regular">Regular</option>
                 <option value="Bueno">Bueno</option>

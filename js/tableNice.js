@@ -30,7 +30,7 @@ $(document).ready(function(){
         data.id_alumno= id_alumno;
         var realData = JSON.stringify(data);
         $.ajax({
-            url: "http://localhost/api-sreportes/facultad/saveUpdate.php",
+            url: "http://173.255.192.4/api-sreportes/facultad/saveUpdate.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -54,7 +54,7 @@ $(document).ready(function(){
     
 function table () {
     $.ajax({
-        url: "http://localhost/api-sreportes/facultad/tablaNice.php",
+        url: "http://173.255.192.4/api-sreportes/facultad/tablaNice.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -76,7 +76,7 @@ function table () {
                 let id_alumno = $(this).attr('id_alumno');
                 console.log(id_alumno);
                $.ajax({
-                    url: "http://localhost/api-sreportes/facultad/updateId.php?id_alumno="+id_alumno,
+                    url: "http://173.255.192.4/api-sreportes/facultad/updateId.php?id_alumno="+id_alumno,
                     type : "GET",
                     contentType : 'application/json',
                     success : function(result) {
@@ -155,7 +155,7 @@ function table () {
                             data.id_alumno= id_alumno;
                             var realData = JSON.stringify(data);
                             $.ajax({
-                                url: "http://localhost/api-sreportes/facultad/deleteNice.php",
+                                url: "http://173.255.192.4/api-sreportes/facultad/deleteNice.php",
                                 type : "POST",
                                 contentType : 'application/json',
                                 data : realData,

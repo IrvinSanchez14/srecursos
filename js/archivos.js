@@ -54,7 +54,7 @@ $(document).ready(function(){
                 console.log('file_datafile_data',file_data);
                 //add db
                 $.ajax({
-                    url: "http://localhost/api-sreportes/file/create.php",
+                    url: "http://173.255.192.4/api-sreportes/file/create.php",
                     type : "POST",
                     contentType : 'application/json',
                     data : data,
@@ -63,7 +63,7 @@ $(document).ready(function(){
 
                             $.ajax({
                                 type: "POST",
-                                url: 'http://localhost/api-sreportes/file/move.php',
+                                url: 'http://173.255.192.4/api-sreportes/file/move.php',
                                 type: 'POST',
                                 data: form_data,
                                 contentType: false,       // The content type used when sending data to the server.
@@ -108,7 +108,7 @@ $(document).ready(function(){
     function tableData() {
         
         $.ajax({
-            url: "http://localhost/api-sreportes/file/read.php",
+            url: "http://173.255.192.4/api-sreportes/file/read.php",
             type : "POST",
             contentType : 'application/json',
             success : function(result) {
@@ -120,7 +120,7 @@ $(document).ready(function(){
                     html += '<td>'+ v.nombre+'</td>';
                     html += '<td>'+ v.size+'MB</td>';
                     html += '<td>'+ v.fecha+'</td>';
-                    html += '<td><a class="btn btn-success" class="fa fa-download" download href="http://localhost/api-sreportes/file/upload/'+ v.nombre+'">Download</a></td>';
+                    html += '<td><a class="btn btn-success" class="fa fa-download" download href="http://173.255.192.4/api-sreportes/file/upload/'+ v.nombre+'">Download</a></td>';
                     html += '<td><button type="button" class="delete btn btn-danger" id="'+v.id+'">Eliminar <i id="spinner_add_'+v.id+'" ></i></button></td>';
 
                     $('#dataTable_bEspecial').append(html);
@@ -141,7 +141,7 @@ $(document).ready(function(){
                                 data.id_archivo= id_archivo;
                                 var realData = JSON.stringify(data);
                                 $.ajax({
-                                    url: "http://localhost/api-sreportes/file/delete.php",
+                                    url: "http://173.255.192.4/api-sreportes/file/delete.php",
                                     type : "POST",
                                     contentType : 'application/json',
                                     data : realData,

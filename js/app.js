@@ -149,71 +149,6 @@ $(document).ready(function(){
         //var regex = /^[a-zA-Z0-9@]+$/;
       });
 
-    $('#add_alumno').submit(function(event){
-        event.preventDefault();
-        if ($.trim($("input[name='nombre_alumno']").val()) === "" || $.trim($("input[name='cif']").val()) === "" || $.trim($("input[name='numero_factura']").val()) === "" ) {
-            alert ("ERROR: Campos vacios");
-            if ($.trim($("input[name='nombre_alumno']").val()) === "") {
-                $("input[name='nombre_alumno']").css("border", "1px solid red");
-            } else if ($.trim($("input[name='cif']").val()) === "") {
-                $("input[name='cif']").css("border", "1px solid red");
-            }
-        } else {
-        $("#add_btn").prop("disabled",true);
-        $("#spinner_add").addClass('fa fa-spinner fa-spin');
-        var data = $(this).serializeObject();
-
-        //let sum = parseInt(res) + parseInt(1);
-        
-        var realData = JSON.stringify(data);
-        console.log(data);
-        //add alumno
-        $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/create.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : realData,
-            success : function(result) {
-                console.log('great');
-                setTimeout(function(){
-                    var res = lastId();
-                    data.id_alumno= res;
-                    var data2 = JSON.stringify(data);
-                    console.log(data2)
-                    $.ajax({
-                        url: "http://localhost/api-sreportes/factura/create.php",
-                        type : "POST",
-                        contentType : 'application/json',
-                        data : data2,
-                        success : function(result) {
-                            console.log('great');
-                            $("#spinner_add").removeClass('fa fa-spinner fa-spin');
-                            $("#add_btn").prop("disabled",false);
-                            $.alert({
-                                title: 'Alert!',
-                                content: 'Registro guardado con exito.',
-                            });
-                            $("input[name='numero_factura']").val('');
-                            $("input[name='cif']").val('');
-                            $("input[name='nombre_alumno']").val('');
-                            $("#inputCarrera").val(0);
-                        },
-                        error: function(xhr, resp, text) {
-                            // show error to console
-                            console.log(xhr, resp, text);
-                        }
-                    });
-                  }, 500);
-            },
-            error: function(xhr, resp, text) {
-                // show error to console
-                console.log(xhr, resp, text);
-            }
-        });
-    }
-
-    });
-
     $('#create-alumno-form input').blur(function()
         {
             if( !this.value ) {
@@ -236,26 +171,92 @@ $(document).ready(function(){
             }
     });
 
-
-    //validacion campos
-    /*
     $("#add_alumno").submit(function(e){
+        e.preventDefault();
+        $("#add_btn").prop("disabled",true);
+        $("#spinner_add").addClass('fa fa-spinner fa-spin');
         var isFormValid = true;
     
         $("#add_alumno input").each(function(){
             if ($.trim($(this).val()).length == 0){
                 $(this).css("border", "1px solid red");
                 isFormValid = false;
+                $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                $("#add_btn").prop("disabled",false);
             }
             else{
-                $(this).css("border", "1px solid gray");
+                $(this).css("border", "1px solid #ced4da");  
             }
         });
+
+        console.log($("#inputCarrera").val())
+
+        if ( $("#inputCarrera").val() === '0' )
+        {
+            $("#inputCarrera").css("border", "1px solid red");
+            isFormValid = false;
+            $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+            $("#add_btn").prop("disabled",false);
+        }
+        else {
+            $("#inputCarrera").css("border", "1px solid #ced4da");  
+        }
     
-        if (!isFormValid) alert("Please fill in all the required fields (indicated by *)");
+        if (!isFormValid) alert("Favor llenar los campos requeridos");
+
+        if (isFormValid) {
+            var data = $(this).serializeObject();
+            //let sum = parseInt(res) + parseInt(1);
+            
+            var realData = JSON.stringify(data);
+            console.log(data);
+            //add alumno
+            $.ajax({
+                url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
+                type : "POST",
+                contentType : 'application/json',
+                data : realData,
+                success : function(result) {
+                    console.log('great');
+                    setTimeout(function(){
+                        var res = lastId();
+                        data.id_alumno= res;
+                        var data2 = JSON.stringify(data);
+                        console.log(data2)
+                        $.ajax({
+                            url: "http://173.255.192.4/api-sreportes/factura/create.php",
+                            type : "POST",
+                            contentType : 'application/json',
+                            data : data2,
+                            success : function(result) {
+                                console.log('great');
+                                $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                                $("#add_btn").prop("disabled",false);
+                                $.alert({
+                                    title: 'Alert!',
+                                    content: 'Registro guardado con exito.',
+                                });
+                                $("input[name='numero_factura']").val('');
+                                $("input[name='cif']").val('');
+                                $("input[name='nombre_alumno']").val('');
+                                $("#inputCarrera").val(0);
+                            },
+                            error: function(xhr, resp, text) {
+                                // show error to console
+                                console.log(xhr, resp, text);
+                            }
+                        });
+                      }, 500);
+                },
+                error: function(xhr, resp, text) {
+                    // show error to console
+                    console.log(xhr, resp, text);
+                }
+            });
+        }
     
         return isFormValid;
-    });*/
+    });
     
     
 
@@ -263,6 +264,35 @@ $(document).ready(function(){
         event.preventDefault();
         $("#add_btn").prop("disabled",true);
         $("#spinner_add").addClass('fa fa-spinner fa-spin');
+
+        var isFormValid = true;
+    
+        $("#create-alumno-form input").each(function(){
+            if ($.trim($(this).val()).length == 0){
+                $(this).css("border", "1px solid red");
+                isFormValid = false;
+                $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                $("#add_btn").prop("disabled",false);
+            }
+            else{
+                $(this).css("border", "1px solid #ced4da");  
+            }
+        });
+
+        if ( $("#inputCarrera").val() === '0' )
+        {
+            $("#inputCarrera").css("border", "1px solid red");
+            isFormValid = false;
+            $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+            $("#add_btn").prop("disabled",false);
+        }
+        else {
+            $("#inputCarrera").css("border", "1px solid #ced4da");  
+        }
+
+        if (!isFormValid) alert("Favor llenar los campos requeridos");
+
+        if (isFormValid) {
         var data = $(this).serializeObject();
         var realData = JSON.stringify(data);
         console.log(data);
@@ -353,9 +383,7 @@ $(document).ready(function(){
                             // show error to console
                             console.log(xhr, resp, text);
                         }
-                    });/*
-
-*/
+                    });
                 },500);
                 },
                 error: function(xhr, resp, text) {
@@ -365,6 +393,7 @@ $(document).ready(function(){
             });
 
         }
+    }
 
     });
 
@@ -372,6 +401,22 @@ $(document).ready(function(){
         event.preventDefault();
         $("#add_btn").prop("disabled",true);
         $("#spinner_add").addClass('fa fa-spinner fa-spin');
+        var isFormValid = true;
+        $("#add_encuesta select").each(function(){
+            if ($.trim($(this).val()) == 0){
+                $(this).css("border", "1px solid red");
+                isFormValid = false;
+                $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                $("#add_btn").prop("disabled",false);
+            }
+            else{
+                $(this).css("border", "1px solid #ced4da");  
+            }
+        });
+
+        if (!isFormValid) alert("Favor llenar los campos requeridos");
+
+        if (isFormValid) {
         var data = $(this).serializeObject();
         var res = lastId();
         let sum = parseInt(res) + parseInt(1);
@@ -393,6 +438,7 @@ $(document).ready(function(){
                         title: 'Alert!',
                         content: 'Registro guardado con exito.',
                     });
+                    $(".form-control").val(0)
 
                 },
                 error: function(xhr, resp, text) {
@@ -400,12 +446,40 @@ $(document).ready(function(){
                     console.log(xhr, resp, text);
                 }
             });
+        }
     });
 
     $('#create-celula-form').submit(function(event){
         event.preventDefault();
         $("#add_btn").prop("disabled",true);
         $("#spinner_add").addClass('fa fa-spinner fa-spin');
+        var isFormValid = true;
+        $("#create-celula-form input").each(function(){
+            if ($.trim($(this).val()) == 0){
+                $(this).css("border", "1px solid red");
+                isFormValid = false;
+                $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                $("#add_btn").prop("disabled",false);
+            }
+            else{
+                $(this).css("border", "1px solid #ced4da");  
+            }
+        });
+
+        
+        if ( $("#inputCarrera").val() === '0' )
+        {
+            $("#inputCarrera").css("border", "1px solid red");
+            isFormValid = false;
+            $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+            $("#add_btn").prop("disabled",false);
+        }
+        else {
+            $("#inputCarrera").css("border", "1px solid #ced4da");  
+        }
+        if (!isFormValid) alert("Favor llenar los campos requeridos");
+
+        if (isFormValid) {
         var data = $(this).serializeObject();
         var res = lastId();
         let sum = parseInt(res) + parseInt(1);
@@ -413,7 +487,7 @@ $(document).ready(function(){
 
         var realData = JSON.stringify(data);
         $.ajax({
-            url: "http://localhost/api-sreportes/alumnos/create.php",
+            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -425,18 +499,51 @@ $(document).ready(function(){
                     title: 'Alert!',
                     content: 'Registro guardado con exito.',
                 });
+                $("input[name='nombre_alumno']").val('');
+                $("input[name='cif']").val('');
+                $("#inputCarrera").val(0);
             },
             error: function(xhr, resp, text) {
                 // show error to console
                 console.log(xhr, resp, text);
             }
         });
+    }
     });
 
     $('#create-conferencia-form').submit(function(event){
         event.preventDefault();
         $("#add_btn").prop("disabled",true);
         $("#spinner_add").addClass('fa fa-spinner fa-spin');
+        var isFormValid = true;
+    
+        $("#create-conferencia-form input").each(function(){
+            if ($.trim($(this).val()).length == 0){
+                $(this).css("border", "1px solid red");
+                isFormValid = false;
+                $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                $("#add_btn").prop("disabled",false);
+            }
+            else{
+                $(this).css("border", "1px solid #ced4da");  
+            }
+        });
+
+        $("#create-conferencia-form select").each(function(){
+            if ($.trim($(this).val()) == -1){
+                $(this).css("border", "1px solid red");
+                isFormValid = false;
+                $("#spinner_add").removeClass('fa fa-spinner fa-spin');
+                $("#add_btn").prop("disabled",false);
+            }
+            else{
+                $(this).css("border", "1px solid #ced4da");  
+            }
+        });
+
+        if (!isFormValid) alert("Favor llenar los campos requeridos");
+
+        if (isFormValid) {
         var data = $(this).serializeObject();
         var realData = JSON.stringify(data);
         console.log(data);
@@ -542,7 +649,7 @@ $(document).ready(function(){
                 console.log(xhr, resp, text);
             }
         });
-
+    }
     });
 
 

@@ -18,15 +18,15 @@ $(document).ready(function(){
 
 
   
-  if (window.location.href === 'http://localhost/srecursos/reporte-conferencia.php') {
+  if (window.location.href === 'http://173.255.192.4/srecursos/reporte-conferencia.php') {
     dataBarCFE();
     dartaPieCFE();
-  } else if (window.location.href === 'http://localhost/srecursos/reporte-bienvenida.php') {
+  } else if (window.location.href === 'http://173.255.192.4/srecursos/reporte-bienvenida.php') {
     dataBar();
     dartaPie();
-  } else if (window.location.href === 'http://localhost/srecursos/reporte-amazing.php') {
+  } else if (window.location.href === 'http://173.255.192.4/srecursos/reporte-amazing.php') {
     dataBarAmz();
-  } else if (window.location.href === 'http://localhost/srecursos/reporte-nice.php') {
+  } else if (window.location.href === 'http://173.255.192.4/srecursos/reporte-nice.php') {
     dataBarNice();
   } 
   else {
@@ -38,7 +38,7 @@ $(document).ready(function(){
     var tabla = [];
     var sum = 0;
     $.ajax({
-        url: "http://localhost/api-sreportes/coment_act/readChar.php",
+        url: "http://173.255.192.4/api-sreportes/coment_act/readChar.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -156,7 +156,7 @@ $(document).ready(function(){
     var sum = 0;
     
     $.ajax({
-        url: "http://localhost/api-sreportes/iglesia_est/asistenciaBv.php",
+        url: "http://173.255.192.4/api-sreportes/iglesia_est/asistenciaBv.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -251,7 +251,7 @@ $(document).ready(function(){
     var tabla = [];
     var sum = 0;
     $.ajax({
-        url: "http://localhost/api-sreportes/conf_arg/readBar.php",
+        url: "http://173.255.192.4/api-sreportes/conf_arg/readBar.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -374,7 +374,7 @@ $(document).ready(function(){
     var sum = 0;
     
     $.ajax({
-        url: "http://localhost/api-sreportes/iglesia_est/asistenciaCFE.php",
+        url: "http://173.255.192.4/api-sreportes/iglesia_est/asistenciaCFE.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -463,7 +463,7 @@ $(document).ready(function(){
     var tabla = [];
     var sum = 0;
     $.ajax({
-        url: "http://localhost/api-sreportes/alumnos/charBarA.php",
+        url: "http://173.255.192.4/api-sreportes/alumnos/charBarA.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -597,7 +597,7 @@ $(document).ready(function(){
     var tabla = [];
     var sum = 0;
     $.ajax({
-        url: "http://localhost/api-sreportes/facultad/celulaChar.php",
+        url: "http://173.255.192.4/api-sreportes/facultad/celulaChar.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
