@@ -1,3 +1,13 @@
+<?php 
+  session_start();
+  if (! empty($_SESSION["rol"]) && $_SESSION["rol"] === '2') { 
+     $_SESSION['rol'];
+  } else if(! empty($_SESSION["rol"]) && $_SESSION["rol"] === '1') { 
+    header('Location: ../index.php');
+    } else {
+      header('Location: login.html');
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Conferencias Especiales - Secretaria de Asuntos Espirituales</title>
+  <title>Bienvenida Especial - Secretaria de Asuntos Espirituales</title>
   <!-- Bootstrap core CSS-->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -21,7 +31,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" oncopy="return false" onpaste="return false">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Inicio</a>
+    <a class="navbar-brand" href="index.php">Inicio</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,17 +44,17 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a href="bienvenida-especial-agregar.html">Bienvenida Especial</a>
-            </li>
-            <li>
-              <a href="amazing-race-agregar.html">Retiros Amazing Race</a>
-            </li>
-            <li>
-              <a href="celulas-nice-agregar.html">Células NICE</a>
-            </li>
-            <li>
             <li class="active">
-              <a href="conferencia-especial-agregar.html">Conferencias Especiales</a>
+              <a href="bienvenida-especial-agregar.php">Bienvenida Especial</a>
+            </li>
+            <li>
+              <a href="amazing-race-agregar.php">Retiros Amazing Race</a>
+            </li>
+            <li>
+              <a href="celulas-nice-agregar.php">Células NICE</a>
+            </li>
+            <li>
+              <a href="conferencia-especial-agregar.php">Conferencias Especiales</a>
             </li>
           </ul>
         </li>
@@ -69,7 +79,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="conferencia-especial.html">Registros de Conferencia Especial</a>
+          <a href="bienvenida-especial.php">Registros Bienvenida</a>
         </li>
       </ol>
         <!--Inicio de los formularios -->
@@ -85,21 +95,18 @@
         <input type="number"  maxlength="10" class="form-control" id="inputcarnet1" placeholder="11223-44556">
       </div>
     <div class="form-group col-md-6">
-      <label for="inputCarrera">Ciclo Actual</label>
-      <select id="inputCarrera" class="form-control">
-        <option selected>Seleccione un Ciclo</option>
-        <option>Ciclo 1</option>
-        <option>Ciclo 2</option>
-      </select>
+        <label for="inputaño1">Año en que se realiza la actividad</label>
+        <input type="number"  maxlength="10" class="form-control" id="inputaño1" placeholder="">
     </div>
   </div>
+
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Correo Electronico</label>
+      <label for="inputEmail4">Correo Electrónico</label>
       <input type="email" maxlength="50" class="form-control" id="inputEmail4" placeholder="Ejemplo@hotmail.com">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputTel4">Telefono</label>
+      <label for="inputTel4">Teléfono</label>
       <input type="number"  maxlength="8" class="form-control" id="inputTel4" placeholder="1122-3344">
     </div>
   </div>
@@ -122,15 +129,19 @@
     <input type="text"  maxlength="50" class="form-control" id="inputFacebook" placeholder="Ejemplo Juan Martinez">
   </div>
   <div class="form-group">
-    <label for="inputExpectativa">Beneficio adquirido de la conferencia</label>
-    <input type="text"  maxlength="250" class="form-control" id="inputExpectativa" placeholder="Escriba le beneficio que obtuvo el estudiante">
+    <label for="inputExpectativa">Expectativas sobre las actividades que se realizarán</label>
+    <input type="text"  maxlength="250" class="form-control" id="inputExpectativa" placeholder="Escriba la expectativa del estudiante">
+  </div>
+  <div class="form-group">
+    <label for="inputIdeas">Nuevas ideas que fueron brindadas</label>
+    <input type="text"  maxlength="250" class="form-control" id="inputIdeas" placeholder="Escriba la idea del estudiante">
   </div>
 
 <div class="form-row">
     <div class="form-group col-md-4">
       <fieldset class="form-group">
     <div class="row">
-      <legend class="col-form-label col-md-8 ">El estudiante asiste a un iglesia</legend>
+      <legend class="col-form-label col-md-8 ">El estudiante asiste a una iglesia</legend>
       <div class="col-sm-10">
         <div class="form-check">
           <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
@@ -148,32 +159,15 @@
     </div>
   </fieldset>
     </div>
-
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
       <label for="inputNombre1">Nombre de la iglesia</label>
     <input type="text" class="form-control" id="inputNombre1" placeholder="Iglesia Jesus viene pronto">
     </div>
+    <div class="form-group col-md-4">
+      <label for="inputAno">Años asistidos</label>
+      <input type="text"  maxlength="2" class="form-control" id="inputAnos" placeholder="Años asistidos">
+    </div>
   </div>
-
-<form class="form-inline">
-  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Opiniones sobre la conferencia</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-    <option selected>Seleccione una opcion</option>
-    <option value="1">Regular</option>
-    <option value="2">Bueno</option>
-    <option value="3">Muy Bueno</option>
-    <option value="4">Excelente</option>
-  </select>
- <br>
-
- <form class="form-inline">
-  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Decisión tomada por el estudiante</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-    <option selected>Seleccione una opcion</option>
-    <option value="1">Se entrego</option>
-    <option value="2">Ya lo habia hecho</option>
-  </select>
-            <br>
              </div>
             <center>  <button type="submit" class="btn btn-primary center">Guardar Registro</button>  </center> 
 </form>
@@ -211,7 +205,7 @@
         </div>
       </div>
     </div>
-    <!-- Bootstrap core JavaScript-->
+<!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->

@@ -613,6 +613,18 @@ $(document).ready(function(){
                                                         title: 'Alert!',
                                                         content: 'Registro guardado con exito.',
                                                     });
+                                                    $("input[name='nombre_alumno']").val('');
+                                                    $("input[name='cif']").val('');
+                                                    $("input[name='email']").val('');
+                                                    $("input[name='telefono']").val('');
+                                                    $("input[name='facebook']").val('');
+                                                    $("input[name='benf_adq']").val('');
+                                                    $("input[name='nombre_iglesia']").val('');
+                                                    $("#valor").val('-1');
+                                                    $("#inputCarrera").val('-1');
+                                                    $("#opn_con").val('-1');
+                                                    $("#desc_est").val('-1');
+
                                                 },
                                                 error: function(xhr, resp, text) {
                                                     // show error to console

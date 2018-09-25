@@ -1,4 +1,13 @@
-
+<?php 
+  session_start();
+  if (! empty($_SESSION["rol"]) && $_SESSION["rol"] === '2') { 
+     $_SESSION['rol'];
+  } else if(! empty($_SESSION["rol"]) && $_SESSION["rol"] === '1') { 
+    header('Location: ../index.php');
+    } else {
+      header('Location: login.html');
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,13 +32,32 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Barra de Navegacion-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav"> 
-    <a class="navbar-brand" href="index.html">Inicio</a>
+    <a class="navbar-brand" href="index.php">Inicio</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item act_ss" data-toggle="tooltip" data-placement="right" title="Actividades">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-sitemap"></i>
+            <span class="nav-link-text">Actividades</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li>
+              <a href="bienvenida-especial-agregar.php">Bienvenida Especial</a>
+            </li>
+            <li>
+              <a href="amazing-race-agregar.php">Retiros Amazing Race</a>
+            </li>
+            <li>
+              <a href="celulas-nice-agregar.php">Células NICE</a>
+            </li>
+            <li>
+            <li class="active">
+              <a href="conferencia-especial-agregar.php">Conferencias Especiales</a>
+            </li>
+          </ul>
         </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
@@ -42,7 +70,7 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Cerrar Sesion</a>
+            <i class="fa fa-fw fa-sign-out"></i>Cerrar Sesión</a>
         </li>
       </ul>
     </div>
@@ -103,7 +131,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small></small>
+          <small></small> 
         </div>
       </div>
     </footer>
@@ -120,7 +148,7 @@
           <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <a class="btn btn-primary" href="login.html">Cerrar Sesion</a>
+            <a class="btn btn-primary" href="../logout.php">Cerrar Sesión</a>
           </div>
         </div>
       </div>
@@ -139,7 +167,6 @@
     <!-- Custom scripts for this page-->
     <script src="../js/sb-admin-datatables.min.js"></script>
     <script src="../js/sb-admin-charts.min.js"></script>
-    <script src="js/app.js"></script>
   </div>
 </body>
 </html>

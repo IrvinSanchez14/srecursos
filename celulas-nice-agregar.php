@@ -1,11 +1,9 @@
 <?php 
   session_start();
   if (! empty($_SESSION["rol"]) && $_SESSION["rol"] === '1') { 
-    echo "Estas logueado y por eso ves esto"; 
-    echo $_SESSION['rol'];
+     $_SESSION['rol'];
   } else { 
-    echo "hola";
-    header('Location: login.html'); 
+    header('Location: login.html');
     } 
 ?>
 <!DOCTYPE html>

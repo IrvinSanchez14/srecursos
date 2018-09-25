@@ -1,3 +1,13 @@
+<?php 
+  session_start();
+  if (! empty($_SESSION["rol"]) && $_SESSION["rol"] === '2') { 
+     $_SESSION['rol'];
+  } else if(! empty($_SESSION["rol"]) && $_SESSION["rol"] === '1') { 
+    header('Location: ../index.php');
+    } else {
+      header('Location: login.html');
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +31,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Inicio</a>
+    <a class="navbar-brand" href="index.php">Inicio</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,17 +44,17 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a href="bienvenida-especial-agregar.html">Bienvenida Especial</a>
+              <a href="bienvenida-especial-agregar.php">Bienvenida Especial</a>
             </li>
             <li>
             <li class="active">
-              <a href="amazing-race-agregar.html">Retiros Amazing Race</a>
+              <a href="amazing-race-agregar.php">Retiros Amazing Race</a>
             </li>
             <li>
-              <a href="celulas-nice-agregar.html">Células NICE</a>
+              <a href="celulas-nice-agregar.php">Células NICE</a>
             </li>
             <li>
-              <a href="conferencia-especial-agregar.html">Conferencias Especiales</a>
+              <a href="conferencia-especial-agregar.php">Conferencias Especiales</a>
             </li>
           </ul>
         </li>
@@ -69,7 +79,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-        <a href="amazing-race-agregar.html">Agregar Nuevo Registro</a>
+        <a href="amazing-race-agregar.php">Agregar Nuevo Registro</a>
         </li>
       </ol>
         <!-- Inicio de la tabla de datos -->

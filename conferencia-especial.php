@@ -179,7 +179,7 @@
               <div class="form-group col-md-4">  
               <label for="inputCarrera">Ciclo Actual</label>
               <select id="valor" class="form-control" name="valor">
-                <option selected>Seleccione un Ciclo</option>
+                <option value="-1"selected>Seleccione un Ciclo</option>
                 <option value="0">Ciclo 1</option>
                 <option value="1">Ciclo 2</option>
               </select>  

@@ -1,11 +1,11 @@
 <?php 
   session_start();
   if (! empty($_SESSION["rol"]) && $_SESSION["rol"] === '1') { 
-    echo "Estas logueado y por eso ves esto"; 
-    echo $_SESSION['rol'];
-  } else { 
-    echo "hola";
-    header('Location: login.html');
+     $_SESSION['rol'];
+  } else if(! empty($_SESSION["rol"]) && $_SESSION["rol"] === '2') { 
+    header('Location: User_App/index.php');
+    } else {
+      header('Location: login.html');
     } 
 ?>
 <!DOCTYPE html>

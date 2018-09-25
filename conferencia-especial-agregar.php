@@ -129,7 +129,7 @@
       </div>
     <div class="form-group col-md-6">
       <label for="inputCarrera">Ciclo Actual</label>
-      <select id="inputCarrera" class="form-control" name="valor">
+      <select id="valor" class="form-control" name="valor">
         <option value="-1" selected>Seleccione un Ciclo</option>
         <option value="0">Ciclo 1</option>
         <option value="1">Ciclo 2</option>
@@ -200,7 +200,7 @@
 
 <form class="form-inline">
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Opiniones sobre la conferencia</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="opn_con">
+  <select class="custom-select my-1 mr-sm-2" id="opn_con" name="opn_con">
     <option value="-1"selected>Seleccione una opción</option>
     <option value="1">Regular</option>
     <option value="2">Bueno</option>
@@ -211,7 +211,7 @@
 
  <form class="form-inline">
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Decisión tomada por el estudiante</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="desc_est">
+  <select class="custom-select my-1 mr-sm-2" id="desc_est" name="desc_est">
     <option value="-1"selected>Seleccione una opción</option>
     <option value="1">Se entregó</option>
     <option value="2">Ya lo habia hecho</option>
