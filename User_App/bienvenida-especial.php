@@ -24,6 +24,7 @@
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/jquery-confirm.min.css">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
 </head>
@@ -43,7 +44,7 @@
             <span class="nav-link-text">Actividades</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
+          <li>
             <li class="active">
               <a href="bienvenida-especial-agregar.php">Bienvenida Especial</a>
             </li>
@@ -54,10 +55,12 @@
               <a href="celulas-nice-agregar.php">Células NICE</a>
             </li>
             <li>
-              <a href="conferencia-especial-agregar.php">Conferencias Especiales</a>
+              <a href="conferencia-especial-agregar.php">Conferencia Especial</a>
             </li>
           </ul>
         </li>
+
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -88,898 +91,7 @@
           <i class="fa fa-table"></i> Registros agregados de Bienvenida Especial</div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>CIF</th>
-                  <th>Año Actual</th>
-                  <th>Email</th>
-                  <th>Telefono</th>
-                  <th>Facebook</th>
-                  <th>Expectativa</th>
-                  <th>Nuevas Ideas</th>
-                  <th>Asistencia Religiosa</th>
-                  <th>Nombre de Iglesia</th>
-                  <th>Años Asistidos</th>
-                  <th>Modificar</th>
-                  <th>Cancelar</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Nombre</th>
-                  <th>CIF</th>
-                  <th>Año Actual</th>
-                  <th>Email</th>
-                  <th>Telefono</th>
-                  <th>Facebook</th>
-                  <th>Expectativa</th>
-                  <th>Nuevas Ideas</th>
-                  <th>Asistencia Religiosa</th>
-                  <th>Nombre de Iglesia</th>
-                  <th>Años Asistidos</th>
-                  <th>Modificar</th>
-                  <th>Cancelar</th>
-                </tr>
-              </tfoot>
-              <tbody>
-                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Rolando Cea</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Alejandra Montes</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                 <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                 <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                               <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Jorge Zelaya</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                              <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-               <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-              <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-               <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                                <tr>
-                  <td>Josue Nahum Gutierrez Varela</td>
-                  <td>2013010317</td>
-                  <td>2018</td>
-                  <td>gutierrezvarelaj@gmail.com</td>
-                  <td>79899900</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Espero que las actividades sea muy divertidas</td>
-                  <td>Nuevos retiros</td>
-                  <td>Si</td>
-                  <td>Rhema</td>
-                  <td>5</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-              </tbody>
+            <table class="table table-bordered" id="dataTable_bEspecial" width="100%" cellspacing="0">
             </table>
           </div>
         </div>
@@ -1018,7 +130,105 @@
         </div>
       </div>
     </div>
-<!-- Bootstrap core JavaScript-->
+
+  </div>
+</div>
+
+  <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> 
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">  
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modificar campos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="create-alumn-form" action="#" method="POST">  
+            <div class="form-row">  
+              <div class="form-group col-md-4">  
+                <label for="inputNombre1">Nombre del estudiante</label>  
+                <input type="text"  maxlength="50" class="form-control" id="nombre_alumno" name="nombre_alumno" >  
+              </div>  
+              <div class="form-group col-md-4">  
+                <label for="inputcarnet1">CIF</label>  
+                <input type="text"  maxlength="10" class="form-control" id="cif" name="cif" >  
+              </div>  
+              <div class="form-group col-md-4">  
+               <label for="inputaño1">Año en que se realiza la actividad</label>  
+               <input type="text"  maxlength="10" class="form-control" id="fecha" name="fecha" >  
+              </div>  
+            </div>   
+            <div class="form-row">  
+              <div class="form-group col-md-4">  
+                <label for="inputEmail4">Correo Electrónico</label>  
+                <input type="email" maxlength="50" class="form-control" id="email" name="email" >  
+              </div>  
+              <div class="form-group col-md-4">  
+                <label for="inputTel4">Teléfono</label>  
+                <input type="text"  maxlength="8" class="form-control" id="telefono" name="telefono" >  
+               </div>  
+                <div class="form-group col-md-4" id="select-fac">  
+                </div>  
+              </div>  
+              <div class="form-row">  
+                <div class="form-group col-md-4">  
+                                             <label for="inputFacebook">Facebook</label>  
+                                             <input type="text"  maxlength="50" class="form-control" id="facebook" name="facebook" >  
+                                           </div>  
+                                           <div class="form-group col-md-4">  
+                                             <label for="inputExpectativa">Expectativas sobre futuras actividades de SAE</label>  
+                                             <input type="text"  maxlength="250" class="form-control" id="expectativas" name="expectativas" >  
+                                           </div>  
+                                           <div class="form-group col-md-4">  
+                                             <label for="inputIdeas">Ideas aportadas por el estudiante</label>  
+                                             <input type="text"  maxlength="250" class="form-control" id="ideas" name="ideas" >  
+                                           </div>  
+                                           </div>  
+                                     <div class="form-row">  
+                                         <div class="form-group col-md-4">  
+                                           <fieldset class="form-group">  
+                                         <div class="row">  
+                                           <legend class="col-form-label col-md-8 ">¿El estudiante asiste a una iglesia?</legend>  
+                                           <div class="col-sm-10">  
+                                             <div class="form-check">  
+                                               <input class="form-check-input" type="radio" name="asistencia" id="asistencia" value="option1" checked>  
+                                               <label class="form-check-label" for="gridRadios1">  
+                                                 Si asiste  
+                                               </label>  
+                                             </div>  
+                                             <div class="form-check">  
+                                               <input class="form-check-input" type="radio" name="asistencia" id="asistencia" value="option2">  
+                                               <label class="form-check-label" for="gridRadios2">  
+                                                 No asiste  
+                                               </label>  
+                                             </div>  
+                                           </div>  
+                                         </div>  
+                                       </fieldset>  
+                                         </div>  
+                                         <div class="form-group col-md-4">  
+                                           <label for="inputNombre1">Nombre de la iglesia</label>  
+                                         <input type="text" class="form-control" id="nombre_iglesia" name="nombre_iglesia" >  
+                                         </div>  
+                                         <div class="form-group col-md-4">  
+                                           <label for="inputAno">Años asistidos</label>  
+                                           <input type="text"  maxlength="2" class="form-control" id="anios_es" name="anios_es" >  
+                                         </div>  
+                                       </div>  
+                                 </div>  
+                                 <div class="modal-footer">  
+                                   <button onclick="" type="button" class="btn btn-secondary" data-dismiss="modal" >Cancelar</button>  
+                                   <button id="add_btn" type="submit" id="save" class="save btn btn-primary">Guardar <i id="spinner_add" ></i>  </button>  
+                                   </form>  
+                                 </div>  
+                               </div>  
+                              </div>  
+  </div>  
+<script>
+
+                                  </script>
+    <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
@@ -1032,6 +242,8 @@
     <!-- Custom scripts for this page-->
     <script src="../js/sb-admin-datatables.min.js"></script>
     <script src="../js/sb-admin-charts.min.js"></script>
+    <script src="../js/jquery-confirm.min.js"></script>
+    <script src="../js/tabla_bEspecial.js"></script>
   </div>
 </body>
 

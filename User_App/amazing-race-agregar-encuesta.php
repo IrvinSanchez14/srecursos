@@ -8,6 +8,7 @@
       header('Location: login.html');
     } 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +28,6 @@
   <!-- Page level plugin CSS-->
   <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/jquery-confirm.min.css">
-
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
 </head>
@@ -64,7 +64,6 @@
         </li>
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
        </li>
-
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -81,58 +80,112 @@
       </ul>
     </div>
   </nav>
-  <div class="content-wrapper">
+  <div class="content-wrapper"> 
     <div class="container-fluid">
       <!-- Breadcrumbs-->
-
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item" aria-current="page">Agregar Nuevo Registro</li>
+          <li class="breadcrumb-item"><a href="amazing-race-agregar.php">Agregar Nuevo Registro</a></li>
           <li class="breadcrumb-item"><a href="amazing-race.php">Ver registros  actuales de Amazing Race</a></li>
-          <li class="breadcrumb-item"><a href="amazing-race-agregar-encuesta.php">Agregar Nuevo Registro de Encuesta</a></li>
+          <li class="breadcrumb-item" aria-current="page">Agregar Nuevo Registro de Encuesta</li>
           <li class="breadcrumb-item"><a href="amazing-race-encuesta.php">Ver registros  actuales de las Encuestas</a></li>
         </ol>
       </nav>
         <!--Inicio de los formularios -->
-<form id="add_alumno" action='#' method='POST'>
-    <input name="id_actividad" value="2" type="hidden">
+<form id="add_encuesta" action='#' method='POST'>
             <div class="container">
-
-  <div class="form-row">
-    <div class="form-group col-md-6">
-              <label for="inputNombre1">Nombre del estudiante</label>
-              <input type="text"  maxlength="50" name="nombre_alumno" class="form-control" id="inputNombre1" placeholder="Ejemplo: Juan Pérez">
-      </div>
-    <div class="form-group col-md-6">
-        <label for="inputcarnet1">CIF</label>
-        <input type="text"  maxlength="10" name="cif" class="form-control" id="inputcarnet1" placeholder="2014090000">
-    </div>
-  </div>
-
-  <div class="form-row">
-      <div class="form-group col-md-8">
-                <label for="inputNombre1"># de Factura</label>
-                <input type="text"  maxlength="50" name="numero_factura" class="form-control" id="inputNombre1" placeholder="Ejemplo: 7894165">
-        </div>
-      </div>
-
-
-
-  <div class="form-group">
-    <label for="inputCarrera">Facultad</label>
-    <select id="inputCarrera" name='id_facultad' class="form-control">
-      <option value="0" selected>Seleccione una Facultad</option>
-      <option value="1">Ingeniería en Sistemas Computacionales</option>
-      <option value="2">Medicina</option>
-      <option value="3">Odontología</option>
-      <option value="4">Ciencias Empresariales y Económicas</option>
-      <option value="5">Ciencias Sociales</option>
-      <option value="6">Ciencias Jurídicas</option>
-    </select>
-  </div>
-
+                <label><h5>Encuestas de satisfacción</h5></label>
+                <div class="form-row">
+                    <div class="col">
+                      <label for="inputCarrera">Instalaciones</label>
+              <select id="inputCarrera" class="form-control" name="num_res1">
+                <option value="0" selected>Seleccione una opción</option>
+                <option value="Necesita mejorar">Necesita mejorar</option>
+                <option value="Regular">Regular</option>
+                <option value="Bueno">Bueno</option>
+                <option value="Muy Bueno">Muy Bueno</option>
+                <option value="Excelente">Excelente</option>
+              </select>
+                    </div>
+        
+                    <div class="col">
+                      <label for="inputCarrera">Dinámicas</label>
+                      <select id="inputCarrera" class="form-control" name="num_res2">
+                        <option  value="0"selected>Seleccione una opción</option>
+                        <option value="Necesita mejorar">Necesita mejorar</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Muy Bueno">Muy Bueno</option>
+                        <option value="Excelente">Excelente</option>
+                        </select>
+                    </div>
+                  </div>
+        
+                          <div class="form-row">
+                    <div class="col">
+                      <label for="inputCarrera">Conferencia</label>
+                      <select id="inputCarrera" class="form-control" name="num_res3">
+                        <option value="0" selected>Seleccione una opción</option>
+                        <option value="Necesita mejorar">Necesita mejorar</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Muy Bueno">Muy Bueno</option>
+                        <option value="Excelente">Excelente</option>
+                        </select>
+                    </div>
+        
+                    <div class="col">
+                      <label for="inputCarrera">Alimentación</label>
+                      <select id="inputCarrera" class="form-control" name="num_res4">
+                        <option value="0" selected>Seleccione una opción</option>
+                        <option value="Necesita mejorar">Necesita mejorar</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Muy Bueno">Muy Bueno</option>
+                        <option value="Excelente">Excelente</option>
+                        </select>
+                    </div>
+                  </div>
+        
+                          <div class="form-row">
+                    <div class="col">
+                      <label for="inputCarrera">Talleres</label>
+                      <select id="inputCarrera" class="form-control" name="num_res5">
+                        <option value="0" selected>Seleccione una opción</option>
+                        <option value="Necesita mejorar">Necesita mejorar</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Muy Bueno">Muy Bueno</option>
+                        <option value="Excelente">Excelente</option>
+                        </select>
+                    </div>
+        
+                    <div class="col">
+                      <label for="inputCarrera">Atención del lugar</label>
+                      <select id="inputCarrera" class="form-control" name="num_res6">
+                        <option value="0" selected>Seleccione una opción</option>
+                        <option value="Necesita mejorar">Necesita mejorar</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Muy Bueno">Muy Bueno</option>
+                        <option value="Excelente">Excelente</option>
+                        </select>
+                    </div>
+                  </div>
+        
+                      <div class="form-group">
+              <label for="inputCarrera">Transporte</label>
+              <select id="inputCarrera" class="form-control" name="num_res7">
+                <option value="0" selected>Seleccione una opción</option>
+                <option value="Necesita mejorar">Necesita mejorar</option>
+                <option value="Regular">Regular</option>
+                <option value="Bueno">Bueno</option>
+                <option value="Muy Bueno">Muy Bueno</option>
+                <option value="Excelente">Excelente</option>
+                </select>
+            </div>
              </div>
-            <center>  <button type="submit" id="add_btn"  class="btn btn-primary center">Guardar Registro <i id="spinner_add" ></i> </button>  </center> 
+            <center>  <button type="submit" id="add_btn" class="btn btn-primary center">Guardar Registro <i id="spinner_add" ></i> </button>  </center> 
 </form>
         <!--Fin de los formularios -->
 <br>
@@ -188,4 +241,3 @@
 </body>
 
 </html>
-

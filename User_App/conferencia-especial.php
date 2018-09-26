@@ -24,6 +24,7 @@
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/jquery-confirm.min.css">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
 </head>
@@ -43,7 +44,7 @@
             <span class="nav-link-text">Actividades</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
+          <li>
               <a href="bienvenida-especial-agregar.php">Bienvenida Especial</a>
             </li>
             <li>
@@ -53,8 +54,8 @@
               <a href="celulas-nice-agregar.php">Células NICE</a>
             </li>
             <li>
-            <li class="active">
-              <a href="conferencia-especial-agregar.php">Conferencias Especiales</a>
+              <li class="active">
+              <a href="conferencia-especial-agregar.php">Conferencia Especial</a>
             </li>
           </ul>
         </li>
@@ -88,957 +89,8 @@
           <i class="fa fa-table"></i> Registros Agregados de Conferencia Especial</div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>CIF</th>
-                  <th>Ciclo Actual</th>
-                  <th>Email</th>
-                  <th>Telefono</th>
-                  <th>Facultad</th>
-                  <th>Facebook</th>
-                  <th>Beneficio Adquirido</th>
-                  <th>Asistencia Religiosa</th>
-                  <th>Nombre de Iglesia</th>
-                  <th>Opinion</th>
-                  <th>Desición Tomada</th>
-                  <th>Modificar</th>
-                  <th>Cancelar</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Nombre</th>
-                  <th>CIF</th>
-                  <th>Ciclo Actual</th>
-                  <th>Email</th>
-                  <th>Telefono</th>
-                  <th>Facultad</th>
-                  <th>Facebook</th>
-                  <th>Beneficio Adquirido</th>
-                  <th>Asistencia Religiosa</th>
-                  <th>Nombre de Iglesia</th>
-                  <th>Opinion</th>
-                  <th>Desición Tomada</th>
-                  <th>Modificar</th>
-                  <th>Cancelar</th>
-                </tr>
-              </tfoot>
-              <tbody>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger"Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-               <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013605156</td>
-                  <td>02</td>
-                  <td>gutierreztiger@gmail.com</td>
-                  <td>75665165</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Tiger Nixon</td>
-                  <td>Mejores mi relacion con mis amigos</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013068613</td>
-                  <td>01</td>
-                  <td>gutierrezjosue@gmail.com</td>
-                  <td>70560615</td>
-                  <td>Ingenieria en Sistemas Computacionales</td>
-                  <td>Josue Gutierrez</td>
-                  <td>Mejores mi relacion con mis padres</td>
-                  <td>Si</td>
-                  <td>El camino</td>
-                  <td>Bueno</td>
-                  <td>Se entrego</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-              </tbody>
+            <table class="table table-bordered" id="dataTableConf" width="100%" cellspacing="0">
+
             </table>
           </div>
         </div>
@@ -1076,7 +128,100 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> 
+    
+    <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> 
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">  
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modificar campos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="create-conferencia-form" action="#" method="POST">  
+            <div class="form-row">  
+              <div class="form-group col-md-4">  
+                <label for="inputNombre1">Nombre del estudiante</label>  
+                <input type="text"  maxlength="50" class="form-control" id="nombre_alumno" name="nombre_alumno" >  
+              </div>  
+              <div class="form-group col-md-4">  
+                <label for="inputcarnet1">CIF</label>  
+                <input type="text"  maxlength="10" class="form-control" id="cif" name="cif" >  
+              </div>  
+              <div class="form-group col-md-4">  
+              <label for="inputCarrera">Ciclo Actual</label>
+              <select id="valor" class="form-control" name="valor">
+                <option value="-1"selected>Seleccione un Ciclo</option>
+                <option value="0">Ciclo 1</option>
+                <option value="1">Ciclo 2</option>
+              </select>  
+              </div>  
+            </div>   
+            <div class="form-row">  
+              <div class="form-group col-md-4">  
+                <label for="inputEmail4">Correo Electrónico</label>  
+                <input type="email" maxlength="50" class="form-control" id="email" name="email" >  
+              </div>  
+              <div class="form-group col-md-4">  
+                <label for="inputTel4">Teléfono</label>  
+                <input type="text"  maxlength="8" class="form-control" id="telefono" name="telefono" >  
+               </div>  
+                <div class="form-group col-md-4" id="select-fac">  
+                </div>  
+              </div>  
+              <div class="form-row">  
+                <div class="form-group col-md-6">  
+                                             <label for="inputFacebook">Facebook</label>  
+                                             <input type="text"  maxlength="50" class="form-control" id="facebook" name="facebook" >  
+                                           </div>  
+                                           <div class="form-group col-md-6">  
+                                           <label for="inputExpectativa">Beneficio adquirido</label>
+                                            <input type="text" maxlength="250" class="form-control" id="benf_adq" placeholder="Escriba le beneficio que obtuvo el estudiante" name="benf_adq">
+                                           </div>   
+                                           </div>  
+                                     <div class="form-row">  
+                                         <div class="form-group col-md-4">  
+                                           <fieldset class="form-group">  
+                                         <div class="row">  
+                                           <legend class="col-form-label col-md-8 ">¿El estudiante asiste a una iglesia?</legend>  
+                                           <div class="col-sm-10">  
+                                             <div class="form-check">  
+                                               <input class="form-check-input" type="radio" name="asistencia" id="asistencia" value="option1" checked>  
+                                               <label class="form-check-label" for="gridRadios1">  
+                                                 Si asiste  
+                                               </label>  
+                                             </div>  
+                                             <div class="form-check">  
+                                               <input class="form-check-input" type="radio" name="asistencia" id="asistencia" value="option2">  
+                                               <label class="form-check-label" for="gridRadios2">  
+                                                 No asiste  
+                                               </label>  
+                                             </div>  
+                                           </div>  
+                                         </div>  
+                                       </fieldset>  
+                                         </div>  
+                                         <div class="form-group col-md-4">  
+                                           <label for="inputNombre1">Nombre de la iglesia</label>  
+                                         <input type="text" class="form-control" id="nombre_iglesia" name="nombre_iglesia" >  
+                                         </div>  
+                                 </div>
+                                 <div class="form-inline" id="select-opn_con"> 
+                                  </div>
+
+ <div class="form-inline" id="select-desc_est">
+  </div>
+                                 <div class="modal-footer">  
+                                   <button onclick="" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>  
+                                   <button id="add_btn" type="submit" id="add_btn" class="save btn btn-primary">Guardar <i id="spinner_add" ></i>  </button>  
+                                   </form>  
+                                 </div>  
+                               </div>  
+                              </div>  
+  </div>  
+
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -1091,6 +236,8 @@
     <!-- Custom scripts for this page-->
     <script src="../js/sb-admin-datatables.min.js"></script>
     <script src="../js/sb-admin-charts.min.js"></script>
+    <script src="../js/jquery-confirm.min.js"></script>
+    <script src="../js/tableConf.js"></script>
   </div>
 </body>
 </html>

@@ -24,6 +24,7 @@
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/jquery-confirm.min.css">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
 </head>
@@ -43,19 +44,23 @@
             <span class="nav-link-text">Actividades</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
+          <li>
               <a href="bienvenida-especial-agregar.php">Bienvenida Especial</a>
             </li>
             <li>
               <a href="amazing-race-agregar.php">Retiros Amazing Race</a>
             </li>
             <li>
-            <li class="active">
+              <li class="active">
               <a href="celulas-nice-agregar.php">Células NICE</a>
             </li>
             <li>
-              <a href="conferencia-especial-agregar.php">Conferencias Especiales</a>
+              <a href="conferencia-especial-agregar.php">Conferencia Especial</a>
             </li>
+          </ul>
+        </li>
+
+
           </ul>
         </li>
       </ul>
@@ -87,487 +92,7 @@
         <div class="card-header">
           <i class="fa fa-table"></i> Registros agregados de Células NICE</div>
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>CIF</th>
-                  <th>Facultad</th>
-                  <th>Disponibilidad</th>
-                  <th>Modificar</th>
-                  <th>Eliminar</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Nombre</th>
-                  <th>CIF</th>
-                  <th>Facultad</th>
-                  <th>Disponibilidad</th>
-                  <th>Modificar</th>
-                  <th>Eliminar</th>
-              </tfoot>
-              <tbody>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Inactivo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Inactivo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Inactivo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td>Gastos de la semana</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancealar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-               <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger"Cancelarr</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>2013985361</td>
-                  <td>Licenciatura en Relaciones y Negocios Internacionales</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Josue Gutierrez</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-                <tr>
-                  <td>Rolando</td>
-                  <td>2013851421</td>
-                  <td>Licenciatura en Relaciones Públicas con Especialidad en Markenting</td>
-                  <td>Activo</td>
-                  <td><button type="button" class="btn btn-success">Modificar</button></td>
-                  <td><button type="button" class="btn btn-danger">Cancelar</button></td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="table-responsive" id= "tableN">
           </div>
         </div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
@@ -579,7 +104,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small></small>
+          <small>Copyright © SAE by Josue Gutierrez</small>
         </div>
       </div>
     </footer>
@@ -605,6 +130,44 @@
         </div>
       </div>
     </div>
+
+
+          <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> 
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">  
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modificar campos</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="add_alumno" action="#" method="POST">  
+                <div class="form-row">  
+                  <div class="form-group col-md-12">  
+                    <label for="inputNombre1">Nombre del estudiante</label>  
+                    <input type="text"  maxlength="50" class="form-control" id="nombre_alumno" name="nombre_alumno" >  
+                  </div>
+                </div>  
+                <div class="form-row">  
+                  <div class="form-group col-md-6">  
+                    <label for="inputNombre1">CIF</label>  
+                    <input type="text"  maxlength="50" class="form-control" id="cif" name="cif" >  
+                  </div>
+                </div>
+                <div class="form-row">  
+                  <div class="form-group col-md-12" id="select-fac">  
+                  </div>  
+                </div>
+                <div class="modal-footer">  
+                  <button onclick="" type="button" class="btn btn-secondary" data-dismiss="modal" >Cancelar</button>  
+                  <button  type="submit" id="add_btn" class="save btn btn-primary">Guardar <i id="spinner_add" ></i>  </button>  
+                </div>      
+              </form>
+            </div> 
+          </div>
+        </div>
+      </div>
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -614,11 +177,14 @@
     <script src="../vendor/chart.js/Chart.min.js"></script>
     <script src="../vendor/datatables/jquery.dataTables.js"></script>
     <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="../js/tableNice.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="../js/sb-admin-datatables.min.js"></script>
     <script src="../js/sb-admin-charts.min.js"></script>
+    <script src="../js/jquery-confirm.min.js"></script>
+
   </div>
 </body>
 </html>

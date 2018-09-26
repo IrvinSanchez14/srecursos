@@ -17,13 +17,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Bienvenida Especial - Secretaria de Asuntos Espirituales</title>
+  <title>Bienvenida Especial - Secretaría de Asuntos Espirituales</title>
+  <link rel="stylesheet" type="text/css" href="../css/acordeon-estilo.css">
+  <link rel="stylesheet" type="text/css" href="../css/estilo-accordeon.css">
   <!-- Bootstrap core CSS-->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/jquery-confirm.min.css">  
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
 </head>
@@ -44,7 +47,7 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-            <li class="active">
+            	<li class="active">
               <a href="bienvenida-especial-agregar.php">Bienvenida Especial</a>
             </li>
             <li>
@@ -54,10 +57,12 @@
               <a href="celulas-nice-agregar.php">Células NICE</a>
             </li>
             <li>
-              <a href="conferencia-especial-agregar.php">Conferencias Especiales</a>
+              <a href="conferencia-especial-agregar.php">Conferencia Especial</a>
             </li>
           </ul>
         </li>
+
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -79,78 +84,79 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="bienvenida-especial.php">Registros Bienvenida</a>
+          <a href="bienvenida-especial.php">Ver registros actuales Bienvenida Especial</a>
         </li>
       </ol>
         <!--Inicio de los formularios -->
-<form>
+        <form id='create-alumno-form' action='#' method='POST'>
+          <input name="id_actividad" value="1" type="hidden">
             <div class="container">
-<div class="form-group">
+              <div class="form-group">
     <label for="inputNombre1">Nombre del estudiante</label>
-    <input type="text"  maxlength="50" class="form-control" id="inputNombre1" placeholder="Ejemplo Juan Perez">
+    <input type="text"  maxlength="50" class="form-control" name="nombre_alumno" placeholder="Ejemplo Juan Pérez">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
         <label for="inputcarnet1">CIF</label>
-        <input type="number"  maxlength="10" class="form-control" id="inputcarnet1" placeholder="11223-44556">
+        <input type="text"  maxlength="10" class="form-control" id="cif" name="cif" placeholder="2016010000">
       </div>
     <div class="form-group col-md-6">
         <label for="inputaño1">Año en que se realiza la actividad</label>
-        <input type="number"  maxlength="10" class="form-control" id="inputaño1" placeholder="">
+        <input type="text"  maxlength="10" class="form-control" id="inputaño1" name="fecha" placeholder="2018">
     </div>
   </div>
-
+<div id="text"></div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Correo Electrónico</label>
-      <input type="email" maxlength="50" class="form-control" id="inputEmail4" placeholder="Ejemplo@hotmail.com">
+      <input type="email" maxlength="50" class="form-control" id="inputEmail4" name="email" placeholder="Ejemplo@hotmail.com">
     </div>
     <div class="form-group col-md-6">
       <label for="inputTel4">Teléfono</label>
-      <input type="number"  maxlength="8" class="form-control" id="inputTel4" placeholder="1122-3344">
+      <input type="text"  maxlength="8" class="form-control" id="inputTel4" name="telefono" placeholder="1122-3344">
     </div>
   </div>
 
     <div class="form-group">
       <label for="inputCarrera">Facultad</label>
-      <select id="inputCarrera" class="form-control">
-        <option selected>Seleccione una Facultad</option>
-        <option>Ingenieria en sistemas</option>
-        <option>Medicina</option>
-        <option>Odontologia</option>
-        <option>Ciencias Empresariales y Economicas</option>
-        <option>Ciencias Sociales</option>
-        <option>Ciencias Juridicas</option>
+      <select id="inputCarrera" name='id_facultad' class="form-control">
+        <option value="0" selected>Seleccione una Facultad</option>
+        <option value="1">Ingeniería en Sistemas Computacionales</option>
+        <option value="2">Medicina</option>
+        <option value="3">Odontología</option>
+        <option value="4">Ciencias Empresariales y Económicas</option>
+        <option value="5">Ciencias Sociales</option>
+        <option value="6">Ciencias Jurídicas</option>
       </select>
     </div>
 
   <div class="form-group">
-    <label for="inputFacebook">Nombre con el que se identifica en Facebook</label>
-    <input type="text"  maxlength="50" class="form-control" id="inputFacebook" placeholder="Ejemplo Juan Martinez">
+    <label for="inputFacebook">Facebook</label>
+    <input type="text"  maxlength="50" class="form-control"  id="inputFacebook" name= "facebook" placeholder="Ejemplo Juan Martínez">
   </div>
   <div class="form-group">
-    <label for="inputExpectativa">Expectativas sobre las actividades que se realizarán</label>
-    <input type="text"  maxlength="250" class="form-control" id="inputExpectativa" placeholder="Escriba la expectativa del estudiante">
+    <label for="inputExpectativa">Expectativas sobre futuras actividades de SAE</label>
+    <input type="text"  maxlength="250" class="form-control" id="inputExpectativa" name="expectativas" placeholder="Escriba la expectativa del estudiante">
   </div>
   <div class="form-group">
-    <label for="inputIdeas">Nuevas ideas que fueron brindadas</label>
-    <input type="text"  maxlength="250" class="form-control" id="inputIdeas" placeholder="Escriba la idea del estudiante">
+    <label for="inputIdeas">Ideas aportadas por el estudiante</label>
+    <input type="text"  maxlength="250" class="form-control" id="inputIdeas" name="ideas" placeholder="Escriba las ideas que brindó del estudiante">
   </div>
 
 <div class="form-row">
     <div class="form-group col-md-4">
       <fieldset class="form-group">
     <div class="row">
-      <legend class="col-form-label col-md-8 ">El estudiante asiste a una iglesia</legend>
+      <legend class="col-form-label col-md-8 ">¿El estudiante asiste a una iglesia?</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="asistencia" id="gridRadios1" value="1" checked>
           <label class="form-check-label" for="gridRadios1">
             Si asiste
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <input class="form-check-input" type="radio" name="asistencia" id="gridRadios2" value="2">
           <label class="form-check-label" for="gridRadios2">
             No asiste
           </label>
@@ -161,16 +167,19 @@
     </div>
     <div class="form-group col-md-4">
       <label for="inputNombre1">Nombre de la iglesia</label>
-    <input type="text" class="form-control" id="inputNombre1" placeholder="Iglesia Jesus viene pronto">
+    <input type="text" class="form-control" id="inputNombre1" placeholder="Escriba el nombre de la iglesia" name="nombre_iglesia">
     </div>
     <div class="form-group col-md-4">
       <label for="inputAno">Años asistidos</label>
-      <input type="text"  maxlength="2" class="form-control" id="inputAnos" placeholder="Años asistidos">
+      <input type="text"  maxlength="2" class="form-control" id="inputAnos" placeholder="Ingrese los años asistidos" name="anios_es">
     </div>
   </div>
+            
              </div>
-            <center>  <button type="submit" class="btn btn-primary center">Guardar Registro</button>  </center> 
-</form>
+            <center>
+              <button type="submit" id="add_btn" class="btn btn-primary center">Guardar Registro <i id="spinner_add" ></i>  </button>
+            </center> 
+          </form>
         <!--Fin de los formularios -->
 <br>
     </div>
@@ -205,7 +214,7 @@
         </div>
       </div>
     </div>
-<!-- Bootstrap core JavaScript-->
+    <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
@@ -219,7 +228,10 @@
     <!-- Custom scripts for this page-->
     <script src="../js/sb-admin-datatables.min.js"></script>
     <script src="../js/sb-admin-charts.min.js"></script>
+    <script src="../js/jquery-confirm.min.js"></script>
+    <script src="../js/app.js"></script>
   </div>
 </body>
 
 </html>
+
