@@ -112,12 +112,10 @@
         <div class="card-header">
           <i class="fa fa-table"></i> Registros agregados de Bienvenida Especial</div>
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable_bEspecial" width="100%" cellspacing="0">
-            </table>
+        <div class="table-responsive" id= "tableN">
           </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+
       </div>
         <!-- Final de la tabla de datos-->
     </div>
@@ -178,7 +176,7 @@
               </div>  
               <div class="form-group col-md-4">  
                <label for="inputaño1">Año en que se realiza la actividad</label>  
-               <input type="text"  maxlength="10" class="form-control" id="fecha" name="fecha" >  
+               <input type="text"  maxlength="4" class="form-control" id="fecha" name="fecha" >  
               </div>  
             </div>   
             <div class="form-row">  
@@ -214,13 +212,13 @@
                                            <legend class="col-form-label col-md-8 ">¿El estudiante asiste a una iglesia?</legend>  
                                            <div class="col-sm-10">  
                                              <div class="form-check">  
-                                               <input class="form-check-input" type="radio" name="asistencia" id="asistencia" value="option1" checked>  
+                                               <input class="form-check-input pr" type="radio" name="asistencia" id="asistencia" value="1" checked>  
                                                <label class="form-check-label" for="gridRadios1">  
                                                  Si asiste  
                                                </label>  
                                              </div>  
                                              <div class="form-check">  
-                                               <input class="form-check-input" type="radio" name="asistencia" id="asistencia" value="option2">  
+                                               <input class="form-check-input" type="radio" name="asistencia" id="asistencia" value="2">  
                                                <label class="form-check-label" for="gridRadios2">  
                                                  No asiste  
                                                </label>  

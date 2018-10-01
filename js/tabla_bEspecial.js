@@ -19,7 +19,9 @@ $(document).ready(function(){
     watchTable();
 
     $("input[name='nombre_alumno']").keypress(function(event) {
+        console.log("a");
         var inputValue = event.which;
+        console.log(inputValue)
         // allow letters and whitespaces only.
         if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
             event.preventDefault();
@@ -31,17 +33,102 @@ $(document).ready(function(){
         }
       });
 
+      $("input[name='nombre_iglesia']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
+      $("input[name='facebook']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
+      $("input[name='expectativas']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
+      $("input[name='ideas']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
       $("input[name='cif']").keyup(function(e) {
+        console.log("a");
         var node = $(this);
         node.val(node.val().replace(/[^0-9]/g,'') );
         //var regex = /^[a-zA-Z0-9@]+$/;
       });
 
       $("input[name='numero_factura']").keyup(function(e) {
+        console.log("a");
         var node = $(this);
         node.val(node.val().replace(/[^0-9]/g,'') );
         //var regex = /^[a-zA-Z0-9@]+$/;
       });
+
+      $("input[name='fecha']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      $("input[name='telefono']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      $("input[name='anios_es']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+    //   function checkedRadio () {
+    //     $("input[name='nombre_iglesia']").val('');
+    //     $("input[name='nombre_iglesia']").prop("disabled",false);
+    //     $("input[name='anios_es']").val('');
+    //     $("input[name='anios_es']").prop("disabled",false);
+    //   }
+
+    //   checkedRadio();
+
+    //   $( "input[name='asistencia']" ).on( "click", function() {
+    //     console.log($( "input:checked" ).val());
+    //     if ($( "input:checked" ).val() ==  2) {
+    //         $("input[name='nombre_iglesia']").val('Introduzca el nombre de la iglesia');
+    //         //$("input[name='nombre_iglesia']").prop("disabled",true);
+    //         $("input[name='anios_es']").val('0');
+    //         //$("input[name='anios_es']").prop("disabled",true);
+    //     } else {
+    //         $("input[name='nombre_iglesia']").val('');
+    //         //$("input[name='nombre_iglesia']").prop("disabled",false);
+    //         $("input[name='anios_es']").val('');
+    //         //$("input[name='anios_es']").prop("disabled",false);
+    //     }
+    //   });
+
+
 
     $("#myModal").on('hidden.bs.modal', function(){
         $("#select-fac").empty();
@@ -49,14 +136,16 @@ $(document).ready(function(){
 
     $('#create-alumn-form').submit(function(event){
         event.preventDefault();
+        console.log("iglesia", $("input[name='asistencia']").val())
         $("#add_btn").prop("disabled",true);
         $("#spinner_add").addClass('fa fa-spinner fa-spin');
         let id_alumno = $(this).attr('id_alumno');
         var data = $(this).serializeObject();
         data.id_alumno= id_alumno;
         var realData = JSON.stringify(data);
+        console.log(realData)
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/update.php",
+            url: "http://localhost/api-sreportes/alumnos/update.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -65,7 +154,7 @@ $(document).ready(function(){
                 $("#add_btn").prop("disabled",false);
                 $("#select-fac").empty();
                 $('#myModal').modal('toggle');
-                $('#dataTable_bEspecial').empty();;
+                $('#tableN').empty();
                 watchTable();
             },
             error: function(xhr, resp, text) {
@@ -76,18 +165,21 @@ $(document).ready(function(){
     });
 
     function watchTable() {
-        let html = '<thead><tr><th>Nombre</th><th>CIF</th><th>Año Actual</th><th>Email</th><th>Telefono</th><th>Facebook</th><th>Expectativa</th><th>Nuevas Ideas</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Años Asistidos</th><th>Modificar</th><th>Eliminar</th></tr></thead>';
-            html += '<tfoot><tr><th>Nombre</th><th>CIF</th><th>Año Actual</th><th>Email</th><th>Telefono</th><th>Facebook</th><th>Expectativa</th><th>Nuevas Ideas</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Años Asistidos</th><th>Modificar</th><th>Eliminar</th></tr></tfoot>';
+
+            //html += '<tfoot><tr><th>ID</th><th>Nombre</th><th>CIF</th><th>Año Actual</th><th>Email</th><th>Telefono</th><th>Facebook</th><th>Expectativa</th><th>Nuevas Ideas</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Años Asistidos</th><th>Modificar</th><th>Eliminar</th></tr></tfoot>';
         
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/bEspecial.php",
+            url: "http://localhost/api-sreportes/alumnos/bEspecial.php",
             type : "POST",
             contentType : 'application/json',
             success : function(result) {
                 console.log(result)
+                $("#tableN").append('<table id="tablaNice" class="table table-bordered table-striped">');
+                $("#tablaNice").append('<thead><tr><th>ID</th><th>Nombre</th><th>CIF</th><th>Año Actual</th><th>Email</th><th>Telefono</th><th>Facebook</th><th>Expectativa</th><th>Nuevas Ideas</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Años Asistidos</th><th>Modificar</th><th>Eliminar</th></tr></thead><tbody>');
                 $.each(result.records, function(k,v){
-                    html += '<tbody><tr>';
-                    
+                    //$("#tablaNice").append('<tr><td>'+v.id_alumno+'</td><td>'+v.nombre_alumno+'</td><td>'+v.cif+'</td><td>'+v.fecha+'</td><td>'++'</td><td>');
+                    let html = '<tr>';
+                    html += '<td>'+ v.id_alumno + '</td>';
                     html += '<td>'+ v.nombre_alumno+'</td>';
                     html += '<td>'+ v.cif + '</td>';
                     html += '<td>' + v.fecha + '</td>';
@@ -101,14 +193,18 @@ $(document).ready(function(){
                     html += '<td>' + v.anios_es + '</td>';
                     html += '<td><button data-toggle="modal" data-target="#myModal" type="button" class="edit btn btn-success" id_alumno="'+v.id_alumno+'">Modificar</button></td>';
                     html += '<td><button type="button" class="delete btn btn-danger" id="'+v.id_alumno+'">Eliminar <i id="spinner_add_'+v.id_alumno+'" ></i> </button></td>';
+                    html += '</tr>';
+                    $("#tablaNice").append(html);
                 });
 
-                $('#dataTable_bEspecial').append(html);
+                $("#tablaNice").append('</tbody><tfoot><tr><th>ID</th><th>Nombre</th><th>CIF</th><th>Año Actual</th><th>Email</th><th>Telefono</th><th>Facebook</th><th>Expectativa</th><th>Nuevas Ideas</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Años Asistidos</th><th>Modificar</th><th>Eliminar</th></tr></tfoot>');
+                $("#tableN").append('</table>');
+                $("#tablaNice").DataTable();
 
                 $('.edit').click(function(event){
                     let id_alumno = $(this).attr('id_alumno');
                    $.ajax({
-                        url: "http://173.255.192.4/api-sreportes/alumnos/editBe.php?id_alumno="+id_alumno,
+                        url: "http://localhost/api-sreportes/alumnos/editBe.php?id_alumno="+id_alumno,
                         type : "GET",
                         contentType : 'application/json',
                         success : function(result) {
@@ -170,7 +266,7 @@ $(document).ready(function(){
                             $('#facebook').val(result.facebook);
                             $('#expectativas').val(result.expectativas);
                             $('#ideas').val(result.ideas);
-                            $('#asistencia').val(result.asistencia);
+                            //$('#asistencia').val(result.asistencia);
                             $('#nombre_iglesia').val(result.nombre_iglesia);
                             $('#anios_es').val(result.anios_es);
                             $('#create-alumn-form').attr('id_alumno', id_alumno);
@@ -197,7 +293,7 @@ $(document).ready(function(){
                                 data.id_alumno= id_alumno;
                                 var realData = JSON.stringify(data);
                                 $.ajax({
-                                    url: "http://173.255.192.4/api-sreportes/alumnos/deleteID.php",
+                                    url: "http://localhost/api-sreportes/alumnos/deleteID.php",
                                     type : "POST",
                                     contentType : 'application/json',
                                     data : realData,

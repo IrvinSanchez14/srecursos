@@ -127,7 +127,7 @@
       </div>
     <div class="form-group col-md-6">
         <label for="inputaño1">Año en que se realiza la actividad</label>
-        <input type="text"  maxlength="10" class="form-control" id="inputaño1" name="fecha" placeholder="2018">
+        <input type="text"  maxlength="4" class="form-control" id="inputaño1" name="fecha" placeholder="2018">
     </div>
   </div>
 <div id="text"></div>
@@ -175,7 +175,7 @@
       <legend class="col-form-label col-md-8 ">¿El estudiante asiste a una iglesia?</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="asistencia" id="gridRadios1" value="1" checked>
+          <input class="form-check-input" type="radio" name="asistencia" id="pr" value="1" checked>
           <label class="form-check-label" for="gridRadios1">
             Si asiste
           </label>
@@ -190,11 +190,11 @@
     </div>
   </fieldset>
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-4" id="div-iglesia">
       <label for="inputNombre1">Nombre de la iglesia</label>
     <input type="text" class="form-control" id="inputNombre1" placeholder="Escriba el nombre de la iglesia" name="nombre_iglesia">
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-4" id="div-anios">
       <label for="inputAno">Años asistidos</label>
       <input type="text"  maxlength="2" class="form-control" id="inputAnos" placeholder="Ingrese los años asistidos" name="anios_es">
     </div>

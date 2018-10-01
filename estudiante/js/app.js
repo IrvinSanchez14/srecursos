@@ -135,7 +135,7 @@ $(document).ready(function(){
                     $("#spinner_add").removeClass('fa fa-spinner fa-spin');
                     $("#add_btn").prop("disabled",false);
                     $.alert({
-                        title: 'Alert!',
+                        title: '',
                         content: 'Registro guardado con exito.',
                     });
                     $(".form-control").val(0)
@@ -187,7 +187,7 @@ $(document).ready(function(){
         console.log(data);
         //add alumno
             $.ajax({
-                url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
+                url: "http://localhost/api-sreportes/alumnos/create.php",
                 type : "POST",
                 contentType : 'application/json',
                 data : realData,
@@ -200,7 +200,7 @@ $(document).ready(function(){
                     console.log(data2)
                     //add alumn_extra
                     $.ajax({
-                        url: "http://173.255.192.4/api-sreportes/alum_extra/create.php",
+                        url: "http://localhost/api-sreportes/alum_extra/create.php",
                         type : "POST",
                         contentType : 'application/json',
                         data : data2,
@@ -212,7 +212,7 @@ $(document).ready(function(){
                                 var data3 = JSON.stringify(data);
                                 console.log(data3)
                             $.ajax({
-                                url: "http://173.255.192.4/api-sreportes/coment_act/create.php",
+                                url: "http://localhost/api-sreportes/coment_act/create.php",
                                 type : "POST",
                                 contentType : 'application/json',
                                 data : data3,
@@ -224,7 +224,7 @@ $(document).ready(function(){
                                     var data4 = JSON.stringify(data);
                                     console.log(data4)
                                     $.ajax({
-                                        url: "http://173.255.192.4/api-sreportes/iglesia_est/create.php",
+                                        url: "http://localhost/api-sreportes/iglesia_est/create.php",
                                         type : "POST",
                                         contentType : 'application/json',
                                         data : data4,
@@ -233,7 +233,7 @@ $(document).ready(function(){
                                             $("#spinner_add").removeClass('fa fa-spinner fa-spin');
                                             $("#add_btn").prop("disabled",false);
                                             $.alert({
-                                                title: 'Alert!',
+                                                title: '',
                                                 content: 'Registro guardado con exito.',
                                             });
                                             $("input[name='nombre_alumno']").val('');
@@ -246,7 +246,9 @@ $(document).ready(function(){
                                             $("input[name='ideas']").val('');
                                             $("input[name='nombre_iglesia']").val('');
                                             $("input[name='anios_es']").val('');
+                                            $("#pr").prop('checked', true);
                                             $("select[name='id_facultad']").val('0');
+                                            checkedRadio();
                                         },
                                         error: function(xhr, resp, text) {
                                             // show error to console
@@ -380,7 +382,7 @@ $(document).ready(function(){
                                                     $("#spinner_add").removeClass('fa fa-spinner fa-spin');
                                                     $("#add_btn").prop("disabled",false);
                                                     $.alert({
-                                                        title: 'Alert!',
+                                                        title: '',
                                                         content: 'Registro guardado con exito.',
                                                     });
                                                     $("input[name='nombre_alumno']").val('');
@@ -394,6 +396,8 @@ $(document).ready(function(){
                                                     $("#inputCarrera").val('-1');
                                                     $("#opn_con").val('-1');
                                                     $("#desc_est").val('-1');
+                                                    $("#pr").prop('checked', true);
+                                                    checkedRadio();
 
                                                 },
                                                 error: function(xhr, resp, text) {
@@ -433,6 +437,117 @@ $(document).ready(function(){
         });
     }
     });
+
+    $("input[name='nombre_alumno']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        console.log(inputValue)
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault();
+            $(this).css("border", "1px solid red"); 
+        }
+        else
+        {
+            $(this).css("border", "1px solid #ced4da"); 
+        }
+      });
+
+      $("input[name='nombre_iglesia']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
+      $("input[name='facebook']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
+      $("input[name='expectativas']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
+      $("input[name='ideas']").keypress(function(event) {
+        console.log("a");
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+      });
+
+      $("input[name='cif']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      $("input[name='numero_factura']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      $("input[name='fecha']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      $("input[name='telefono']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      $("input[name='anios_es']").keyup(function(e) {
+        console.log("a");
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g,'') );
+        //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      function checkedRadio () {
+        $("input[name='nombre_iglesia']").val('');
+        $("input[name='nombre_iglesia']").prop("disabled",false);
+        $("input[name='anios_es']").val('');
+        $("input[name='anios_es']").prop("disabled",false);
+      }
+
+      checkedRadio();
+
+      $( "input[name='asistencia']" ).on( "click", function() {
+        console.log($( "input:checked" ).val());
+        if ($( "input:checked" ).val() ==  2) {
+            $("input[name='nombre_iglesia']").val('Introduzca el nombre de la iglesia');
+            //$("input[name='nombre_iglesia']").prop("disabled",true);
+            $("input[name='anios_es']").val('0');
+            //$("input[name='anios_es']").prop("disabled",true);
+        } else {
+            $("input[name='nombre_iglesia']").val('');
+            $("input[name='nombre_iglesia']").prop("disabled",false);
+            $("input[name='anios_es']").val('');
+            $("input[name='anios_es']").prop("disabled",false);
+        }
+      });
+      
 
 
 });

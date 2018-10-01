@@ -26,7 +26,7 @@ $(document).ready(function(){
     function lastId () {
         var id = null;
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/readLast.php",
+            url: "http://localhost/api-sreportes/alumnos/readLast.php",
             type : "POST",
             contentType : 'application/json',
             async: false,
@@ -62,6 +62,15 @@ $(document).ready(function(){
             }
         });
     }
+
+    function checkedRadio () {
+        $("input[name='nombre_iglesia']").val('');
+        $("#div-iglesia").toggle(true);
+        $("input[name='anios_es']").val('');
+        $("#div-anios").toggle(true);
+      }
+
+      checkedRadio();
 
     $("input[name='nombre_alumno']").keypress(function(event) {
         console.log("a");
@@ -147,6 +156,21 @@ $(document).ready(function(){
         var node = $(this);
         node.val(node.val().replace(/[^0-9]/g,'') );
         //var regex = /^[a-zA-Z0-9@]+$/;
+      });
+
+      $( "input[name='asistencia']" ).on( "click", function() {
+        console.log($( "input:checked" ).val());
+        if ($( "input:checked" ).val() ==  2) {
+            $("input[name='nombre_iglesia']").val('Introduzca el nombre de la iglesia');
+            $("#div-iglesia").toggle(false);
+            $("input[name='anios_es']").val('0');
+            $("#div-anios").toggle(false);
+        } else {
+            $("input[name='nombre_iglesia']").val('');
+            $("#div-iglesia").toggle(true);
+            $("input[name='anios_es']").val('');
+            $("#div-anios").toggle(true);
+        }
       });
 
     $('#create-alumno-form input').blur(function()
@@ -303,7 +327,7 @@ $(document).ready(function(){
             $("#add_btn").prop("disabled",false);
         }  else {
             $.ajax({
-                url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
+                url: "http://localhost/api-sreportes/alumnos/create.php",
                 type : "POST",
                 contentType : 'application/json',
                 data : realData,
@@ -316,7 +340,7 @@ $(document).ready(function(){
                     console.log(data2)
                     //add alumn_extra
                     $.ajax({
-                        url: "http://173.255.192.4/api-sreportes/alum_extra/create.php",
+                        url: "http://localhost/api-sreportes/alum_extra/create.php",
                         type : "POST",
                         contentType : 'application/json',
                         data : data2,
@@ -328,7 +352,7 @@ $(document).ready(function(){
                                 var data3 = JSON.stringify(data);
                                 console.log(data3)
                             $.ajax({
-                                url: "http://173.255.192.4/api-sreportes/coment_act/create.php",
+                                url: "http://localhost/api-sreportes/coment_act/create.php",
                                 type : "POST",
                                 contentType : 'application/json',
                                 data : data3,
@@ -340,7 +364,7 @@ $(document).ready(function(){
                                     var data4 = JSON.stringify(data);
                                     console.log(data4)
                                     $.ajax({
-                                        url: "http://173.255.192.4/api-sreportes/iglesia_est/create.php",
+                                        url: "http://localhost/api-sreportes/iglesia_est/create.php",
                                         type : "POST",
                                         contentType : 'application/json',
                                         data : data4,
@@ -349,7 +373,7 @@ $(document).ready(function(){
                                             $("#spinner_add").removeClass('fa fa-spinner fa-spin');
                                             $("#add_btn").prop("disabled",false);
                                             $.alert({
-                                                title: 'Alert!',
+                                                title: '',
                                                 content: 'Registro guardado con exito.',
                                             });
                                             $("input[name='nombre_alumno']").val('');
@@ -363,6 +387,8 @@ $(document).ready(function(){
                                             $("input[name='nombre_iglesia']").val('');
                                             $("input[name='anios_es']").val('');
                                             $("select[name='id_facultad']").val('0');
+                                            $("#pr").prop('checked', true);
+                                            checkedRadio();
                                         },
                                         error: function(xhr, resp, text) {
                                             // show error to console
