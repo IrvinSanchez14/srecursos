@@ -187,7 +187,7 @@ $(document).ready(function(){
         console.log(data);
         //add alumno
             $.ajax({
-                url: "http://localhost/api-sreportes/alumnos/create.php",
+                url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
                 type : "POST",
                 contentType : 'application/json',
                 data : realData,
@@ -200,7 +200,7 @@ $(document).ready(function(){
                     console.log(data2)
                     //add alumn_extra
                     $.ajax({
-                        url: "http://localhost/api-sreportes/alum_extra/create.php",
+                        url: "http://173.255.192.4/api-sreportes/alum_extra/create.php",
                         type : "POST",
                         contentType : 'application/json',
                         data : data2,
@@ -212,7 +212,7 @@ $(document).ready(function(){
                                 var data3 = JSON.stringify(data);
                                 console.log(data3)
                             $.ajax({
-                                url: "http://localhost/api-sreportes/coment_act/create.php",
+                                url: "http://173.255.192.4/api-sreportes/coment_act/create.php",
                                 type : "POST",
                                 contentType : 'application/json',
                                 data : data3,
@@ -224,7 +224,7 @@ $(document).ready(function(){
                                     var data4 = JSON.stringify(data);
                                     console.log(data4)
                                     $.ajax({
-                                        url: "http://localhost/api-sreportes/iglesia_est/create.php",
+                                        url: "http://173.255.192.4/api-sreportes/iglesia_est/create.php",
                                         type : "POST",
                                         contentType : 'application/json',
                                         data : data4,
