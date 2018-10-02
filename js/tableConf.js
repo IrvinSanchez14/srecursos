@@ -59,7 +59,7 @@ $(document).ready(function(){
         var realData = JSON.stringify(data);
         console.log(data);
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/conf_arg/update.php",
+            url: "http://localhost/api-sreportes/conf_arg/update.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -87,7 +87,7 @@ $(document).ready(function(){
         let html = '              <thead><tr><th>Nombre</th><th>CIF</th><th>Ciclo Actual</th><th>Email</th><th>Telefono</th><th>Facultad</th><th>Facebook</th><th>Beneficio Adquirido</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Opinion</th><th>Desición Tomada</th><th>Modificar</th><th>Eliminar</th></tr></thead>';
         html += '<tfoot><tr><th>Nombre</th><th>CIF</th><th>Ciclo Actual</th><th>Email</th><th>Telefono</th><th>Facultad</th><th>Facebook</th><th>Beneficio Adquirido</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Opinion</th><th>Desición Tomada</th><th>Modificar</th><th>Eliminar</th></tr></tfoot>';
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/conf_arg/table_conf.php",
+            url: "http://localhost/api-sreportes/conf_arg/table_conf.php",
             type : "POST",
             contentType : 'application/json',
             success : function(result) {
@@ -121,7 +121,7 @@ $(document).ready(function(){
                     let id_alumno = $(this).attr('id_alumno');
                     console.log(id_alumno);
                    $.ajax({
-                        url: "http://173.255.192.4/api-sreportes/coment_act/readId.php?id_alumno="+id_alumno,
+                        url: "http://localhost/api-sreportes/coment_act/readId.php?id_alumno="+id_alumno,
                         type : "GET",
                         contentType : 'application/json',
                         success : function(result) {
@@ -261,7 +261,7 @@ $(document).ready(function(){
                                 data.id_alumno= id_alumno;
                                 var realData = JSON.stringify(data);
                                 $.ajax({
-                                    url: "http://173.255.192.4/api-sreportes/conf_arg/delete.php",
+                                    url: "http://localhost/api-sreportes/conf_arg/delete.php",
                                     type : "POST",
                                     contentType : 'application/json',
                                     data : realData,

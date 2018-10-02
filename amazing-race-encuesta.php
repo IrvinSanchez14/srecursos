@@ -118,7 +118,7 @@
             <table class="table table-bordered" id="dataTable_Enc" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Instlaciones</th>
+                  <th>Instalaciones</th>
                   <th>Dinámicas</th>
                   <th>Conferencia</th>
                   <th>Alimentación</th>
@@ -129,7 +129,7 @@
               </thead>
               <tfoot>
                 <tr>
-                  <th>Instlaciones</th>
+                  <th>Instalaciones</th>
                   <th>Dinámicas</th>
                   <th>Conferencia</th>
                   <th>Alimentación</th>

@@ -189,7 +189,7 @@
   </fieldset>
     </div>
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-6" id="div-iglesia">
       <label for="inputNombre1">Nombre de la iglesia</label>
     <input type="text" class="form-control" id="inputNombre1" placeholder="Escriba nombre de la iglesia" name="nombre_iglesia">
     <input type="hidden" name="anios_es" value="0">

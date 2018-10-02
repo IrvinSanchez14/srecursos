@@ -30,7 +30,7 @@ $(document).ready(function(){
         data.id_alumno= id_alumno;
         var realData = JSON.stringify(data);
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/facultad/saveUpdate.php",
+            url: "http://localhost/api-sreportes/facultad/saveUpdate.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -51,20 +51,107 @@ $(document).ready(function(){
         console.log(id_alumno);
     });
 
+    $('#alm_19').click(function(event){
+        alert();
+    });
+
     
 function table () {
     $.ajax({
-        url: "http://173.255.192.4/api-sreportes/facultad/tablaNice.php",
+        url: "http://localhost/api-sreportes/facultad/tablaNice.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
             console.log(result);
             $("#tableN").append('<table id="tablaNice" class="table table-bordered table-striped">');
             $("#tablaNice").append('<thead><tr><th>ID</th><th>Nombre</th><th>CIF</th><th>Facultad</th><th>Estado</th><th>Editar</th><th>Eliminar</th></tr></thead><tbody>');
+            var num;
             $.each(result.records, function(k,v){
-                $("#tablaNice").append('<tr><td>'+v.id_alumno+'</td><td>'+v.nombre_alumno+'</td><td>'+v.cif+'</td><td>'+v.nombre_fac+'</td><td>'+v.estado+'</td><td><button data-toggle="modal" data-target="#myModal" type="button" class="edit btn btn-success" id_alumno="'+v.id_alumno+'">Modificar</button></td><td><button type="button" class="delete btn btn-danger" id="'+v.id_alumno+'">Eliminar <i id="spinner_add_'+v.id_alumno+'" ></i> </button></td></tr>');
+                $("#tablaNice").append('<tr><td>'+v.id_alumno+'</td><td>'+v.nombre_alumno+'</td><td>'+v.cif+'</td><td>'+v.nombre_fac+'</td><td>'+v.estado+'</td><td><button data-toggle="modal" id="alm_'+v.id_alumno+'" data-target="#myModal" type="button" class="edit btn btn-success"  id_alumno="'+v.id_alumno+'">Modificar</button></td><td><button type="button" class="delete btn btn-danger" id="'+v.id_alumno+'">Eliminar <i id="spinner_add_'+v.id_alumno+'" ></i> </button></td></tr>');
+                function hey () {
+                    alert();
+                }
+                //console.log('sadasd',$('.edit').click('id_alumno'));
+                //if ($('.edit').attr('id_alumno') == v.id_alumno) {
+                    $('.edit').click(function(event){
+                        //console.log($(this).attr('id_alumno'));
+                        num = $(this).attr('id_alumno');
+                        if(num == v.id_alumno)
+                        {
+                            console.log('hey');
+                            $.ajax({
+                                url: "http://localhost/api-sreportes/facultad/updateId.php?id_alumno="+num,
+                                type : "GET",
+                                contentType : 'application/json',
+                                success : function(result) {
+                                    $('#nombre_alumno').val(result.nombre_alumno);
+                                    $('#cif').val(result.cif);
+                                    if (result.id_facultad == 1) {
+                                        $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
+                                        $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ingeniería en Sistemas Computacionales</option></select>');
+                                        $('#id_facultad').append('<option value="2" >Medicina</option></select>');
+                                        $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
+                                        $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
+                                        $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
+                                        $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
+                                    } else if (result.id_facultad == 2) {
+                                        $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
+                                        $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
+                                        $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Medicina</option></select>');
+                                        $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
+                                        $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
+                                        $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
+                                        $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
+                                    } else if (result.id_facultad == 3) {
+                                        $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
+                                        $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
+                                        $('#id_facultad').append('<option value="2" >Medicina</option></select>');
+                                        $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Odontologia</option></select>');
+                                        $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
+                                        $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
+                                        $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
+                                    } else if (result.id_facultad == 4) {
+                                        $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
+                                        $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
+                                        $('#id_facultad').append('<option value="2" >Medicina</option></select>');
+                                        $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
+                                        $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ciencias Empresariales y Economicas</option></select>');
+                                        $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
+                                        $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
+                                    } else if (result.id_facultad == 5) {
+                                        $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
+                                        $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
+                                        $('#id_facultad').append('<option value="2" >Medicina</option></select>');
+                                        $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
+                                        $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
+                                        $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ciencias Sociales</option></select>');
+                                        $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
+                                    } else {
+                                        $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
+                                        $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
+                                        $('#id_facultad').append('<option value="2" >Medicina</option></select>');
+                                        $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
+                                        $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
+                                        $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
+                                        $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ciencias Juridicas</option></select>');
+                                    }
+                                    $('#add_alumno').attr('id_alumno', id_alumno);
+                                },
+                                error: function(xhr, resp, text) {
+                                    // show error to console
+                                    console.log(xhr, resp, text);
+                                }
+                                
+                            });
+                        }
+                        
+                    });
+                //}
+                //if(v.id_alumno == 19) {
 
-               
+                //}
+
+                
                 
             });
 
@@ -72,74 +159,11 @@ function table () {
             $("#tableN").append('</table>');
             $("#tablaNice").DataTable();
 
-            $('.edit').click(function(event){
-                let id_alumno = $(this).attr('id_alumno');
-                console.log(id_alumno);
-               $.ajax({
-                    url: "http://173.255.192.4/api-sreportes/facultad/updateId.php?id_alumno="+id_alumno,
-                    type : "GET",
-                    contentType : 'application/json',
-                    success : function(result) {
-                        $('#nombre_alumno').val(result.nombre_alumno);
-                        $('#cif').val(result.cif);
-                        if (result.id_facultad == 1) {
-                            $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
-                            $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ingeniería en Sistemas Computacionales</option></select>');
-                            $('#id_facultad').append('<option value="2" >Medicina</option></select>');
-                            $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
-                            $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
-                            $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
-                            $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
-                        } else if (result.id_facultad == 2) {
-                            $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
-                            $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
-                            $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Medicina</option></select>');
-                            $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
-                            $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
-                            $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
-                            $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
-                        } else if (result.id_facultad == 3) {
-                            $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
-                            $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
-                            $('#id_facultad').append('<option value="2" >Medicina</option></select>');
-                            $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Odontologia</option></select>');
-                            $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
-                            $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
-                            $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
-                        } else if (result.id_facultad == 4) {
-                            $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
-                            $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
-                            $('#id_facultad').append('<option value="2" >Medicina</option></select>');
-                            $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
-                            $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ciencias Empresariales y Economicas</option></select>');
-                            $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
-                            $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
-                        } else if (result.id_facultad == 5) {
-                            $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
-                            $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
-                            $('#id_facultad').append('<option value="2" >Medicina</option></select>');
-                            $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
-                            $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
-                            $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ciencias Sociales</option></select>');
-                            $('#id_facultad').append('<option value="6" >Ciencias Juridicas</option></select>');
-                        } else {
-                            $("#select-fac").append('<label for="inputCarrera">Facultad</label><select id="id_facultad" name="id_facultad" class="form-control">');
-                            $('#id_facultad').append('<option value="1" >Ingeniería en Sistemas Computacionales</option></select>');
-                            $('#id_facultad').append('<option value="2" >Medicina</option></select>');
-                            $('#id_facultad').append('<option value="3" >Odontologia</option></select>');
-                            $('#id_facultad').append('<option value="4" >Ciencias Empresariales y Economicas</option></select>');
-                            $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
-                            $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ciencias Juridicas</option></select>');
-                        }
-                        $('#add_alumno').attr('id_alumno', id_alumno);
-                    },
-                    error: function(xhr, resp, text) {
-                        // show error to console
-                        console.log(xhr, resp, text);
-                    }
-                    
-                });
+            $('#alm_19').click(function(event){
+                alert();
             });
+
+      
 
             $('.delete').click(function (event) {
                 let id_alumno = $(this).attr('id');
@@ -155,7 +179,7 @@ function table () {
                             data.id_alumno= id_alumno;
                             var realData = JSON.stringify(data);
                             $.ajax({
-                                url: "http://173.255.192.4/api-sreportes/facultad/deleteNice.php",
+                                url: "http://localhost/api-sreportes/facultad/deleteNice.php",
                                 type : "POST",
                                 contentType : 'application/json',
                                 data : realData,

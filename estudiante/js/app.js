@@ -19,7 +19,7 @@ $(document).ready(function(){
     function lastId () {
         var id = null;
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/readLast.php",
+            url: "http://localhost/api-sreportes/alumnos/readLast.php",
             type : "POST",
             contentType : 'application/json',
             async: false,
@@ -82,7 +82,7 @@ $(document).ready(function(){
                 $("#spinner_add").removeClass('fa fa-spinner fa-spin');
                 $("#add_btn").prop("disabled",false);
                 $.alert({
-                    title: 'Alert!',
+                    title: '',
                     content: 'Registro guardado con exito.',
                 });
                 $("input[name='nombre_alumno']").val('');
@@ -320,7 +320,7 @@ $(document).ready(function(){
         var realData = JSON.stringify(data);
         console.log(data);
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
+            url: "http://localhost/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -334,7 +334,7 @@ $(document).ready(function(){
                 //add alumn_extra
                 //alumno extra
                 $.ajax({
-                    url: "http://173.255.192.4/api-sreportes/alum_extra/create.php",
+                    url: "http://localhost/api-sreportes/alum_extra/create.php",
                     type : "POST",
                     contentType : 'application/json',
                     data : data2,
@@ -347,7 +347,7 @@ $(document).ready(function(){
                             console.log(data3)
                             //add iglesia
                             $.ajax({
-                                url: "http://173.255.192.4/api-sreportes/iglesia_est/create.php",
+                                url: "http://localhost/api-sreportes/iglesia_est/create.php",
                                 type : "POST",
                                 contentType : 'application/json',
                                 data : data3,
@@ -360,7 +360,7 @@ $(document).ready(function(){
                                         console.log(data4)
                                     //add ciclo
                                     $.ajax({
-                                        url: "http://173.255.192.4/api-sreportes/ciclo/create.php",
+                                        url: "http://localhost/api-sreportes/ciclo/create.php",
                                         type : "POST",
                                         contentType : 'application/json',
                                         data : data4,
@@ -373,7 +373,7 @@ $(document).ready(function(){
                                                 console.log(data5)
                                             //add conferencia
                                             $.ajax({
-                                                url: "http://173.255.192.4/api-sreportes/conf_arg/create.php",
+                                                url: "http://localhost/api-sreportes/conf_arg/create.php",
                                                 type : "POST",
                                                 contentType : 'application/json',
                                                 data : data5,
@@ -526,9 +526,9 @@ $(document).ready(function(){
 
       function checkedRadio () {
         $("input[name='nombre_iglesia']").val('');
-        $("input[name='nombre_iglesia']").prop("disabled",false);
+        $("#div-iglesia").toggle(true);
         $("input[name='anios_es']").val('');
-        $("input[name='anios_es']").prop("disabled",false);
+        $("#div-anios").toggle(true);
       }
 
       checkedRadio();
@@ -537,14 +537,14 @@ $(document).ready(function(){
         console.log($( "input:checked" ).val());
         if ($( "input:checked" ).val() ==  2) {
             $("input[name='nombre_iglesia']").val('Introduzca el nombre de la iglesia');
-            //$("input[name='nombre_iglesia']").prop("disabled",true);
+            $("#div-iglesia").toggle(false);
             $("input[name='anios_es']").val('0');
-            //$("input[name='anios_es']").prop("disabled",true);
+            $("#div-anios").toggle(false);
         } else {
             $("input[name='nombre_iglesia']").val('');
-            $("input[name='nombre_iglesia']").prop("disabled",false);
+            $("#div-iglesia").toggle(true);
             $("input[name='anios_es']").val('');
-            $("input[name='anios_es']").prop("disabled",false);
+            $("#div-anios").toggle(true);
         }
       });
       

@@ -257,7 +257,7 @@ $(document).ready(function(){
                                 $("#spinner_add").removeClass('fa fa-spinner fa-spin');
                                 $("#add_btn").prop("disabled",false);
                                 $.alert({
-                                    title: 'Alert!',
+                                    title: '',
                                     content: 'Registro guardado con exito.',
                                 });
                                 $("input[name='numero_factura']").val('');
@@ -461,7 +461,7 @@ $(document).ready(function(){
                     $("#spinner_add").removeClass('fa fa-spinner fa-spin');
                     $("#add_btn").prop("disabled",false);
                     $.alert({
-                        title: 'Alert!',
+                        title: '',
                         content: 'Registro guardado con exito.',
                     });
                     $(".form-control").val(0)
@@ -513,7 +513,7 @@ $(document).ready(function(){
 
         var realData = JSON.stringify(data);
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
+            url: "http://localhost/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -522,7 +522,7 @@ $(document).ready(function(){
                 $("#spinner_add").removeClass('fa fa-spinner fa-spin');
                 $("#add_btn").prop("disabled",false);
                 $.alert({
-                    title: 'Alert!',
+                    title: '',
                     content: 'Registro guardado con exito.',
                 });
                 $("input[name='nombre_alumno']").val('');
@@ -574,7 +574,7 @@ $(document).ready(function(){
         var realData = JSON.stringify(data);
         console.log(data);
         $.ajax({
-            url: "http://173.255.192.4/api-sreportes/alumnos/create.php",
+            url: "http://localhost/api-sreportes/alumnos/create.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -588,7 +588,7 @@ $(document).ready(function(){
                 //add alumn_extra
                 //alumno extra
                 $.ajax({
-                    url: "http://173.255.192.4/api-sreportes/alum_extra/create.php",
+                    url: "http://localhost/api-sreportes/alum_extra/create.php",
                     type : "POST",
                     contentType : 'application/json',
                     data : data2,
@@ -601,7 +601,7 @@ $(document).ready(function(){
                             console.log(data3)
                             //add iglesia
                             $.ajax({
-                                url: "http://173.255.192.4/api-sreportes/iglesia_est/create.php",
+                                url: "http://localhost/api-sreportes/iglesia_est/create.php",
                                 type : "POST",
                                 contentType : 'application/json',
                                 data : data3,
@@ -614,7 +614,7 @@ $(document).ready(function(){
                                         console.log(data4)
                                     //add ciclo
                                     $.ajax({
-                                        url: "http://173.255.192.4/api-sreportes/ciclo/create.php",
+                                        url: "http://localhost/api-sreportes/ciclo/create.php",
                                         type : "POST",
                                         contentType : 'application/json',
                                         data : data4,
@@ -622,12 +622,12 @@ $(document).ready(function(){
                                             console.log('great');
                                             setTimeout(function(){
                                                 var res = lastId();
-                                                data.id_alumno= res;
+                                                data.id_alumno= res; 
                                                 var data5 = JSON.stringify(data);
                                                 console.log(data5)
                                             //add conferencia
                                             $.ajax({
-                                                url: "http://173.255.192.4/api-sreportes/conf_arg/create.php",
+                                                url: "http://localhost/api-sreportes/conf_arg/create.php",
                                                 type : "POST",
                                                 contentType : 'application/json',
                                                 data : data5,
@@ -636,7 +636,7 @@ $(document).ready(function(){
                                                     $("#spinner_add").removeClass('fa fa-spinner fa-spin');
                                                     $("#add_btn").prop("disabled",false);
                                                     $.alert({
-                                                        title: 'Alert!',
+                                                        title: '',
                                                         content: 'Registro guardado con exito.',
                                                     });
                                                     $("input[name='nombre_alumno']").val('');
