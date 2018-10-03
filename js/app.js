@@ -83,7 +83,7 @@ $(document).ready(function(){
         }
         else
         {
-            $(this).css("border", "none"); 
+            $(this).css("border", "1px solid #ced4da"); 
         }
       });
 
@@ -168,7 +168,7 @@ $(document).ready(function(){
         } else {
             $("input[name='nombre_iglesia']").val('');
             $("#div-iglesia").toggle(true);
-            $("input[name='anios_es']").val('');
+            $("input[name='anios_es']").val('0');
             $("#div-anios").toggle(true);
         }
       });
@@ -539,7 +539,7 @@ $(document).ready(function(){
 
     $('#create-conferencia-form').submit(function(event){
         event.preventDefault();
-        $("#add_btn").prop("disabled",true);
+        $("#add_btn").prop("disabled",true); 
         $("#spinner_add").addClass('fa fa-spinner fa-spin');
         var isFormValid = true;
     

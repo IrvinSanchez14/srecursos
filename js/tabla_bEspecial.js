@@ -190,7 +190,7 @@ $(document).ready(function(){
             success : function(result) {
                 console.log(result)
                 $("#tableN").append('<table id="tablaNice" class="table table-bordered table-striped">');
-                $("#tablaNice").append('<thead><tr><th>ID</th><th>Nombre</th><th>CIF</th><th>Año Actual</th><th>Email</th><th>Telefono</th><th>Facebook</th><th>Expectativa</th><th>Nuevas Ideas</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Años Asistidos</th><th>Modificar</th><th>Eliminar</th></tr></thead><tbody>');
+                $("#tablaNice").append('<thead><tr><th>ID</th><th>Nombre</th><th>CIF</th><th>Año Actual</th><th>Email</th><th>Facultad</th><th>Telefono</th><th>Facebook</th><th>Expectativa</th><th>Nuevas Ideas</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Años Asistidos</th><th>Modificar</th><th>Eliminar</th></tr></thead><tbody>');
                 $.each(result.records, function(k,v){
                     //$("#tablaNice").append('<tr><td>'+v.id_alumno+'</td><td>'+v.nombre_alumno+'</td><td>'+v.cif+'</td><td>'+v.fecha+'</td><td>'++'</td><td>');
                     let html = '<tr>';
@@ -199,6 +199,7 @@ $(document).ready(function(){
                     html += '<td>'+ v.cif + '</td>';
                     html += '<td>' + v.fecha + '</td>';
                     html += '<td>' + v.email + '</td>';
+                    html += '<td>' + v.nombre_fac + '</td>';
                     html += '<td>' + v.telefono + '</td>';
                     html += '<td>' + v.facebook + '</td>';
                     html += '<td>' + v.expectativas + '</td>';
@@ -216,7 +217,7 @@ $(document).ready(function(){
                     $("#tablaNice").append(html);
                 });
 
-                $("#tablaNice").append('</tbody><tfoot><tr><th>ID</th><th>Nombre</th><th>CIF</th><th>Año Actual</th><th>Email</th><th>Telefono</th><th>Facebook</th><th>Expectativa</th><th>Nuevas Ideas</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Años Asistidos</th><th>Modificar</th><th>Eliminar</th></tr></tfoot>');
+                $("#tablaNice").append('</tbody><tfoot><tr><th>ID</th><th>Nombre</th><th>CIF</th><th>Año Actual</th><th>Email</th><th>Facultad</th><th>Telefono</th><th>Facebook</th><th>Expectativa</th><th>Nuevas Ideas</th><th>Asistencia Religiosa</th><th>Nombre de Iglesia</th><th>Años Asistidos</th><th>Modificar</th><th>Eliminar</th></tr></tfoot>');
                 $("#tableN").append('</table>');
                 $("#tablaNice").DataTable();
 

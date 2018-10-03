@@ -123,7 +123,6 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © SAE by Josue Gutierrez</small>
         </div>
       </div>
     </footer>
@@ -176,6 +175,10 @@
                 </div>
                 <div class="form-row">  
                   <div class="form-group col-md-12" id="select-fac">  
+                  </div>  
+                </div>
+                <div class="form-row">  
+                  <div class="form-group col-md-12" id="select-ac">  
                   </div>  
                 </div>
                 <div class="modal-footer">  
