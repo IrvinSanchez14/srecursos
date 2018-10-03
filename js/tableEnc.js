@@ -5,9 +5,12 @@ $(document).ready(function(){
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
-            console.log(result)
+            $("#tableN").append('<table id="tablaNice" class="table table-bordered table-striped">');
+            $("#tablaNice").append('<thead><tr><th>ID</th><th>Instalaciones</th><th>Dinamicas</th><th>Conferencia</th><th>Alimentacion</th><th>Talleres</th><th>Atencion del lugar</th><th>Transporte</th></tr></thead><tbody>');
             $.each(result.records, function(k,v){
-                let html = '<tbody><tr>';
+                console.log(v)
+                let html = '<tr>';
+                html += '<td>'+v.id_encu+'</td>';
                 html += '<td>'+ v.num_res1 + '</td>';
                 html += '<td>'+ v.num_res2 + '</td>';
                 html += '<td>'+ v.num_res3 + '</td>';
@@ -15,9 +18,13 @@ $(document).ready(function(){
                 html += '<td>'+ v.num_res5 + '</td>';
                 html += '<td>'+ v.num_res6 + '</td>';
                 html += '<td>'+ v.num_res7 + '</td>';
+                html += '</tr>';
 
-                $('#dataTable_Enc').append(html);
+                $("#tablaNice").append(html);
             });
+            $("#tablaNice").append('</tbody><tfoot><tr><th>ID</th><th>Instalaciones</th><th>Dinamicas</th><th>Conferencia</th><th>Alimentacion</th><th>Talleres</th><th>Atencion del lugar</th><th>Transporte</th></tr></tfoot>');
+            $("#tableN").append('</table>');
+            $("#tablaNice").DataTable();
         },
         error: function(xhr, resp, text) {
             // show error to console

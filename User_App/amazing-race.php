@@ -92,12 +92,8 @@
         <div class="card-header">
           <i class="fa fa-table"></i> Registros Agregados de Amazing Race</div>
         <div class="card-body">
-          <div class="table-responsive">
-            <table id="dataTableConfec" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
-              
-            </table>
-          </div>
+        <div class="table-responsive" id= "tableN">
+          </div> 
         </div>
       </div>
         <!-- Final de la tabla de datos-->

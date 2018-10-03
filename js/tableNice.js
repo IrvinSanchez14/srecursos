@@ -81,7 +81,7 @@ $(document).ready(function(){
             success : function(result) {
                 console.log(result);
                 $("#tableN").append('<table id="tablaNice" class="table table-bordered table-striped">');
-                $("#tablaNice").append('<thead><tr><th>ID</th><th>Nombre</th><th>CIF</th><th>Facultad</th><th>Estado</th><th>Editar</th><th>Eliminar</th></tr></thead><tbody>');
+                $("#tablaNice").append('<thead><tr><th>ID</th><th>Nombre</th><th>CIF</th><th>Facultad</th><th>Disponibilidad</th><th>Editar</th><th>Eliminar</th></tr></thead><tbody>');
                 var num;
                 $.each(result.records, function(k,v){
                     $("#tablaNice").append('<tr><td>'+v.id_alumno+'</td><td>'+v.nombre_alumno+'</td><td>'+v.cif+'</td><td>'+v.nombre_fac+'</td><td>'+v.estado+'</td><td><button data-toggle="modal" id="alm_'+v.id_alumno+'" data-target="#myModal" type="button" class="edit btn btn-success"  id_alumno="'+v.id_alumno+'">Modificar</button></td><td><button type="button" class="delete btn btn-danger" id="'+v.id_alumno+'">Eliminar <i id="spinner_add_'+v.id_alumno+'" ></i> </button></td></tr>');
@@ -212,7 +212,7 @@ $(document).ready(function(){
                             }
                         });
                 });
-                $("#tablaNice").append('</tbody><tfoot><tr><th>ID</th><th>Nombre</th><th>CIF</th><th>Facultad</th><th>Estado</th><th>Editar</th><th>Eliminar</th></tr></tfoot>');
+                $("#tablaNice").append('</tbody><tfoot><tr><th>ID</th><th>Nombre</th><th>CIF</th><th>Facultad</th><th>Disponibilidad</th><th>Editar</th><th>Eliminar</th></tr></tfoot>');
                 $("#tableN").append('</table>');
                 $("#tablaNice").DataTable();
 

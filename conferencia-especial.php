@@ -112,11 +112,8 @@
         <div class="card-header">
           <i class="fa fa-table"></i> Registros Agregados de Conferencia Especial</div>
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTableConf" width="100%" cellspacing="0">
-
-            </table>
-          </div>
+        <div class="table-responsive" id= "tableN">
+          </div> 
         </div>
       </div>
         <!-- Final de la tabla de datos-->

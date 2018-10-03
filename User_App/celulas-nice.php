@@ -92,8 +92,8 @@
         <div class="card-header">
           <i class="fa fa-table"></i> Registros agregados de Células NICE</div>
         <div class="card-body">
-          <div class="table-responsive" id= "tableN">
-          </div>
+        <div class="table-responsive" id= "tableN">
+          </div> 
         </div>
       </div>
         <!-- Final de la tabla de datos-->

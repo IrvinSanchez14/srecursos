@@ -113,7 +113,7 @@
           <i class="fa fa-table"></i> Registros agregados de Bienvenida Especial</div>
         <div class="card-body">
         <div class="table-responsive" id= "tableN">
-          </div>
+          </div> 
         </div>
 
       </div>

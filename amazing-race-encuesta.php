@@ -114,33 +114,8 @@
         <div class="card-header">
           <i class="fa fa-table"></i> Registros Agregados de Amazing Race</div>
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable_Enc" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Instalaciones</th>
-                  <th>Dinámicas</th>
-                  <th>Conferencia</th>
-                  <th>Alimentación</th>
-                  <th>Talleres</th>
-                  <th>Atención del lugar</th>
-                  <th>Transporte</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Instalaciones</th>
-                  <th>Dinámicas</th>
-                  <th>Conferencia</th>
-                  <th>Alimentación</th>
-                  <th>Talleres</th>
-                  <th>Atención del lugar</th>
-                  <th>Transporte</th>
-                </tr>
-              </tfoot>
-
-            </table>
-          </div>
+        <div class="table-responsive" id= "tableN">
+          </div> 
         </div>
       </div>
         <!-- Final de la tabla de datos-->
