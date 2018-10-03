@@ -39,13 +39,19 @@ $(document).ready(function(){
         });
     } 
 
+    var size,type;
+
     $('#exampleFormControlFile1').bind('change', function() {
         $('#messageErr').empty();
-        if (this.files[0].size <= 26214400 && this.files[0].type === 'application/pdf' ||  this.files[0].type === 'image/png') {
+         size = this.files[0].size;
+         type = this.files[0].type;
+        if (size <= 26214400 && type === 'application/pdf' ||  type === 'image/png' || type === 'image/jpeg' || type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || type === 'application/vnd.openxmlformats-officedocument.presentationml.presentation'   ) {
             $('#messageErr').append('Archivo en optimaz condiciones');
-            
+            $("#uploadButton").prop("disabled",false);
             $('#uploadimage').submit(function(event){
-                event.preventDefault();
+               // event.preventDefault();
+
+                $("#uploadButton").prop("disabled",true);
                 var file_data = $('#exampleFormControlFile1').prop('files')[0];   
                 var form_data = new FormData();                  
                 form_data.append('file', file_data);
@@ -72,11 +78,15 @@ $(document).ready(function(){
                                 success: function (data) {
                                     //show content
                                     console.log('FILE',data)
-                                                    $("#dataTable_bEspecial tbody").empty();
+                                    $("#dataTable_bEspecial tbody").empty();
                                     tableData();
                                     $('#modalArchivos').modal('toggle');
                                 }
                             });
+                            $("#dataTable_bEspecial tbody").empty();
+                            tableData();
+                            $('#modalArchivos').modal('toggle');
+                            $("#uploadButton").prop("disabled",false);
                     },
                     error: function(xhr, resp, text) {
                         // show error to console
@@ -88,10 +98,12 @@ $(document).ready(function(){
             
             });
         }  else {
+            console.log('bad');
             $('#messageErr').append('Error: problemas en el archivo');
+            $("#uploadButton").prop("disabled",true);
             $('#uploadimage').submit(function(event){
                 event.preventDefault();
-                alert('Archivo no registrado por problemas de validacion');
+                
                 //return;
             });
         }
@@ -100,6 +112,9 @@ $(document).ready(function(){
 
     $("#modalArchivos").on('hidden.bs.modal', function(){
         console.log('a');
+        size = null;
+        type = null;
+        location.reload();
         $("#exampleFormControlFile1").val('');
         $("#messageErr").text('');
     });

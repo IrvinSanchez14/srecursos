@@ -18,6 +18,21 @@ $(document).ready(function(){
 
     watchTable();
 
+    $( "input[name='asistencia']" ).on( "click", function() {
+        console.log($( "input:checked" ).val());
+        if ($( "input:checked" ).val() ==  2) {
+            $("input[name='nombre_iglesia']").val('Introduzca el nombre de la iglesia');
+            $("#div-iglesia").toggle(false);
+            $("input[name='anios_es']").val('0');
+            $("#div-anios").toggle(false);
+        } else {
+            $("input[name='nombre_iglesia']").val('');
+            $("#div-iglesia").toggle(true);
+            $("input[name='anios_es']").val('');
+            $("#div-anios").toggle(true);
+        }
+      });
+
     $("input[name='nombre_alumno']").keypress(function(event) {
         console.log("a");
         var inputValue = event.which;
@@ -188,7 +203,11 @@ $(document).ready(function(){
                     html += '<td>' + v.facebook + '</td>';
                     html += '<td>' + v.expectativas + '</td>';
                     html += '<td>' + v.ideas + '</td>';
-                    html += '<td>' + v.asistencia + '</td>';
+                    if (v.asistencia == 1) {
+                        html += '<td>SI</td>';
+                    } else {
+                        html += '<td>NO</td>';
+                    }
                     html += '<td>' + v.nombre_iglesia + '</td>';
                     html += '<td>' + v.anios_es + '</td>';
                     html += '<td><button data-toggle="modal" data-target="#myModal" type="button" class="edit btn btn-success" id_alumno="'+v.id_alumno+'">Modificar</button></td>';
@@ -208,7 +227,7 @@ $(document).ready(function(){
                         type : "GET",
                         contentType : 'application/json',
                         success : function(result) {
-                            $('#nombre_alumno').val(result.nombre_alumno);
+                            $('#nombre_alumno').val(result.nombre_alumno); 
                             $('#cif').val(result.cif);
                             $('#fecha').val(result.fecha);
                             $('#email').val(result.email);
@@ -269,7 +288,28 @@ $(document).ready(function(){
                             //$('#asistencia').val(result.asistencia);
                             $('#nombre_iglesia').val(result.nombre_iglesia);
                             $('#anios_es').val(result.anios_es);
+
+                            if (result.asistencia == 1) {
+                                $("#asistenciaS").prop("checked", true);
+                            } else {
+                                $("#asistenciaN").prop("checked", true);
+                            }
                             $('#create-alumn-form').attr('id_alumno', id_alumno);
+
+                            $( "input[name='asistencia']" ).on( "click", function() {
+                                console.log($( "input:checked" ).val());
+                                if ($( "input:checked" ).val() ==  2) {
+                                    $("input[name='nombre_iglesia']").val('Introduzca el nombre de la iglesia');
+                                    $("#div-iglesia").toggle(false);
+                                    $("input[name='anios_es']").val('0');
+                                    $("#div-anios").toggle(false);
+                                } else {
+                                    $('#nombre_iglesia').val(result.nombre_iglesia);
+                                    $('#anios_es').val(result.anios_es);
+                                }
+                              });
+
+
                         },
                         error: function(xhr, resp, text) {
                             // show error to console

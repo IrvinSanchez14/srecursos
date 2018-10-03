@@ -212,13 +212,13 @@
                                            <legend class="col-form-label col-md-8 ">¿El estudiante asiste a una iglesia?</legend>  
                                            <div class="col-sm-10">  
                                              <div class="form-check">  
-                                               <input class="form-check-input pr" type="radio" name="asistencia" id="asistencia" value="1" checked>  
+                                               <input class="form-check-input pr" type="radio" name="asistencia" id="asistenciaS" value="1">  
                                                <label class="form-check-label" for="gridRadios1">  
                                                  Si asiste  
                                                </label>  
-                                             </div>  
+                                             </div>   
                                              <div class="form-check">  
-                                               <input class="form-check-input" type="radio" name="asistencia" id="asistencia" value="2">  
+                                               <input class="form-check-input" type="radio" name="asistencia" id="asistenciaN" value="2">  
                                                <label class="form-check-label" for="gridRadios2">  
                                                  No asiste  
                                                </label>  
@@ -227,11 +227,11 @@
                                          </div>  
                                        </fieldset>  
                                          </div>  
-                                         <div class="form-group col-md-4">  
+                                         <div class="form-group col-md-4" id="div-iglesia">  
                                            <label for="inputNombre1">Nombre de la iglesia</label>  
                                          <input type="text" class="form-control" id="nombre_iglesia" name="nombre_iglesia" >  
                                          </div>  
-                                         <div class="form-group col-md-4">  
+                                         <div class="form-group col-md-4" id="div-anios">  
                                            <label for="inputAno">Años asistidos</label>  
                                            <input type="text"  maxlength="2" class="form-control" id="anios_es" name="anios_es" >  
                                          </div>  

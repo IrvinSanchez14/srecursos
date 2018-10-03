@@ -60,7 +60,7 @@ $(document).ready(function(){
             let speedData = {
               labels: [],
               datasets: [{
-                label: "Revenue",
+                label: "datos",
                 backgroundColor: "#dc3545",
                 borderColor: "#dc3545",
                 data: [],
@@ -212,7 +212,7 @@ $(document).ready(function(){
       //create image from dummy canvas
       var canvasImg = document.getElementById("myPieChart").toDataURL("image/png", 1.0);
   
-      var columns = ["Asistencia tomada", "Cantidad"];
+      var columns = ["Indicador", "Cantidad"];
   
           console.log('LLLA', tabla);
         
@@ -227,7 +227,7 @@ $(document).ready(function(){
           doc.setFontSize(14)
           doc.text(40, 110, 'Fecha de reporte: '+fecha.getDate()+ "/" + (fecha.getMonth() +1) + "/" + fecha.getFullYear());
           doc.setFontSize(14);
-          doc.text(40, 130, 'Datos de aistencia religiosa de los estudiantes que participaron en la actividad de');
+          doc.text(40, 130, 'Datos de asistencia religiosa de los estudiantes que participaron en la actividad de');
           doc.text(40, 150, 'Bienvenida Especial.');
           doc.autoTable(columns, tabla, {margin: {top: 170}});
           doc.text(40, 360, 'Como objetivo de la actividad es poder dar a conocer el evangelio a cada uno de');
@@ -274,7 +274,7 @@ $(document).ready(function(){
             let speedData = {
               labels: [],
               datasets: [{
-                label: "Revenue",
+                label: "datos",
                 backgroundColor: "#dc3545",
                 borderColor: "#dc3545",
                 data: [],
@@ -424,7 +424,7 @@ $(document).ready(function(){
       //create image from dummy canvas
       var canvasImg = document.getElementById("myPieChartcfe").toDataURL("image/png", 1.0);
   
-      var columns = ["Asistencia tomada", "Cantidad"];
+      var columns = ["Indicador", "Cantidad"];
   
           console.log('LLLA', tabla);
         

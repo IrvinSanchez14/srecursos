@@ -30,7 +30,7 @@ $(document).ready(function(){
         data.id_alumno= id_alumno;
         var realData = JSON.stringify(data);
         $.ajax({
-            url: "http://localhost/api-sreportes/facultad/saveUpdate.php",
+            url: "http://173.255.192.4/api-sreportes/facultad/saveUpdate.php",
             type : "POST",
             contentType : 'application/json',
             data : realData,
@@ -58,7 +58,7 @@ $(document).ready(function(){
     
 function table () {
     $.ajax({
-        url: "http://localhost/api-sreportes/facultad/tablaNice.php",
+        url: "http://173.255.192.4/api-sreportes/facultad/tablaNice.php",
         type : "POST",
         contentType : 'application/json',
         success : function(result) {
@@ -80,7 +80,7 @@ function table () {
                         {
                             console.log('hey');
                             $.ajax({
-                                url: "http://localhost/api-sreportes/facultad/updateId.php?id_alumno="+num,
+                                url: "http://173.255.192.4/api-sreportes/facultad/updateId.php?id_alumno="+num,
                                 type : "GET",
                                 contentType : 'application/json',
                                 success : function(result) {
@@ -135,7 +135,7 @@ function table () {
                                         $('#id_facultad').append('<option value="5" >Ciencias Sociales</option></select>');
                                         $('#id_facultad').append('<option value="'+result.id_facultad+'" selected>Ciencias Juridicas</option></select>');
                                     }
-                                    $('#add_alumno').attr('id_alumno', id_alumno);
+                                    $('#add_alumno').attr('id_alumno', num);
                                 },
                                 error: function(xhr, resp, text) {
                                     // show error to console
@@ -151,6 +151,50 @@ function table () {
 
                 //}
 
+                $('.delete').click(function (event) {
+                    num = $(this).attr('id');
+                    if(num == v.id_alumno)
+                    {
+                        event.preventDefault();
+                        $(".delete").prop("disabled",true);
+                        $("#spinner_add_"+num).addClass('fa fa-spinner fa-spin');
+                        $.confirm({
+                            title: 'Confirmacion',
+                            content: 'Esta seguro de eliminar este registro?',
+                            buttons: {
+                                confirm: function () {
+                                    var data = $(this).serializeObject();
+                                    data.id_alumno= num;
+                                    var realData = JSON.stringify(data);
+                                    console.log(realData);
+                                    $.ajax({
+                                        url: "http://173.255.192.4/api-sreportes/facultad/deleteNice.php",
+                                        type : "POST",
+                                        contentType : 'application/json',
+                                        data : realData,
+                                        success : function(result) {
+                                            console.log('great');
+                                            $("#spinner_add_"+num).removeClass('fa fa-spinner fa-spin');
+                                            $(".delete").prop("disabled",false);
+                                            $('#tableN').empty();
+                                            table();
+                                        },
+                                        error: function(xhr, resp, text) {
+                                            // show error to console
+                                            console.log(xhr, resp, text);
+                                        }
+                                    });
+                                },
+                                cancel: function () {
+                                    $("#spinner_add_"+num).removeClass('fa fa-spinner fa-spin');
+                                    $(".delete").prop("disabled",false);
+                                    return;
+                                }
+                            }
+                        }); 
+                    }
+                });
+
                 
                 
             });
@@ -159,50 +203,7 @@ function table () {
             $("#tableN").append('</table>');
             $("#tablaNice").DataTable();
 
-            $('#alm_19').click(function(event){
-                alert();
-            });
 
-      
-
-            $('.delete').click(function (event) {
-                let id_alumno = $(this).attr('id');
-                event.preventDefault();
-                $(".delete").prop("disabled",true);
-                $("#spinner_add_"+id_alumno).addClass('fa fa-spinner fa-spin');
-                $.confirm({
-                    title: 'Confirmacion',
-                    content: 'Esta seguro de eliminar este registro?',
-                    buttons: {
-                        confirm: function () {
-                            var data = $(this).serializeObject();
-                            data.id_alumno= id_alumno;
-                            var realData = JSON.stringify(data);
-                            $.ajax({
-                                url: "http://localhost/api-sreportes/facultad/deleteNice.php",
-                                type : "POST",
-                                contentType : 'application/json',
-                                data : realData,
-                                success : function(result) {
-                                    console.log('great');
-                                    $("#spinner_add_"+id_alumno).removeClass('fa fa-spinner fa-spin');
-                                    $(".delete").prop("disabled",false);
-                                    location.reload();
-                                },
-                                error: function(xhr, resp, text) {
-                                    // show error to console
-                                    console.log(xhr, resp, text);
-                                }
-                            });
-                        },
-                        cancel: function () {
-                            $("#spinner_add_"+id_alumno).removeClass('fa fa-spinner fa-spin');
-                            $(".delete").prop("disabled",false);
-                            return;
-                        }
-                    }
-                }); 
-            });
         },
         error: function(xhr, resp, text) {
             // show error to console

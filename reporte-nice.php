@@ -135,7 +135,6 @@
         <div class="card-body">
           <canvas id="myBarChartnice" width="100%" height="50"></canvas>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
     </div>
   </div>
