@@ -46,10 +46,10 @@ $(document).ready(function(){
          size = this.files[0].size;
          type = this.files[0].type;
         if (size <= 26214400 && type === 'application/pdf' ||  type === 'image/png' || type === 'image/jpeg' || type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || type === 'application/vnd.openxmlformats-officedocument.presentationml.presentation'   ) {
-            $('#messageErr').append('Archivo en optimaz condiciones');
+            $('#messageErr').append('Archivo en óptimas condiciones');
             $("#uploadButton").prop("disabled",false);
             $('#uploadimage').submit(function(event){
-               // event.preventDefault();
+               event.preventDefault();
 
                 $("#uploadButton").prop("disabled",true);
                 var file_data = $('#exampleFormControlFile1').prop('files')[0];   
@@ -83,10 +83,13 @@ $(document).ready(function(){
                                     $('#modalArchivos').modal('toggle');
                                 }
                             });
-                            $("#dataTable_bEspecial tbody").empty();
-                            tableData();
-                            $('#modalArchivos').modal('toggle');
-                            $("#uploadButton").prop("disabled",false);
+                            setTimeout(function(){
+                                $("#dataTable_bEspecial tbody").empty();
+                                tableData();
+                                location.reload();
+                                $('#modalArchivos').modal('toggle');
+                                $("#uploadButton").prop("disabled",false);
+                            }, 500);
                     },
                     error: function(xhr, resp, text) {
                         // show error to console

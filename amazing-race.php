@@ -174,7 +174,7 @@
                 <div class="form-row">  
                   <div class="form-group col-md-6">  
                     <label for="inputNombre1">CIF</label>  
-                    <input type="text"  maxlength="50" class="form-control" id="cif" name="cif" >  
+                    <input type="text"  maxlength="10" class="form-control" id="cif" name="cif" >  
                   </div>
                   <div class="form-group col-md-6">  
                     <label for="inputNombre1"># de Factura</label>  

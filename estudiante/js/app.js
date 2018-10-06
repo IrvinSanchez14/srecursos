@@ -543,7 +543,7 @@ $(document).ready(function(){
         } else {
             $("input[name='nombre_iglesia']").val('');
             $("#div-iglesia").toggle(true);
-            $("input[name='anios_es']").val('');
+            $("input[name='anios_es']").val('0');
             $("#div-anios").toggle(true);
         }
       });
